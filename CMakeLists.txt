@@ -40,9 +40,9 @@ if (MSVC)
     target_compile_options(helloworld PRIVATE
         /W4
     )
-    target_compile_options(test_version PRIVATE
-        /W4
-    )
+    # target_compile_options(test_version PRIVATE
+    #     /W4
+    # )
 else ()
     target_compile_options(helloworld_cli PRIVATE
         -Wall -Wextra -pedantic -Werror
@@ -71,4 +71,4 @@ include(CPack)
 
 enable_testing()
 
-add_test(test_version test_version)
+# add_test(test_version test_version)

@@ -5,160 +5,84 @@ on:
     branches:
       - main
       - feature/github_actions
-  release:
-    types: [published]
+
 jobs:
-  build_on_Ubuntu:
+  create_release:
+    name: Create release
+    runs-on: ubuntu-latest
+    outputs:
+      upload_url: ${{ steps.create_release.outputs.upload_url }}
+    permissions: write-all
+    steps:
+      - name: Create release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.run_number}}
+          release_name: Release ${{ github.run_number }}
+          draft: false
+          prerelease: false
+
+  release_assets_ubuntu:
+    name: Release assets
+    needs: create_release
     runs-on: ubuntu-latest
     permissions: write-all
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
         with:
           submodules: true
-      - run: cmake . -DPATCH_VERSION=${{ github.run_number }} -DCMAKE_BUILD_TYPE=Release 
-        # Проверьте опции и настройки в CMakeLists.txt
-      - run: cmake --build . --config Release
-        # Проверьте, что команда сборки корректна
-      - run: cmake --build . --target package --config Release
-        # Проверьте, что команда упаковки корректна
-      - name: Upload Release Asset
-        uses: actions/upload-artifact@v3
-        with:
-          name: release-zip
-          path: ./your-project-name-Release.zip # Путь к Release ZIP-архиву
-      - name: Build Debug
-        run: |
-          cmake . -DPATCH_VERSION=${{ github.run_number }} -DCMAKE_BUILD_TYPE=Debug
-          cmake --build . --config Debug
-          cmake --build . --target package --config Debug
-      - name: Upload Debug Asset
-        uses: actions/upload-artifact@v3
-        with:
-          name: debug-deb
-          path: ./your-project-name-Debug.deb # Путь к Debug DEB-архиву
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.run_number }}-Linux
-          release_name: Release ${{ github.run_number }} for linux
-          draft: false
-          prerelease: false
-      - name: Upload Release Asset
+      - run: sudo apt-get update && sudo apt-get install libboost-test-dev -y
+      - run: cmake . -DPATCH_VERSION=${{ github.run_number }}
+      - run: cmake --build .
+      - run: cmake --build . --target test
+      - run: cmake --build . --target package
+      - name: Upload release assets
         id: upload-release-asset
         uses: actions/upload-release-asset@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./helloworld-0.0.${{ github.run_number }}-Linux.deb
+          upload_url: ${{ needs.create_release.outputs.upload_url}}
           asset_name: helloworld-0.0.${{ github.run_number }}-Linux.deb
+          asset_path: ./helloworld-0.0.${{ github.run_number }}-Linux.deb
           asset_content_type: application/vnd.debian.binary-package
 
-  build_macos:
-    # Запускаем job на macos-latest
+  release_assets_macos:
+    name: Release assets
+    needs: create_release
     runs-on: macos-latest
-    # Предоставляем разрешения на запись во все ресурсы
-    permissions: write-all
+    permissions: write-all 
     steps:
-      # Клонируем репозиторий, включая submodules
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v4
         with:
           submodules: true
-      # Конфигурируем проект с помощью CMake, используя номер запуска для PATCH_VERSION
+      - run: brew install boost
       - run: cmake . -DPATCH_VERSION=${{ github.run_number }}
-      # Строим проект с помощью CMake
       - run: cmake --build .
-      # Запускаем тесты
       - run: cmake --build . --target test
-      # Создаем пакет
       - run: cmake --build . --target package
-      # Создаем релиз для MacOS
-      - name: Create Release (MacOS)
-        id: create_release_macos
-        # Используем action для создания релиза
-        uses: actions/create-release@v1
-        # Используем GITHUB_TOKEN для аутентификации
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        # Устанавливаем tag_name, release_name и другие параметры
-        with:
-          tag_name: ${{ github.run_number }} # Используем номер запуска для тега
-          release_name: Release ${{ github.run_number }} (MacOS)
-      # Загружаем релизный ассет для MacOS
-      - name: Upload Release Asset (MacOS)
-        id: upload-release-asset-macos
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release_macos.outputs.upload_url }}
-          asset_path: ./helloworld-0.0.${{ github.run_number }}-Darwin.zip
-          asset_name: helloworld-0.0.${{ github.run_number }}-Darwin.zip
-          asset_content_type: application/zip
-
-      
-  
-  build_on_Windows:
-    runs-on: windows-latest
-    permissions: write-all
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          submodules: true
-
-      - name: Install vcpkg
-        run: |
-          git clone https://github.com/microsoft/vcpkg.git
-          .\vcpkg\bootstrap-vcpkg.bat
-
-      - run: cmake . -DPATCH_VERSION=${{ github.run_number }} -DCMAKE_BUILD_TYPE=Release -DVCPKG_ROOT=${{ github.workspace }}\vcpkg
-        # Проверьте опции и настройки в CMakeLists.txt
-        
-      - run: cmake --build . --config Release
-        # Проверьте, что команда сборки корректна
-        
-      - run: cmake --build . --target package --config Release
-        # Проверьте, что команда упаковки корректна
-        
-      - name: Upload Release Asset
-        uses: actions/upload-artifact@v3
-        with:
-          name: release-zip
-          path: ./your-project-name-Release.zip # Путь к Release ZIP-архиву
-
-      - name: Build Debug
-        run: |
-          cmake . -DPATCH_VERSION=${{ github.run_number }} -DCMAKE_BUILD_TYPE=Debug -DVCPKG_ROOT=${{ github.workspace }}\vcpkg
-          cmake --build . --config Debug
-          cmake --build . --target package --config Debug
-
-      - name: Upload Debug Asset
-        uses: actions/upload-artifact@v3
-        with:
-          name: debug-deb
-          path: ./your-project-name-Debug.zip # Путь к Debug ZIP-архиву
-
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.run_number }}-Windows
-          release_name: Release ${{ github.run_number }} for Windows
-          draft: false
-          prerelease: false
-
-      - name: Upload Release Asset
+      - name: Upload release assets
         id: upload-release-asset
         uses: actions/upload-release-asset@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./helloworld-0.0.${{ github.run_number }}-Windows.zip # Путь к созданному zip-файлу
-          asset_name: helloworld-0.0.${{ github.run_number }}-Windows.zip
+          upload_url: ${{ needs.create_release.outputs.upload_url}}
+          asset_name: helloworld-0.0.${{ github.run_number }}-Darwin.zip
+          asset_path: ./helloworld-0.0.${{ github.run_number }}-Darwin.zip
           asset_content_type: application/zip
+
+  
+
+
+
+
+  
+
+
+#

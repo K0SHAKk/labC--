@@ -11,8 +11,6 @@ set(CXX_STANDARD_REQUIRED ON)
 
 set(CPACK_PROJECT_NAME lab2)
 
-add_executable(lab2 main.cpp)
-
 # Установка пакета DEB для Linux
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
     set(CPACK_GENERATOR DEB) # Настраивает CPack для создания пакетов DEB (Linux).

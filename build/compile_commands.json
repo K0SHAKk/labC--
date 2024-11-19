@@ -1,12 +1,6 @@
 [
 {
   "directory": "C:/Users/k0sha/Desktop/lab1adaw/build",
-  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -g -std=gnu++17 -o CMakeFiles\\lab2.dir\\main.cpp.obj -c C:\\Users\\k0sha\\Desktop\\lab1adaw\\main.cpp",
-  "file": "C:\\Users\\k0sha\\Desktop\\lab1adaw\\main.cpp",
-  "output": "CMakeFiles\\lab2.dir\\main.cpp.obj"
-},
-{
-  "directory": "C:/Users/k0sha/Desktop/lab1adaw/build",
   "command": "C:\\msys64\\mingw64\\bin\\c++.exe -IC:/Users/k0sha/Desktop/lab1adaw -isystem C:/Users/k0sha/Desktop/lab1adaw/build/_deps/googletest-src/googletest/include -isystem C:/Users/k0sha/Desktop/lab1adaw/build/_deps/googletest-src/googletest -g -std=gnu++17 -o gtest\\CMakeFiles\\tests.dir\\test.cpp.obj -c C:\\Users\\k0sha\\Desktop\\lab1adaw\\gtest\\test.cpp",
   "file": "C:\\Users\\k0sha\\Desktop\\lab1adaw\\gtest\\test.cpp",
   "output": "gtest\\CMakeFiles\\tests.dir\\test.cpp.obj"

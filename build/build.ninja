@@ -40,39 +40,6 @@ include CMakeFiles/rules.ninja
 # Logical path to working directory; prefix for absolute paths.
 
 cmake_ninja_workdir = C$:/Users/k0sha/Desktop/lab1adaw/build/
-# =============================================================================
-# Object build statements for EXECUTABLE target lab2
-
-
-#############################################
-# Order-only phony target for lab2
-
-build cmake_object_order_depends_target_lab2: phony || .
-
-build CMakeFiles/lab2.dir/main.cpp.obj: CXX_COMPILER__lab2_unscanned_Debug C$:/Users/k0sha/Desktop/lab1adaw/main.cpp || cmake_object_order_depends_target_lab2
-  DEP_FILE = CMakeFiles\lab2.dir\main.cpp.obj.d
-  FLAGS = -g -std=gnu++17
-  OBJECT_DIR = CMakeFiles\lab2.dir
-  OBJECT_FILE_DIR = CMakeFiles\lab2.dir
-
-
-# =============================================================================
-# Link build statements for EXECUTABLE target lab2
-
-
-#############################################
-# Link the executable lab2.exe
-
-build lab2.exe: CXX_EXECUTABLE_LINKER__lab2_Debug CMakeFiles/lab2.dir/main.cpp.obj
-  FLAGS = -g
-  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\lab2.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  TARGET_FILE = lab2.exe
-  TARGET_IMPLIB = liblab2.dll.a
-  TARGET_PDB = lab2.exe.dbg
-
 
 #############################################
 # Utility command for package
@@ -772,8 +739,6 @@ build gtest: phony lib/libgtestd.a
 
 build gtest_main: phony lib/libgtest_maind.a
 
-build lab2: phony lab2.exe
-
 build libgmock_maind.a: phony lib/libgmock_maind.a
 
 build libgmockd.a: phony lib/libgmockd.a
@@ -794,7 +759,7 @@ build tests.exe: phony gtest/tests.exe
 #############################################
 # Folder: C:/Users/k0sha/Desktop/lab1adaw/build
 
-build all: phony lab2.exe gtest/all
+build all: phony gtest/all
 
 # =============================================================================
 

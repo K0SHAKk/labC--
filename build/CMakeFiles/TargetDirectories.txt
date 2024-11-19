@@ -1,4 +1,3 @@
-C:/Users/k0sha/Desktop/lab1adaw/build/CMakeFiles/lab2.dir
 C:/Users/k0sha/Desktop/lab1adaw/build/CMakeFiles/package.dir
 C:/Users/k0sha/Desktop/lab1adaw/build/CMakeFiles/package_source.dir
 C:/Users/k0sha/Desktop/lab1adaw/build/CMakeFiles/test.dir

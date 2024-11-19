@@ -1,0 +1,5 @@
+if(EXISTS "C:/Users/k0sha/Desktop/lab1adaw/build/test_ip_address[1]_tests.cmake")
+  include("C:/Users/k0sha/Desktop/lab1adaw/build/test_ip_address[1]_tests.cmake")
+else()
+  add_test(test_ip_address_NOT_BUILT test_ip_address_NOT_BUILT)
+endif()

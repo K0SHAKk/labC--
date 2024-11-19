@@ -27,6 +27,7 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+
 // Implements class templates NiceMock, NaggyMock, and StrictMock.
 //
 // Given a mock class MockFoo that is created using Google Mock,
@@ -57,13 +58,11 @@
 // In particular, nesting NiceMock, NaggyMock, and StrictMock is NOT
 // supported.
 
-// IWYU pragma: private, include "gmock/gmock.h"
-// IWYU pragma: friend gmock/.*
+// GOOGLETEST_CM0002 DO NOT DELETE
 
-#ifndef GOOGLEMOCK_INCLUDE_GMOCK_GMOCK_NICE_STRICT_H_
-#define GOOGLEMOCK_INCLUDE_GMOCK_GMOCK_NICE_STRICT_H_
+#ifndef GMOCK_INCLUDE_GMOCK_GMOCK_NICE_STRICT_H_
+#define GMOCK_INCLUDE_GMOCK_GMOCK_NICE_STRICT_H_
 
-#include <cstdint>
 #include <type_traits>
 
 #include "gmock/gmock-spec-builders.h"
@@ -110,37 +109,25 @@ constexpr bool HasStrictnessModifier() {
 template <typename Base>
 class NiceMockImpl {
  public:
-  NiceMockImpl() {
-    ::testing::Mock::AllowUninterestingCalls(reinterpret_cast<uintptr_t>(this));
-  }
+  NiceMockImpl() { ::testing::Mock::AllowUninterestingCalls(this); }
 
-  ~NiceMockImpl() {
-    ::testing::Mock::UnregisterCallReaction(reinterpret_cast<uintptr_t>(this));
-  }
+  ~NiceMockImpl() { ::testing::Mock::UnregisterCallReaction(this); }
 };
 
 template <typename Base>
 class NaggyMockImpl {
  public:
-  NaggyMockImpl() {
-    ::testing::Mock::WarnUninterestingCalls(reinterpret_cast<uintptr_t>(this));
-  }
+  NaggyMockImpl() { ::testing::Mock::WarnUninterestingCalls(this); }
 
-  ~NaggyMockImpl() {
-    ::testing::Mock::UnregisterCallReaction(reinterpret_cast<uintptr_t>(this));
-  }
+  ~NaggyMockImpl() { ::testing::Mock::UnregisterCallReaction(this); }
 };
 
 template <typename Base>
 class StrictMockImpl {
  public:
-  StrictMockImpl() {
-    ::testing::Mock::FailUninterestingCalls(reinterpret_cast<uintptr_t>(this));
-  }
+  StrictMockImpl() { ::testing::Mock::FailUninterestingCalls(this); }
 
-  ~StrictMockImpl() {
-    ::testing::Mock::UnregisterCallReaction(reinterpret_cast<uintptr_t>(this));
-  }
+  ~StrictMockImpl() { ::testing::Mock::UnregisterCallReaction(this); }
 };
 
 }  // namespace internal
@@ -150,11 +137,12 @@ class GTEST_INTERNAL_EMPTY_BASE_CLASS NiceMock
     : private internal::NiceMockImpl<MockClass>,
       public MockClass {
  public:
-  static_assert(!internal::HasStrictnessModifier<MockClass>(),
-                "Can't apply NiceMock to a class hierarchy that already has a "
-                "strictness modifier. See "
-                "https://google.github.io/googletest/"
-                "gmock_cook_book.html#NiceStrictNaggy");
+  static_assert(
+      !internal::HasStrictnessModifier<MockClass>(),
+      "Can't apply NiceMock to a class hierarchy that already has a "
+      "strictness modifier. See "
+      "https://github.com/google/googletest/blob/master/googlemock/docs/"
+      "cook_book.md#the-nice-the-strict-and-the-naggy-nicestrictnaggy");
   NiceMock() : MockClass() {
     static_assert(sizeof(*this) == sizeof(MockClass),
                   "The impl subclass shouldn't introduce any padding");
@@ -182,19 +170,19 @@ class GTEST_INTERNAL_EMPTY_BASE_CLASS NiceMock
   }
 
  private:
-  NiceMock(const NiceMock&) = delete;
-  NiceMock& operator=(const NiceMock&) = delete;
+  GTEST_DISALLOW_COPY_AND_ASSIGN_(NiceMock);
 };
 
 template <class MockClass>
 class GTEST_INTERNAL_EMPTY_BASE_CLASS NaggyMock
     : private internal::NaggyMockImpl<MockClass>,
       public MockClass {
-  static_assert(!internal::HasStrictnessModifier<MockClass>(),
-                "Can't apply NaggyMock to a class hierarchy that already has a "
-                "strictness modifier. See "
-                "https://google.github.io/googletest/"
-                "gmock_cook_book.html#NiceStrictNaggy");
+  static_assert(
+      !internal::HasStrictnessModifier<MockClass>(),
+      "Can't apply NaggyMock to a class hierarchy that already has a "
+      "strictness modifier. See "
+      "https://github.com/google/googletest/blob/master/googlemock/docs/"
+      "cook_book.md#the-nice-the-strict-and-the-naggy-nicestrictnaggy");
 
  public:
   NaggyMock() : MockClass() {
@@ -224,8 +212,7 @@ class GTEST_INTERNAL_EMPTY_BASE_CLASS NaggyMock
   }
 
  private:
-  NaggyMock(const NaggyMock&) = delete;
-  NaggyMock& operator=(const NaggyMock&) = delete;
+  GTEST_DISALLOW_COPY_AND_ASSIGN_(NaggyMock);
 };
 
 template <class MockClass>
@@ -237,8 +224,8 @@ class GTEST_INTERNAL_EMPTY_BASE_CLASS StrictMock
       !internal::HasStrictnessModifier<MockClass>(),
       "Can't apply StrictMock to a class hierarchy that already has a "
       "strictness modifier. See "
-      "https://google.github.io/googletest/"
-      "gmock_cook_book.html#NiceStrictNaggy");
+      "https://github.com/google/googletest/blob/master/googlemock/docs/"
+      "cook_book.md#the-nice-the-strict-and-the-naggy-nicestrictnaggy");
   StrictMock() : MockClass() {
     static_assert(sizeof(*this) == sizeof(MockClass),
                   "The impl subclass shouldn't introduce any padding");
@@ -266,12 +253,11 @@ class GTEST_INTERNAL_EMPTY_BASE_CLASS StrictMock
   }
 
  private:
-  StrictMock(const StrictMock&) = delete;
-  StrictMock& operator=(const StrictMock&) = delete;
+  GTEST_DISALLOW_COPY_AND_ASSIGN_(StrictMock);
 };
 
 #undef GTEST_INTERNAL_EMPTY_BASE_CLASS
 
 }  // namespace testing
 
-#endif  // GOOGLEMOCK_INCLUDE_GMOCK_GMOCK_NICE_STRICT_H_
+#endif  // GMOCK_INCLUDE_GMOCK_GMOCK_NICE_STRICT_H_

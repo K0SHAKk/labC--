@@ -207,13 +207,13 @@ CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 CMAKE_PROJECT_NAME:STATIC=lab2
 
 //Value Computed by CMake
-CMAKE_PROJECT_VERSION:STATIC=1.12.1
+CMAKE_PROJECT_VERSION:STATIC=0.0.1
 
 //Value Computed by CMake
-CMAKE_PROJECT_VERSION_MAJOR:STATIC=1
+CMAKE_PROJECT_VERSION_MAJOR:STATIC=0
 
 //Value Computed by CMake
-CMAKE_PROJECT_VERSION_MINOR:STATIC=12
+CMAKE_PROJECT_VERSION_MINOR:STATIC=0
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION_PATCH:STATIC=1
@@ -355,9 +355,21 @@ FETCHCONTENT_UPDATES_DISCONNECTED_GOOGLETEST:BOOL=OFF
 // added to the build.
 GTEST_HAS_ABSL:BOOL=OFF
 
+//Value Computed by CMake
+GTests_BINARY_DIR:STATIC=C:/Users/k0sha/Desktop/lab1adaw/build/gtest
+
+//Value Computed by CMake
+GTests_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+GTests_SOURCE_DIR:STATIC=C:/Users/k0sha/Desktop/lab1adaw/gtest
+
 //Enable installation of googletest. (Projects embedding googletest
 // may want to turn this OFF.)
 INSTALL_GTEST:BOOL=ON
+
+//Patch version
+PATCH_VERSION:STRING=1
 
 //Value Computed by CMake
 gmock_BINARY_DIR:STATIC=C:/Users/k0sha/Desktop/lab1adaw/build/_deps/googletest-build/googlemock
@@ -558,7 +570,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=4
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=5
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -648,7 +660,7 @@ _Python_EXECUTABLE:INTERNAL=C:/Users/k0sha/AppData/Local/Programs/Python/Python3
 _Python_EXECUTABLE_DEBUG:INTERNAL=_Python_EXECUTABLE_DEBUG-NOTFOUND
 //Python Properties
 _Python_INTERPRETER_PROPERTIES:INTERNAL=Python;3;11;5;64;32;<none>;cp311-win_amd64;;C:\Users\k0sha\AppData\Local\Programs\Python\Python311\Lib;C:\Users\k0sha\AppData\Local\Programs\Python\Python311\Lib;C:\Users\k0sha\AppData\Local\Programs\Python\Python311\Lib\site-packages;C:\Users\k0sha\AppData\Local\Programs\Python\Python311\Lib\site-packages
-_Python_INTERPRETER_SIGNATURE:INTERNAL=59010fab98eb8db6cf3253c3501f1619
+_Python_INTERPRETER_SIGNATURE:INTERNAL=854e6ab1996a73901c13655d72883750
 //NumPy reason failure
 _Python_NumPy_REASON_FAILURE:INTERNAL=
 cmake_package_name:INTERNAL=GTest

@@ -41,7 +41,7 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = C$:/Users/k0sha/Desktop/lab1adaw/build/
 # =============================================================================
-# Object build statements for STATIC_LIBRARY target lab2
+# Object build statements for EXECUTABLE target lab2
 
 
 #############################################
@@ -49,96 +49,29 @@ cmake_ninja_workdir = C$:/Users/k0sha/Desktop/lab1adaw/build/
 
 build cmake_object_order_depends_target_lab2: phony || .
 
-build CMakeFiles/lab2.dir/test_ip_address.cpp.obj: CXX_COMPILER__lab2_unscanned_Debug C$:/Users/k0sha/Desktop/lab1adaw/test_ip_address.cpp || cmake_object_order_depends_target_lab2
-  DEP_FILE = CMakeFiles\lab2.dir\test_ip_address.cpp.obj.d
-  FLAGS = -g -std=gnu++14 -Wall -Wextra -pedantic -Werror
-  INCLUDES = -IC:/Users/k0sha/Desktop/lab1adaw/build
+build CMakeFiles/lab2.dir/main.cpp.obj: CXX_COMPILER__lab2_unscanned_Debug C$:/Users/k0sha/Desktop/lab1adaw/main.cpp || cmake_object_order_depends_target_lab2
+  DEP_FILE = CMakeFiles\lab2.dir\main.cpp.obj.d
+  FLAGS = -g -std=gnu++17
   OBJECT_DIR = CMakeFiles\lab2.dir
   OBJECT_FILE_DIR = CMakeFiles\lab2.dir
 
 
 # =============================================================================
-# Link build statements for STATIC_LIBRARY target lab2
+# Link build statements for EXECUTABLE target lab2
 
 
 #############################################
-# Link the static library liblab2.a
+# Link the executable lab2.exe
 
-build liblab2.a: CXX_STATIC_LIBRARY_LINKER__lab2_Debug CMakeFiles/lab2.dir/test_ip_address.cpp.obj
-  LANGUAGE_COMPILE_FLAGS = -g
+build lab2.exe: CXX_EXECUTABLE_LINKER__lab2_Debug CMakeFiles/lab2.dir/main.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\lab2.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_FILE = liblab2.a
-  TARGET_PDB = lab2.a.dbg
-
-# =============================================================================
-# Object build statements for EXECUTABLE target lab2_cli
-
-
-#############################################
-# Order-only phony target for lab2_cli
-
-build cmake_object_order_depends_target_lab2_cli: phony || cmake_object_order_depends_target_lab2
-
-build CMakeFiles/lab2_cli.dir/main.cpp.obj: CXX_COMPILER__lab2_cli_unscanned_Debug C$:/Users/k0sha/Desktop/lab1adaw/main.cpp || cmake_object_order_depends_target_lab2_cli
-  DEP_FILE = CMakeFiles\lab2_cli.dir\main.cpp.obj.d
-  FLAGS = -g -std=gnu++14 -Wall -Wextra -pedantic -Werror
-  OBJECT_DIR = CMakeFiles\lab2_cli.dir
-  OBJECT_FILE_DIR = CMakeFiles\lab2_cli.dir
-
-
-# =============================================================================
-# Link build statements for EXECUTABLE target lab2_cli
-
-
-#############################################
-# Link the executable lab2_cli.exe
-
-build lab2_cli.exe: CXX_EXECUTABLE_LINKER__lab2_cli_Debug CMakeFiles/lab2_cli.dir/main.cpp.obj | liblab2.a || liblab2.a
-  FLAGS = -g
-  LINK_LIBRARIES = liblab2.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\lab2_cli.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  TARGET_FILE = lab2_cli.exe
-  TARGET_IMPLIB = liblab2_cli.dll.a
-  TARGET_PDB = lab2_cli.exe.dbg
-
-# =============================================================================
-# Object build statements for EXECUTABLE target test_ip_address
-
-
-#############################################
-# Order-only phony target for test_ip_address
-
-build cmake_object_order_depends_target_test_ip_address: phony || cmake_object_order_depends_target_gtest cmake_object_order_depends_target_gtest_main
-
-build CMakeFiles/test_ip_address.dir/test_ip_address.cpp.obj: CXX_COMPILER__test_ip_address_unscanned_Debug C$:/Users/k0sha/Desktop/lab1adaw/test_ip_address.cpp || cmake_object_order_depends_target_test_ip_address
-  DEP_FILE = CMakeFiles\test_ip_address.dir\test_ip_address.cpp.obj.d
-  FLAGS = -g -std=gnu++14
-  INCLUDES = -isystem C:/Users/k0sha/Desktop/lab1adaw/build/_deps/googletest-src/googletest/include -isystem C:/Users/k0sha/Desktop/lab1adaw/build/_deps/googletest-src/googletest
-  OBJECT_DIR = CMakeFiles\test_ip_address.dir
-  OBJECT_FILE_DIR = CMakeFiles\test_ip_address.dir
-
-
-# =============================================================================
-# Link build statements for EXECUTABLE target test_ip_address
-
-
-#############################################
-# Link the executable test_ip_address.exe
-
-build test_ip_address.exe test_ip_address[1]_tests.cmake | ${cmake_ninja_workdir}test_ip_address[1]_tests.cmake: CXX_EXECUTABLE_LINKER__test_ip_address_Debug CMakeFiles/test_ip_address.dir/test_ip_address.cpp.obj | lib/libgtest_main.a lib/libgtest.a || lib/libgtest.a lib/libgtest_main.a
-  FLAGS = -g
-  LINK_LIBRARIES = lib/libgtest_main.a  lib/libgtest.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\test_ip_address.dir
-  POST_BUILD = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\k0sha\Desktop\lab1adaw\build && C:\msys64\mingw64\bin\cmake.exe -D TEST_TARGET=test_ip_address -D TEST_EXECUTABLE=C:/Users/k0sha/Desktop/lab1adaw/build/test_ip_address.exe -D TEST_EXECUTOR= -D TEST_WORKING_DIR=C:/Users/k0sha/Desktop/lab1adaw/build -D TEST_EXTRA_ARGS= -D TEST_PROPERTIES= -D TEST_PREFIX= -D TEST_SUFFIX= -D TEST_FILTER= -D NO_PRETTY_TYPES=FALSE -D NO_PRETTY_VALUES=FALSE -D TEST_LIST=test_ip_address_TESTS -D CTEST_FILE=C:/Users/k0sha/Desktop/lab1adaw/build/test_ip_address[1]_tests.cmake -D TEST_DISCOVERY_TIMEOUT=5 -D TEST_XML_OUTPUT_DIR= -P C:/msys64/mingw64/share/cmake/Modules/GoogleTestAddTests.cmake"
-  PRE_LINK = cd .
-  RESTAT = 1
-  TARGET_FILE = test_ip_address.exe
-  TARGET_IMPLIB = libtest_ip_address.dll.a
-  TARGET_PDB = test_ip_address.exe.dbg
+  TARGET_FILE = lab2.exe
+  TARGET_IMPLIB = liblab2.dll.a
+  TARGET_PDB = lab2.exe.dbg
 
 
 #############################################
@@ -244,6 +177,147 @@ build install/strip: phony CMakeFiles/install/strip.util
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
 # C:/Users/k0sha/Desktop/lab1adaw/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for EXECUTABLE target tests
+
+
+#############################################
+# Order-only phony target for tests
+
+build cmake_object_order_depends_target_tests: phony || cmake_object_order_depends_target_gtest cmake_object_order_depends_target_gtest_main
+
+build gtest/CMakeFiles/tests.dir/test.cpp.obj: CXX_COMPILER__tests_unscanned_Debug C$:/Users/k0sha/Desktop/lab1adaw/gtest/test.cpp || cmake_object_order_depends_target_tests
+  DEP_FILE = gtest\CMakeFiles\tests.dir\test.cpp.obj.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -IC:/Users/k0sha/Desktop/lab1adaw -isystem C:/Users/k0sha/Desktop/lab1adaw/build/_deps/googletest-src/googletest/include -isystem C:/Users/k0sha/Desktop/lab1adaw/build/_deps/googletest-src/googletest
+  OBJECT_DIR = gtest\CMakeFiles\tests.dir
+  OBJECT_FILE_DIR = gtest\CMakeFiles\tests.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target tests
+
+
+#############################################
+# Link the executable gtest\tests.exe
+
+build gtest/tests.exe gtest/tests[1]_tests.cmake | ${cmake_ninja_workdir}gtest/tests[1]_tests.cmake: CXX_EXECUTABLE_LINKER__tests_Debug gtest/CMakeFiles/tests.dir/test.cpp.obj | lib/libgtestd.a lib/libgtest_maind.a lib/libgtestd.a || lib/libgtest_maind.a lib/libgtestd.a
+  FLAGS = -g
+  LINK_LIBRARIES = lib/libgtestd.a  lib/libgtest_maind.a  lib/libgtestd.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = gtest\CMakeFiles\tests.dir
+  POST_BUILD = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\k0sha\Desktop\lab1adaw\build\gtest && C:\msys64\mingw64\bin\cmake.exe -D TEST_TARGET=tests -D TEST_EXECUTABLE=C:/Users/k0sha/Desktop/lab1adaw/build/gtest/tests.exe -D TEST_EXECUTOR= -D TEST_WORKING_DIR=C:/Users/k0sha/Desktop/lab1adaw/build/gtest -D TEST_EXTRA_ARGS= -D TEST_PROPERTIES= -D TEST_PREFIX= -D TEST_SUFFIX= -D TEST_FILTER= -D NO_PRETTY_TYPES=FALSE -D NO_PRETTY_VALUES=FALSE -D TEST_LIST=tests_TESTS -D CTEST_FILE=C:/Users/k0sha/Desktop/lab1adaw/build/gtest/tests[1]_tests.cmake -D TEST_DISCOVERY_TIMEOUT=5 -D TEST_XML_OUTPUT_DIR= -P C:/msys64/mingw64/share/cmake/Modules/GoogleTestAddTests.cmake"
+  PRE_LINK = cd .
+  RESTAT = 1
+  TARGET_FILE = gtest\tests.exe
+  TARGET_IMPLIB = gtest\libtests.dll.a
+  TARGET_PDB = tests.exe.dbg
+
+
+#############################################
+# Utility command for package
+
+build gtest/CMakeFiles/package.util: CUSTOM_COMMAND gtest/all
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\k0sha\Desktop\lab1adaw\build && C:\msys64\mingw64\bin\cpack.exe --config ./CPackConfig.cmake"
+  DESC = Run CPack packaging tool...
+  pool = console
+  restat = 1
+
+build gtest/package: phony gtest/CMakeFiles/package.util
+
+
+#############################################
+# Utility command for package_source
+
+build gtest/CMakeFiles/package_source.util: CUSTOM_COMMAND
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\k0sha\Desktop\lab1adaw\build && C:\msys64\mingw64\bin\cpack.exe --config ./CPackSourceConfig.cmake C:/Users/k0sha/Desktop/lab1adaw/build/CPackSourceConfig.cmake"
+  DESC = Run CPack packaging tool for source...
+  pool = console
+  restat = 1
+
+build gtest/package_source: phony gtest/CMakeFiles/package_source.util
+
+
+#############################################
+# Utility command for test
+
+build gtest/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\k0sha\Desktop\lab1adaw\build\gtest && C:\msys64\mingw64\bin\ctest.exe --force-new-ctest-process "
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build gtest/test: phony gtest/CMakeFiles/test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build gtest/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\k0sha\Desktop\lab1adaw\build\gtest && C:\msys64\mingw64\bin\cmake.exe -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build gtest/edit_cache: phony gtest/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build gtest/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\k0sha\Desktop\lab1adaw\build\gtest && C:\msys64\mingw64\bin\cmake.exe --regenerate-during-build -SC:\Users\k0sha\Desktop\lab1adaw -BC:\Users\k0sha\Desktop\lab1adaw\build"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build gtest/rebuild_cache: phony gtest/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build gtest/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build gtest/CMakeFiles/install.util: CUSTOM_COMMAND gtest/all
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\k0sha\Desktop\lab1adaw\build\gtest && C:\msys64\mingw64\bin\cmake.exe -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build gtest/install: phony gtest/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build gtest/CMakeFiles/install/local.util: CUSTOM_COMMAND gtest/all
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\k0sha\Desktop\lab1adaw\build\gtest && C:\msys64\mingw64\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build gtest/install/local: phony gtest/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build gtest/CMakeFiles/install/strip.util: CUSTOM_COMMAND gtest/all
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\k0sha\Desktop\lab1adaw\build\gtest && C:\msys64\mingw64\bin\cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build gtest/install/strip: phony gtest/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# C:/Users/k0sha/Desktop/lab1adaw/gtest/CMakeLists.txt
 # =============================================================================
 
 
@@ -363,7 +437,7 @@ build cmake_object_order_depends_target_gmock: phony || cmake_object_order_depen
 
 build _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj: CXX_COMPILER__gmock_unscanned_Debug C$:/Users/k0sha/Desktop/lab1adaw/build/_deps/googletest-src/googlemock/src/gmock-all.cc || cmake_object_order_depends_target_gmock
   DEP_FILE = _deps\googletest-build\googlemock\CMakeFiles\gmock.dir\src\gmock-all.cc.obj.d
-  FLAGS = -g -std=c++14 -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers
+  FLAGS = -g -std=c++17 -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers
   INCLUDES = -IC:/Users/k0sha/Desktop/lab1adaw/build/_deps/googletest-src/googlemock/include -IC:/Users/k0sha/Desktop/lab1adaw/build/_deps/googletest-src/googlemock -isystem C:/Users/k0sha/Desktop/lab1adaw/build/_deps/googletest-src/googletest/include -isystem C:/Users/k0sha/Desktop/lab1adaw/build/_deps/googletest-src/googletest
   OBJECT_DIR = _deps\googletest-build\googlemock\CMakeFiles\gmock.dir
   OBJECT_FILE_DIR = _deps\googletest-build\googlemock\CMakeFiles\gmock.dir\src
@@ -374,15 +448,15 @@ build _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.ob
 
 
 #############################################
-# Link the static library lib\libgmock.a
+# Link the static library lib\libgmockd.a
 
-build lib/libgmock.a: CXX_STATIC_LIBRARY_LINKER__gmock_Debug _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj || lib/libgtest.a
+build lib/libgmockd.a: CXX_STATIC_LIBRARY_LINKER__gmock_Debug _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj || lib/libgtestd.a
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = _deps\googletest-build\googlemock\CMakeFiles\gmock.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_FILE = lib\libgmock.a
-  TARGET_PDB = gmock.a.dbg
+  TARGET_FILE = lib\libgmockd.a
+  TARGET_PDB = gmockd.a.dbg
 
 # =============================================================================
 # Object build statements for STATIC_LIBRARY target gmock_main
@@ -395,7 +469,7 @@ build cmake_object_order_depends_target_gmock_main: phony || cmake_object_order_
 
 build _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.obj: CXX_COMPILER__gmock_main_unscanned_Debug C$:/Users/k0sha/Desktop/lab1adaw/build/_deps/googletest-src/googlemock/src/gmock_main.cc || cmake_object_order_depends_target_gmock_main
   DEP_FILE = _deps\googletest-build\googlemock\CMakeFiles\gmock_main.dir\src\gmock_main.cc.obj.d
-  FLAGS = -g -std=c++14 -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers
+  FLAGS = -g -std=c++17 -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers
   INCLUDES = -isystem C:/Users/k0sha/Desktop/lab1adaw/build/_deps/googletest-src/googlemock/include -isystem C:/Users/k0sha/Desktop/lab1adaw/build/_deps/googletest-src/googlemock -isystem C:/Users/k0sha/Desktop/lab1adaw/build/_deps/googletest-src/googletest/include -isystem C:/Users/k0sha/Desktop/lab1adaw/build/_deps/googletest-src/googletest
   OBJECT_DIR = _deps\googletest-build\googlemock\CMakeFiles\gmock_main.dir
   OBJECT_FILE_DIR = _deps\googletest-build\googlemock\CMakeFiles\gmock_main.dir\src
@@ -406,15 +480,15 @@ build _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main
 
 
 #############################################
-# Link the static library lib\libgmock_main.a
+# Link the static library lib\libgmock_maind.a
 
-build lib/libgmock_main.a: CXX_STATIC_LIBRARY_LINKER__gmock_main_Debug _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.obj || lib/libgmock.a lib/libgtest.a
+build lib/libgmock_maind.a: CXX_STATIC_LIBRARY_LINKER__gmock_main_Debug _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.obj || lib/libgmockd.a lib/libgtestd.a
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = _deps\googletest-build\googlemock\CMakeFiles\gmock_main.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_FILE = lib\libgmock_main.a
-  TARGET_PDB = gmock_main.a.dbg
+  TARGET_FILE = lib\libgmock_maind.a
+  TARGET_PDB = gmock_maind.a.dbg
 
 
 #############################################
@@ -533,7 +607,7 @@ build cmake_object_order_depends_target_gtest: phony || .
 
 build _deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj: CXX_COMPILER__gtest_unscanned_Debug C$:/Users/k0sha/Desktop/lab1adaw/build/_deps/googletest-src/googletest/src/gtest-all.cc || cmake_object_order_depends_target_gtest
   DEP_FILE = _deps\googletest-build\googletest\CMakeFiles\gtest.dir\src\gtest-all.cc.obj.d
-  FLAGS = -g -std=c++14 -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers
+  FLAGS = -g -std=c++17 -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers
   INCLUDES = -IC:/Users/k0sha/Desktop/lab1adaw/build/_deps/googletest-src/googletest/include -IC:/Users/k0sha/Desktop/lab1adaw/build/_deps/googletest-src/googletest
   OBJECT_DIR = _deps\googletest-build\googletest\CMakeFiles\gtest.dir
   OBJECT_FILE_DIR = _deps\googletest-build\googletest\CMakeFiles\gtest.dir\src
@@ -544,15 +618,15 @@ build _deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.ob
 
 
 #############################################
-# Link the static library lib\libgtest.a
+# Link the static library lib\libgtestd.a
 
-build lib/libgtest.a: CXX_STATIC_LIBRARY_LINKER__gtest_Debug _deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj
+build lib/libgtestd.a: CXX_STATIC_LIBRARY_LINKER__gtest_Debug _deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = _deps\googletest-build\googletest\CMakeFiles\gtest.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_FILE = lib\libgtest.a
-  TARGET_PDB = gtest.a.dbg
+  TARGET_FILE = lib\libgtestd.a
+  TARGET_PDB = gtestd.a.dbg
 
 # =============================================================================
 # Object build statements for STATIC_LIBRARY target gtest_main
@@ -565,7 +639,7 @@ build cmake_object_order_depends_target_gtest_main: phony || cmake_object_order_
 
 build _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj: CXX_COMPILER__gtest_main_unscanned_Debug C$:/Users/k0sha/Desktop/lab1adaw/build/_deps/googletest-src/googletest/src/gtest_main.cc || cmake_object_order_depends_target_gtest_main
   DEP_FILE = _deps\googletest-build\googletest\CMakeFiles\gtest_main.dir\src\gtest_main.cc.obj.d
-  FLAGS = -g -std=c++14 -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers
+  FLAGS = -g -std=c++17 -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers
   INCLUDES = -isystem C:/Users/k0sha/Desktop/lab1adaw/build/_deps/googletest-src/googletest/include -isystem C:/Users/k0sha/Desktop/lab1adaw/build/_deps/googletest-src/googletest
   OBJECT_DIR = _deps\googletest-build\googletest\CMakeFiles\gtest_main.dir
   OBJECT_FILE_DIR = _deps\googletest-build\googletest\CMakeFiles\gtest_main.dir\src
@@ -576,15 +650,15 @@ build _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main
 
 
 #############################################
-# Link the static library lib\libgtest_main.a
+# Link the static library lib\libgtest_maind.a
 
-build lib/libgtest_main.a: CXX_STATIC_LIBRARY_LINKER__gtest_main_Debug _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj || lib/libgtest.a
+build lib/libgtest_maind.a: CXX_STATIC_LIBRARY_LINKER__gtest_main_Debug _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj || lib/libgtestd.a
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = _deps\googletest-build\googletest\CMakeFiles\gtest_main.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_FILE = lib\libgtest_main.a
-  TARGET_PDB = gtest_main.a.dbg
+  TARGET_FILE = lib\libgtest_maind.a
+  TARGET_PDB = gtest_maind.a.dbg
 
 
 #############################################
@@ -690,27 +764,27 @@ build _deps/googletest-build/googletest/install/strip: phony _deps/googletest-bu
 # =============================================================================
 # Target aliases.
 
-build gmock: phony lib/libgmock.a
+build gmock: phony lib/libgmockd.a
 
-build gmock_main: phony lib/libgmock_main.a
+build gmock_main: phony lib/libgmock_maind.a
 
-build gtest: phony lib/libgtest.a
+build gtest: phony lib/libgtestd.a
 
-build gtest_main: phony lib/libgtest_main.a
+build gtest_main: phony lib/libgtest_maind.a
 
-build lab2: phony liblab2.a
+build lab2: phony lab2.exe
 
-build lab2_cli: phony lab2_cli.exe
+build libgmock_maind.a: phony lib/libgmock_maind.a
 
-build libgmock.a: phony lib/libgmock.a
+build libgmockd.a: phony lib/libgmockd.a
 
-build libgmock_main.a: phony lib/libgmock_main.a
+build libgtest_maind.a: phony lib/libgtest_maind.a
 
-build libgtest.a: phony lib/libgtest.a
+build libgtestd.a: phony lib/libgtestd.a
 
-build libgtest_main.a: phony lib/libgtest_main.a
+build tests: phony gtest/tests.exe
 
-build test_ip_address: phony test_ip_address.exe
+build tests.exe: phony gtest/tests.exe
 
 # =============================================================================
 # Folder targets.
@@ -720,7 +794,7 @@ build test_ip_address: phony test_ip_address.exe
 #############################################
 # Folder: C:/Users/k0sha/Desktop/lab1adaw/build
 
-build all: phony liblab2.a lab2_cli.exe test_ip_address.exe _deps/googletest-build/all
+build all: phony lab2.exe gtest/all
 
 # =============================================================================
 
@@ -734,14 +808,21 @@ build _deps/googletest-build/all: phony _deps/googletest-build/googlemock/all
 #############################################
 # Folder: C:/Users/k0sha/Desktop/lab1adaw/build/_deps/googletest-build/googlemock
 
-build _deps/googletest-build/googlemock/all: phony lib/libgmock.a lib/libgmock_main.a _deps/googletest-build/googletest/all
+build _deps/googletest-build/googlemock/all: phony lib/libgmockd.a lib/libgmock_maind.a _deps/googletest-build/googletest/all
 
 # =============================================================================
 
 #############################################
 # Folder: C:/Users/k0sha/Desktop/lab1adaw/build/_deps/googletest-build/googletest
 
-build _deps/googletest-build/googletest/all: phony lib/libgtest.a lib/libgtest_main.a
+build _deps/googletest-build/googletest/all: phony lib/libgtestd.a lib/libgtest_maind.a
+
+# =============================================================================
+
+#############################################
+# Folder: C:/Users/k0sha/Desktop/lab1adaw/build/gtest
+
+build gtest/all: phony gtest/tests.exe _deps/googletest-build/all
 
 # =============================================================================
 # Built-in targets
@@ -750,14 +831,14 @@ build _deps/googletest-build/googletest/all: phony lib/libgtest.a lib/libgtest_m
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | C$:/Users/k0sha/Desktop/lab1adaw/CMakeLists.txt C$:/msys64/mingw64/share/cmake/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in C$:/msys64/mingw64/share/cmake/Modules/CMakeCInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeCXXInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeCommonLanguageInclude.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeDependentOption.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeGenericSystem.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeInitializeConfigs.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeLanguageInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakePackageConfigHelpers.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeRCInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeSystemSpecificInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake C$:/msys64/mingw64/share/cmake/Modules/CPack.cmake C$:/msys64/mingw64/share/cmake/Modules/CPackComponent.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/ExternalProject/shared_internal_commands.cmake C$:/msys64/mingw64/share/cmake/Modules/FetchContent.cmake C$:/msys64/mingw64/share/cmake/Modules/FetchContent/CMakeLists.cmake.in C$:/msys64/mingw64/share/cmake/Modules/FindPackageHandleStandardArgs.cmake C$:/msys64/mingw64/share/cmake/Modules/FindPackageMessage.cmake C$:/msys64/mingw64/share/cmake/Modules/FindPython.cmake C$:/msys64/mingw64/share/cmake/Modules/FindPython/Support.cmake C$:/msys64/mingw64/share/cmake/Modules/GNUInstallDirs.cmake C$:/msys64/mingw64/share/cmake/Modules/GoogleTest.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-Initialize.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-windres.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/WindowsPaths.cmake C$:/msys64/mingw64/share/cmake/Modules/WriteBasicConfigVersionFile.cmake C$:/msys64/mingw64/share/cmake/Templates/CPackConfig.cmake.in CMakeCache.txt CMakeFiles/3.30.1/CMakeCCompiler.cmake CMakeFiles/3.30.1/CMakeCXXCompiler.cmake CMakeFiles/3.30.1/CMakeRCCompiler.cmake CMakeFiles/3.30.1/CMakeSystem.cmake _deps/googletest-src/CMakeLists.txt _deps/googletest-src/googlemock/CMakeLists.txt _deps/googletest-src/googlemock/cmake/gmock.pc.in _deps/googletest-src/googlemock/cmake/gmock_main.pc.in _deps/googletest-src/googletest/CMakeLists.txt _deps/googletest-src/googletest/cmake/Config.cmake.in _deps/googletest-src/googletest/cmake/gtest.pc.in _deps/googletest-src/googletest/cmake/gtest_main.pc.in _deps/googletest-src/googletest/cmake/internal_utils.cmake
+build build.ninja: RERUN_CMAKE | C$:/Users/k0sha/Desktop/lab1adaw/CMakeLists.txt C$:/Users/k0sha/Desktop/lab1adaw/gtest/CMakeLists.txt C$:/msys64/mingw64/share/cmake/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in C$:/msys64/mingw64/share/cmake/Modules/CMakeCInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeCXXInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeCommonLanguageInclude.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeDependentOption.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeGenericSystem.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeInitializeConfigs.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeLanguageInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakePackageConfigHelpers.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeRCInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeSystemSpecificInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake C$:/msys64/mingw64/share/cmake/Modules/CPack.cmake C$:/msys64/mingw64/share/cmake/Modules/CPackComponent.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/ExternalProject/shared_internal_commands.cmake C$:/msys64/mingw64/share/cmake/Modules/FetchContent.cmake C$:/msys64/mingw64/share/cmake/Modules/FetchContent/CMakeLists.cmake.in C$:/msys64/mingw64/share/cmake/Modules/FindPackageHandleStandardArgs.cmake C$:/msys64/mingw64/share/cmake/Modules/FindPackageMessage.cmake C$:/msys64/mingw64/share/cmake/Modules/FindPython.cmake C$:/msys64/mingw64/share/cmake/Modules/FindPython/Support.cmake C$:/msys64/mingw64/share/cmake/Modules/GNUInstallDirs.cmake C$:/msys64/mingw64/share/cmake/Modules/GoogleTest.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-Initialize.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-windres.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/WindowsPaths.cmake C$:/msys64/mingw64/share/cmake/Modules/WriteBasicConfigVersionFile.cmake C$:/msys64/mingw64/share/cmake/Templates/CPackConfig.cmake.in CMakeCache.txt CMakeFiles/3.30.1/CMakeCCompiler.cmake CMakeFiles/3.30.1/CMakeCXXCompiler.cmake CMakeFiles/3.30.1/CMakeRCCompiler.cmake CMakeFiles/3.30.1/CMakeSystem.cmake _deps/googletest-src/CMakeLists.txt _deps/googletest-src/googlemock/CMakeLists.txt _deps/googletest-src/googlemock/cmake/gmock.pc.in _deps/googletest-src/googlemock/cmake/gmock_main.pc.in _deps/googletest-src/googletest/CMakeLists.txt _deps/googletest-src/googletest/cmake/Config.cmake.in _deps/googletest-src/googletest/cmake/gtest.pc.in _deps/googletest-src/googletest/cmake/gtest_main.pc.in _deps/googletest-src/googletest/cmake/internal_utils.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:/Users/k0sha/Desktop/lab1adaw/CMakeLists.txt C$:/msys64/mingw64/share/cmake/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in C$:/msys64/mingw64/share/cmake/Modules/CMakeCInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeCXXInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeCommonLanguageInclude.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeDependentOption.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeGenericSystem.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeInitializeConfigs.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeLanguageInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakePackageConfigHelpers.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeRCInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeSystemSpecificInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake C$:/msys64/mingw64/share/cmake/Modules/CPack.cmake C$:/msys64/mingw64/share/cmake/Modules/CPackComponent.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/ExternalProject/shared_internal_commands.cmake C$:/msys64/mingw64/share/cmake/Modules/FetchContent.cmake C$:/msys64/mingw64/share/cmake/Modules/FetchContent/CMakeLists.cmake.in C$:/msys64/mingw64/share/cmake/Modules/FindPackageHandleStandardArgs.cmake C$:/msys64/mingw64/share/cmake/Modules/FindPackageMessage.cmake C$:/msys64/mingw64/share/cmake/Modules/FindPython.cmake C$:/msys64/mingw64/share/cmake/Modules/FindPython/Support.cmake C$:/msys64/mingw64/share/cmake/Modules/GNUInstallDirs.cmake C$:/msys64/mingw64/share/cmake/Modules/GoogleTest.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-Initialize.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-windres.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/WindowsPaths.cmake C$:/msys64/mingw64/share/cmake/Modules/WriteBasicConfigVersionFile.cmake C$:/msys64/mingw64/share/cmake/Templates/CPackConfig.cmake.in CMakeCache.txt CMakeFiles/3.30.1/CMakeCCompiler.cmake CMakeFiles/3.30.1/CMakeCXXCompiler.cmake CMakeFiles/3.30.1/CMakeRCCompiler.cmake CMakeFiles/3.30.1/CMakeSystem.cmake _deps/googletest-src/CMakeLists.txt _deps/googletest-src/googlemock/CMakeLists.txt _deps/googletest-src/googlemock/cmake/gmock.pc.in _deps/googletest-src/googlemock/cmake/gmock_main.pc.in _deps/googletest-src/googletest/CMakeLists.txt _deps/googletest-src/googletest/cmake/Config.cmake.in _deps/googletest-src/googletest/cmake/gtest.pc.in _deps/googletest-src/googletest/cmake/gtest_main.pc.in _deps/googletest-src/googletest/cmake/internal_utils.cmake: phony
+build C$:/Users/k0sha/Desktop/lab1adaw/CMakeLists.txt C$:/Users/k0sha/Desktop/lab1adaw/gtest/CMakeLists.txt C$:/msys64/mingw64/share/cmake/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in C$:/msys64/mingw64/share/cmake/Modules/CMakeCInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeCXXInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeCommonLanguageInclude.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeDependentOption.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeGenericSystem.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeInitializeConfigs.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeLanguageInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakePackageConfigHelpers.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeRCInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeSystemSpecificInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake C$:/msys64/mingw64/share/cmake/Modules/CPack.cmake C$:/msys64/mingw64/share/cmake/Modules/CPackComponent.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/ExternalProject/shared_internal_commands.cmake C$:/msys64/mingw64/share/cmake/Modules/FetchContent.cmake C$:/msys64/mingw64/share/cmake/Modules/FetchContent/CMakeLists.cmake.in C$:/msys64/mingw64/share/cmake/Modules/FindPackageHandleStandardArgs.cmake C$:/msys64/mingw64/share/cmake/Modules/FindPackageMessage.cmake C$:/msys64/mingw64/share/cmake/Modules/FindPython.cmake C$:/msys64/mingw64/share/cmake/Modules/FindPython/Support.cmake C$:/msys64/mingw64/share/cmake/Modules/GNUInstallDirs.cmake C$:/msys64/mingw64/share/cmake/Modules/GoogleTest.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-Initialize.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-windres.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/WindowsPaths.cmake C$:/msys64/mingw64/share/cmake/Modules/WriteBasicConfigVersionFile.cmake C$:/msys64/mingw64/share/cmake/Templates/CPackConfig.cmake.in CMakeCache.txt CMakeFiles/3.30.1/CMakeCCompiler.cmake CMakeFiles/3.30.1/CMakeCXXCompiler.cmake CMakeFiles/3.30.1/CMakeRCCompiler.cmake CMakeFiles/3.30.1/CMakeSystem.cmake _deps/googletest-src/CMakeLists.txt _deps/googletest-src/googlemock/CMakeLists.txt _deps/googletest-src/googlemock/cmake/gmock.pc.in _deps/googletest-src/googlemock/cmake/gmock_main.pc.in _deps/googletest-src/googletest/CMakeLists.txt _deps/googletest-src/googletest/cmake/Config.cmake.in _deps/googletest-src/googletest/cmake/gtest.pc.in _deps/googletest-src/googletest/cmake/gtest_main.pc.in _deps/googletest-src/googletest/cmake/internal_utils.cmake: phony
 
 
 #############################################

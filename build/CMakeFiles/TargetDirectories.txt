@@ -1,6 +1,4 @@
 C:/Users/k0sha/Desktop/lab1adaw/build/CMakeFiles/lab2.dir
-C:/Users/k0sha/Desktop/lab1adaw/build/CMakeFiles/lab2_cli.dir
-C:/Users/k0sha/Desktop/lab1adaw/build/CMakeFiles/test_ip_address.dir
 C:/Users/k0sha/Desktop/lab1adaw/build/CMakeFiles/package.dir
 C:/Users/k0sha/Desktop/lab1adaw/build/CMakeFiles/package_source.dir
 C:/Users/k0sha/Desktop/lab1adaw/build/CMakeFiles/test.dir
@@ -10,6 +8,16 @@ C:/Users/k0sha/Desktop/lab1adaw/build/CMakeFiles/list_install_components.dir
 C:/Users/k0sha/Desktop/lab1adaw/build/CMakeFiles/install.dir
 C:/Users/k0sha/Desktop/lab1adaw/build/CMakeFiles/install/local.dir
 C:/Users/k0sha/Desktop/lab1adaw/build/CMakeFiles/install/strip.dir
+C:/Users/k0sha/Desktop/lab1adaw/build/gtest/CMakeFiles/tests.dir
+C:/Users/k0sha/Desktop/lab1adaw/build/gtest/CMakeFiles/package.dir
+C:/Users/k0sha/Desktop/lab1adaw/build/gtest/CMakeFiles/package_source.dir
+C:/Users/k0sha/Desktop/lab1adaw/build/gtest/CMakeFiles/test.dir
+C:/Users/k0sha/Desktop/lab1adaw/build/gtest/CMakeFiles/edit_cache.dir
+C:/Users/k0sha/Desktop/lab1adaw/build/gtest/CMakeFiles/rebuild_cache.dir
+C:/Users/k0sha/Desktop/lab1adaw/build/gtest/CMakeFiles/list_install_components.dir
+C:/Users/k0sha/Desktop/lab1adaw/build/gtest/CMakeFiles/install.dir
+C:/Users/k0sha/Desktop/lab1adaw/build/gtest/CMakeFiles/install/local.dir
+C:/Users/k0sha/Desktop/lab1adaw/build/gtest/CMakeFiles/install/strip.dir
 C:/Users/k0sha/Desktop/lab1adaw/build/_deps/googletest-build/CMakeFiles/package.dir
 C:/Users/k0sha/Desktop/lab1adaw/build/_deps/googletest-build/CMakeFiles/package_source.dir
 C:/Users/k0sha/Desktop/lab1adaw/build/_deps/googletest-build/CMakeFiles/test.dir

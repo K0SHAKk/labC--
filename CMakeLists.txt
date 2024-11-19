@@ -1,4 +1,3 @@
-
 cmake_minimum_required(VERSION 3.5.0)
 
 set(PATCH_VERSION "1" CACHE STRING "Patch version")

@@ -1,16 +1,16 @@
 # ninja log v6
-16302	16491	7537168354974638	lib/libgtest_maind.a	d7737988bd18e81
-61	6708	7537168192561888	_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj	a1bd6f364eb017ac
-49	6582	7537172039633496	build.ninja	291cb59535dfd55e
-96	1888	7537168192911934	CMakeFiles/lab2.dir/main.cpp.obj	7e8c746f06857e9c
-16491	17444	7537168366257379	gtest/tests[1]_tests.cmake	a784d48c736e68ff
-16491	17444	7537168366257379	gtest/tests.exe	a784d48c736e68ff
-79	2725	7537168192731906	_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj	f0d6346717e9a71c
-16491	17444	7537168366257379	C:/Users/k0sha/Desktop/lab1adaw/build/gtest/tests[1]_tests.cmake	a784d48c736e68ff
 151	4769	7537168193462052	_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.obj	fbde9a981d8666ac
-15850	16273	7537168350453005	lib/libgtestd.a	ca9a8d34e28e2f78
 1889	2235	7537168210837067	lab2.exe	48a61bd8455bbfbf
-114	3356	7537168193091975	gtest/CMakeFiles/tests.dir/test.cpp.obj	e6554a39388ea9bb
+15850	16273	7537168350453005	lib/libgtestd.a	ca9a8d34e28e2f78
 16273	16545	7537168354679450	lib/libgmockd.a	651995bad39b173
+114	3356	7537168193091975	gtest/CMakeFiles/tests.dir/test.cpp.obj	e6554a39388ea9bb
 46	15850	7537168192411815	_deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj	34ad84fa31250260
 16545	16722	7537168357395181	lib/libgmock_maind.a	8b335d0057ee3dff
+16302	16491	7537168354974638	lib/libgtest_maind.a	d7737988bd18e81
+16491	17444	7537168366257379	gtest/tests[1]_tests.cmake	a784d48c736e68ff
+61	6708	7537168192561888	_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj	a1bd6f364eb017ac
+49	6582	7537191393751107	build.ninja	291cb59535dfd55e
+96	1888	7537168192911934	CMakeFiles/lab2.dir/main.cpp.obj	7e8c746f06857e9c
+16491	17444	7537168366257379	C:/Users/k0sha/Desktop/lab1adaw/build/gtest/tests[1]_tests.cmake	a784d48c736e68ff
+79	2725	7537168192731906	_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj	f0d6346717e9a71c
+16491	17444	7537168366257379	gtest/tests.exe	a784d48c736e68ff

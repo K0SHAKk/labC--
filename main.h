@@ -10,11 +10,11 @@
 #include <cstdint>
 
 using namespace std;
-struct IPAddress {
+struct IP {
     int n1, n2, n3, n4;
 
     // Конструктор для получения IP-адреса из строки
-    IPAddress(const string& ipString) {
+    IP(const string& ipString) {
         stringstream ss(ipString);
         char dot;
         ss >> n1 >> dot >> n2 >> dot >> n3 >> dot >> n4;
@@ -27,7 +27,7 @@ struct IPAddress {
 };
 
 // Сравнение IP-адресов в обратном лексикографическом порядке
-auto compareIP = [](const IPAddress& lhs, const IPAddress& rhs) {
+auto compareIP = [](const IP& lhs, const IP& rhs) {
     return tie(lhs.n1, lhs.n2, lhs.n3, lhs.n4) > tie(rhs.n1, rhs.n2, rhs.n3, rhs.n4);
 };
 

@@ -351,10 +351,6 @@ FETCHCONTENT_UPDATES_DISCONNECTED:BOOL=OFF
 //Enables UPDATE_DISCONNECTED behavior just for population of googletest
 FETCHCONTENT_UPDATES_DISCONNECTED_GOOGLETEST:BOOL=OFF
 
-//Use Abseil and RE2. Requires Abseil and RE2 to be separately
-// added to the build.
-GTEST_HAS_ABSL:BOOL=OFF
-
 //Value Computed by CMake
 GTests_BINARY_DIR:STATIC=C:/Users/k0sha/Desktop/lab1adaw/build/gtest
 
@@ -663,7 +659,6 @@ _Python_INTERPRETER_PROPERTIES:INTERNAL=Python;3;11;5;64;32;<none>;cp311-win_amd
 _Python_INTERPRETER_SIGNATURE:INTERNAL=854e6ab1996a73901c13655d72883750
 //NumPy reason failure
 _Python_NumPy_REASON_FAILURE:INTERNAL=
-cmake_package_name:INTERNAL=GTest
 generated_dir:INTERNAL=C:/Users/k0sha/Desktop/lab1adaw/build/_deps/googletest-build/googletest/generated
 //ADVANCED property for variable: gmock_build_tests
 gmock_build_tests-ADVANCED:INTERNAL=1

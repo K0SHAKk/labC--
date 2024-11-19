@@ -1,72 +1,76 @@
 #include <iostream>
-#include <tuple>
-#include <sstream>
-#include <fstream>
 #include <vector>
 #include <algorithm>
+#include <sstream>
+#include <fstream>
+#include <tuple>
+#include <cstdint>
 
-struct IP
-{
+using namespace std;
+struct IP {
     int n1, n2, n3, n4;
 
-    IP(const std::string& ipString) {
-        std::stringstream ss(ipString);
+    // Конструктор для получения IP-адреса из строки
+    IP(const string& ipString) {
+        stringstream ss(ipString);
         char dot;
         ss >> n1 >> dot >> n2 >> dot >> n3 >> dot >> n4;
     }
 
-    std::string toString() const {  
-        return std::to_string(n1) + "." + std::to_string(n2) + "." + std::to_string(n3) + "." + std::to_string(n4);
+    // Метод для получения строкового представления IP-адреса
+    string toString() const {
+        return to_string(n1) + "." + to_string(n2) + "." + to_string(n3) + "." + to_string(n4);
     }
 };
 
+// Сравнение IP-адресов в обратном лексикографическом порядке
 auto compareIP = [](const IP& lhs, const IP& rhs) {
-    return std::tie(lhs.n1, lhs.n2, lhs.n3, lhs.n4) > std::tie(rhs.n1, rhs.n2, rhs.n3, rhs.n4);
+    return tie(lhs.n1, lhs.n2, lhs.n3, lhs.n4) > tie(rhs.n1, rhs.n2, rhs.n3, rhs.n4);
 };
 
 
 int main(int, char *[]) {
-    std::vector<IP> adress; 
+    vector<IP> adress; 
 
-    std::ifstream file("C:/Users/k0sha/Desktop/lab1adaw/ip_filter.tsv");
+    ifstream file("C:/Users/k0sha/Desktop/lab1adaw/ip_filter.tsv");
      if (!file.is_open()) {
-        std::cerr << "Ошибка открытия файла" << std::endl;
+        cerr << "Ошибка открытия файла" << endl;
         return 1;
     }
 
-    std::string line;
+    string line;
     while (getline(file, line)) {
-        std::stringstream ss(line);
-        std::string ipString;
+        stringstream ss(line);
+        string ipString;
         getline(ss, ipString, '\t');
         adress.push_back(ipString);
     }
 
-    std::sort(adress.begin(), adress.end(), compareIP);
+    sort(adress.begin(), adress.end(), compareIP);
 
-    std::cout<< "Вывод всех IP-адресов"<< std::endl;
+    cout<< "Вывод всех IP-адресов"<< endl;
     for (const auto& ip : adress) {
-        std::cout << ip.toString() << std::endl;
+        cout << ip.toString() << endl;
     }
 
-    std::cout<< "Вывод всех IP-адресов первй байт которых равен 1"<< std::endl;
+    cout<< "Вывод всех IP-адресов первй байт которых равен 1"<< endl;
     for (const auto& ip : adress) {
         if (ip.n1 == 1){
-            std::cout << ip.toString() << std::endl;
+            cout << ip.toString() << endl;
         }
     }
 
-    std::cout<< "Вывод всех IP-адресов первый байт 46, второй 70"<< std::endl;
+    cout<< "Вывод всех IP-адресов первый байт 46, второй 70"<< endl;
     for (const auto& ip : adress) {
         if (ip.n1 == 46 && ip.n2 == 70){
-            std::cout << ip.toString() << std::endl;
+            cout << ip.toString() << endl;
         }
     }
 
-    std::cout<< "Вывод всех IP-адресов есть байт 46"<< std::endl;
+    cout<< "Вывод всех IP-адресов есть байт 46"<< endl;
     for (const auto& ip : adress) {
         if (ip.n1 == 46 || ip.n2 == 46 || ip.n3 == 46 || ip.n4 == 46){
-            std::cout << ip.toString() << std::endl;
+            cout << ip.toString() << endl;
         }
     }
 

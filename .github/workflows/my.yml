@@ -4,111 +4,85 @@ on:
   push:
     branches:
       - main
-      - lab2
       - feature/github_actions
-  release:
-    types: [published]
+
 jobs:
-  build_on_Ubuntu:
+  create_release:
+    name: Create release
     runs-on: ubuntu-latest
+    outputs:
+      upload_url: ${{ steps.create_release.outputs.upload_url }}
     permissions: write-all
     steps:
-      - uses: actions/checkout@v4
-        with:
-          submodules: true
-      - name: Install Dependencies
-        run: |
-            sudo apt-get update
-            sudo apt-get install -y build-essential cmake libgtest-dev
-      - name: Build Project
-        run: |
-            rm -rf build
-            mkdir build
-            cd build
-            cmake .. -DCMAKE_BUILD_TYPE=Release
-            cmake --build . --config Release
-      - name: Run Tests
-        run: |
-            cd build
-            ctest -V # Добавлен -V для verbose output
-        # Проверьте опции и настройки в CMakeLists.txt
-      
-      - name: Upload Release Asset
-        uses: actions/upload-artifact@v3
-        with:
-          name: release-zip
-          path: ./your-project-name-Release.zip # Путь к Release ZIP-архиву
-      - name: Build Debug
-        run: |
-          cmake . -DPATCH_VERSION=${{ github.run_number }} -DCMAKE_BUILD_TYPE=Debug
-          cmake --build . --config Debug
-          cmake --build . --target package --config Debug
-      - name: Upload Debug Asset
-        uses: actions/upload-artifact@v3
-        with:
-          name: debug-deb
-          path: ./your-project-name-Debug.deb # Путь к Debug DEB-архиву
-      - name: Create Release
+      - name: Create release
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.run_number }}-Linux2
-          release_name: Release ${{ github.run_number }} for linux2
+          tag_name: ${{ github.run_number}}
+          release_name: Release ${{ github.run_number }}
           draft: false
-          prerelease: false 
-      - name: Upload Release Asset
+          prerelease: false
+
+  release_assets_ubuntu:
+    name: Release assets
+    needs: create_release
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+      - run: sudo apt-get update && sudo apt-get install libboost-test-dev -y
+      - run: cmake . -DPATCH_VERSION=${{ github.run_number }}
+      - run: cmake --build .
+      - run: cmake --build . --target test
+      - run: cmake --build . --target package
+      - name: Upload release assets
         id: upload-release-asset
         uses: actions/upload-release-asset@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./lab2-0.0.${{ github.run_number }}-Linux.deb
-          asset_name: lab2-0.0.${{ github.run_number }}-Linux.deb
+          upload_url: ${{ needs.create_release.outputs.upload_url}}
+          asset_name: helloworld-0.0.${{ github.run_number }}-Linux.deb
+          asset_path: ./helloworld-0.0.${{ github.run_number }}-Linux.deb
           asset_content_type: application/vnd.debian.binary-package
 
-  build_macos:
+  release_assets_macos:
+    name: Release assets
+    needs: create_release
     runs-on: macos-latest
-    permissions: write-all
+    permissions: write-all 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v4
         with:
           submodules: true
-  # Устанавливаем gtest с помощью Homebrew
-      - run: |
-          brew update
-          brew install googletest
-          brew info googletest
-
-  # Конфигурируем проект с помощью CMake, используя номер запуска для PATCH_VERSION 
-      - run: cmake . -DPATCH_VERSION=${{ github.run_number }}  
-  # Строим проект с помощью CMake
+      - run: brew install boost
+      - run: cmake . -DPATCH_VERSION=${{ github.run_number }}
       - run: cmake --build .
-  # Запускаем тесты
       - run: cmake --build . --target test
-  # Создаем пакет
       - run: cmake --build . --target package
-  # Создаем релиз для MacOS
-      - name: Create Release (MacOS)
-        id: create_release_macos
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.run_number }} # Используем номер запуска для тега
-          release_name: Release ${{ github.run_number }} (MacOS)
-          draft: false # Не публикуем релиз в черновике
-          prerelease: false # Не публикуем как предварительную версию
-  # Загружаем релизный ассет для MacOS
-      - name: Upload Release Asset (MacOS)
-        id: upload-release-asset-macos
+      - name: Upload release assets
+        id: upload-release-asset
         uses: actions/upload-release-asset@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
         with:
-          upload_url: ${{ steps.create_release_macos.outputs.upload_url }}
-          asset_path: ./lab2-0.0.${{ github.run_number }}-Darwin.zip
-          asset_name: lab2-0.0.${{ github.run_number }}-Darwin.zip
+          upload_url: ${{ needs.create_release.outputs.upload_url}}
+          asset_name: helloworld-0.0.${{ github.run_number }}-Darwin.zip
+          asset_path: ./helloworld-0.0.${{ github.run_number }}-Darwin.zip
           asset_content_type: application/zip
+
+  
+
+
+
+
+  
+
+
+#

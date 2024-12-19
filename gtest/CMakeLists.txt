@@ -19,7 +19,9 @@ FetchContent_MakeAvailable(googletest)
 # создает список COMMON_SRCS с одним исходным файлом cool.cpp 
 # этот файл содержит общий код, который будет использоваться в тестах
 set(COMMON_SRCS
-    "../main.h"
+    "../defangIPaddr.h"
+    "../isPalindrome.h"
+    "../maxScoreWords.h"
 )
 # cоздает исполняемый файл с именем "tests", который будет содержать исходный код из файлов tests.cpp и cool.cpp
 add_executable(tests test.cpp ${COMMON_SRCS})

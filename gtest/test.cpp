@@ -1,24 +1,22 @@
 #include <gtest/gtest.h>
-#include "main.h"
+#include "defangIPaddr.h"
+#include "isPalindrome.h"
+#include "maxScoreWords.h"
+
 using namespace std;
 TEST(Test, 1) {
-    IP ip("192.168.1.1");
-    ASSERT_EQ(ip.n1, 192);
-    ASSERT_EQ(ip.n2, 168);
-    ASSERT_EQ(ip.n3, 1);
-    ASSERT_EQ(ip.n4, 1);
+    ASSERT_EQ(defangIPaddr("192.168.0.1"), "192[.]168[.]0[.]1");
 }
 
 TEST(Test, 2) {
-    IP ip("192.168.1.1");
-    ASSERT_EQ(ip.toString(), "192.168.1.1");
+    ASSERT_TRUE(isPalindrome("never odd or even"));
 }
 
 TEST(Test, 3) {
-    IP ip1("192.168.1.2");
-    IP ip2("192.168.1.1");
-    ASSERT_TRUE(compareIP(ip1, ip2));
-    ASSERT_FALSE(compareIP(ip2, ip1));
+    std::vector<std::string> words = {"dog", "cat", "dad", "good"};
+    std::vector<char> letters = {'a', 'a', 'c', 'd', 'd', 'g', 'o', 'o'};
+    std::vector<int> score = {1, 0, 9, 5, 1, 0, 6, 1, 0, 1, 1, 1, 3, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+    ASSERT_EQ(maxScoreWords(words, letters, score), 13);
 }
 
 int main(int argc, char **argv)

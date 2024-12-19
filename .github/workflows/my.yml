@@ -6,6 +6,7 @@ on:
     branches:
       - main
       - lab-2
+      - lab-3
       - feature/github_actions
   release:
     types: [published]

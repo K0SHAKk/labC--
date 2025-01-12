@@ -5,8 +5,6 @@ set(PROJECT_VERSION 0.0.${PATCH_VERSION})
 
 project(lab3 VERSION ${PROJECT_VERSION})
 
-add_executable(lab3 main.cpp)
-
 set(CMAKE_CXX_STANDARD 17)
 set(CXX_STANDARD_REQUIRED ON)
 
@@ -34,3 +32,5 @@ include(CPack)
 enable_testing() # Включает тестирование
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
+
+add_executable(lab3 main.cpp)

@@ -40,6 +40,39 @@ include CMakeFiles/rules.ninja
 # Logical path to working directory; prefix for absolute paths.
 
 cmake_ninja_workdir = C$:/Users/k0sha/Desktop/lab1adaw/build/
+# =============================================================================
+# Object build statements for EXECUTABLE target lab3
+
+
+#############################################
+# Order-only phony target for lab3
+
+build cmake_object_order_depends_target_lab3: phony || .
+
+build CMakeFiles/lab3.dir/main.cpp.obj: CXX_COMPILER__lab3_unscanned_Debug C$:/Users/k0sha/Desktop/lab1adaw/main.cpp || cmake_object_order_depends_target_lab3
+  DEP_FILE = CMakeFiles\lab3.dir\main.cpp.obj.d
+  FLAGS = -g -std=gnu++17
+  OBJECT_DIR = CMakeFiles\lab3.dir
+  OBJECT_FILE_DIR = CMakeFiles\lab3.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target lab3
+
+
+#############################################
+# Link the executable lab3.exe
+
+build lab3.exe: CXX_EXECUTABLE_LINKER__lab3_Debug CMakeFiles/lab3.dir/main.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\lab3.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = lab3.exe
+  TARGET_IMPLIB = liblab3.dll.a
+  TARGET_PDB = lab3.exe.dbg
+
 
 #############################################
 # Utility command for package
@@ -102,6 +135,8 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
+build lab3: phony lab3.exe
+
 # =============================================================================
 # Folder targets.
 
@@ -110,7 +145,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Folder: C:/Users/k0sha/Desktop/lab1adaw/build
 
-build all: phony
+build all: phony lab3.exe
 
 # =============================================================================
 # Built-in targets

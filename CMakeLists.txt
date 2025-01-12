@@ -33,4 +33,4 @@ enable_testing() # Включает тестирование
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 
-# add_executable(lab3 main.cpp)
+add_executable(lab3 main.cpp)

@@ -3,12 +3,14 @@ cmake_minimum_required(VERSION 3.5.0)
 set(PATCH_VERSION "1" CACHE STRING "Patch version")
 set(PROJECT_VERSION 0.0.${PATCH_VERSION})
 
-project(lab2 VERSION ${PROJECT_VERSION})
+project(lab3 VERSION ${PROJECT_VERSION})
+
+add_executable(lab3 main.cpp)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CXX_STANDARD_REQUIRED ON)
 
-set(CPACK_PROJECT_NAME lab2)
+set(CPACK_PROJECT_NAME lab3)
 
 # Установка пакета DEB для Linux
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
@@ -30,7 +32,5 @@ set(CPACK_PACKAGE_CONTACT example@example.com)
 include(CPack)
 
 enable_testing() # Включает тестирование
-add_test(NAME test_main COMMAND tests) 
-add_subdirectory(gtest)
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

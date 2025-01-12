@@ -1,13 +1,5 @@
 # ninja log v6
-40	1749	7563101812090526	_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj	f0d6346717e9a71c
-63	2277	7563101812320630	gtest/CMakeFiles/tests.dir/test.cpp.obj	e6554a39388ea9bb
-92	2538	7563101812610671	_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.obj	fbde9a981d8666ac
-20	3734	7563101811890482	_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj	a1bd6f364eb017ac
-6	8749	7563101811750461	_deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj	34ad84fa31250260
-8750	9022	7563101899190354	lib/libgtestd.a	ca9a8d34e28e2f78
-9022	9192	7563101901908177	lib/libgmockd.a	651995bad39b173
-9037	9212	7563101902058191	lib/libgtest_maind.a	d7737988bd18e81
-9193	9361	7563101903618574	lib/libgmock_maind.a	8b335d0057ee3dff
-9212	9815	7563101909763054	gtest/tests.exe	cbd637c6adab0d0c
-9212	9815	7563101909763054	gtest/tests[1]_tests.cmake	cbd637c6adab0d0c
-9212	9815	7563101909763054	C:/Users/k0sha/Desktop/lab1adaw/build/gtest/tests[1]_tests.cmake	cbd637c6adab0d0c
+17	2992	7584263783266964	CMakeFiles/lab3.dir/main.cpp.obj	a8b22438634e1917
+2993	3345	7584263813015663	lab3.exe	78261f24466c00a
+4	471	7584281638112628	CMakeFiles/lab3.dir/main.cpp.obj	a8b22438634e1917
+479	610	7584281642870312	lab3.exe	78261f24466c00a

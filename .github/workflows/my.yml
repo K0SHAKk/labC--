@@ -47,7 +47,7 @@ jobs:
           cmake --build . --config Debug
           cmake --build . --target package --config Debug
       - name: Upload Debug Asset
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: debug-deb
           path: ./your-project-name-Debug.deb # Путь к Debug DEB-архиву

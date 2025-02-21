@@ -1,8 +1,8 @@
 [
 {
   "directory": "C:/Users/k0sha/Desktop/lab1adaw/build",
-  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -g -std=gnu++17 -o CMakeFiles\\lab3.dir\\main.cpp.obj -c C:\\Users\\k0sha\\Desktop\\lab1adaw\\main.cpp",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -g -std=gnu++17 -o CMakeFiles\\lab4.dir\\main.cpp.obj -c C:\\Users\\k0sha\\Desktop\\lab1adaw\\main.cpp",
   "file": "C:\\Users\\k0sha\\Desktop\\lab1adaw\\main.cpp",
-  "output": "CMakeFiles\\lab3.dir\\main.cpp.obj"
+  "output": "CMakeFiles\\lab4.dir\\main.cpp.obj"
 }
 ]

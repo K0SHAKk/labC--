@@ -37,7 +37,7 @@ jobs:
         # Проверьте опции и настройки в CMakeLists.txt
       
       - name: Upload Release Asset
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: release-zip
           path: ./your-project-name-Release.zip # Путь к Release ZIP-архиву

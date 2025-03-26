@@ -1,13 +1,8 @@
-
 name: 'C++ CI'
 
 on:
   push:
     branches:
-      - main
-      - lab-2
-      - lab-3
-      - lab-4
       - lab-5
       - feature/github_actions
   release:
@@ -20,10 +15,16 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: true
+
+      # Устанавливаем зависимости, включая SFML
       - name: Install Dependencies
         run: |
             sudo apt-get update
-            sudo apt-get install -y build-essential cmake libgtest-dev
+            sudo apt-get install -y build-essential cmake libsfml-dev
+            # Проверка версии SFML (опционально)
+            dpkg -s libsfml-dev | grep Version
+
+      # Строим проект
       - name: Build Project
         run: |
             rm -rf build
@@ -31,83 +32,101 @@ jobs:
             cd build
             cmake .. -DCMAKE_BUILD_TYPE=Release
             cmake --build . --config Release
+
+      # Запускаем тесты
       - name: Run Tests
         run: |
             cd build
-            ctest -V # Добавлен -V для verbose output
-        # Проверьте опции и настройки в CMakeLists.txt
-      
-      - name: Upload Release Asset
-        uses: actions/upload-artifact@v4
-        with:
-          name: release-zip
-          path: ./your-project-name-Release.zip # Путь к Release ZIP-архиву
+            ctest -V
+
+      # Сборка Debug и создание пакета
       - name: Build Debug
         run: |
-          cmake . -DPATCH_VERSION=${{ github.run_number }} -DCMAKE_BUILD_TYPE=Debug
+          rm -rf build
+          mkdir build
+          cd build
+          cmake .. -DPATCH_VERSION=${{ github.run_number }} -DCMAKE_BUILD_TYPE=Debug
           cmake --build . --config Debug
           cmake --build . --target package --config Debug
-      - name: Upload Debug Asset
-        uses: actions/upload-artifact@v4
-        with:
-          name: debug-deb
-          path: ./your-project-name-Debug.deb # Путь к Debug DEB-архиву
+
+      # Создание релиза
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.run_number }}-Linux2
-          release_name: Release ${{ github.run_number }} for linux2
+          tag_name: ${{ github.run_number }}-Linux
+          release_name: Release ${{ github.run_number }} (Linux)
           draft: false
-          prerelease: false 
+          prerelease: false
+
+      # Загрузка DEB-пакета
       - name: Upload Release Asset
-        id: upload-release-asset
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./lab4-0.0.${{ github.run_number }}-Linux.deb
-          asset_name: lab4-0.0.${{ github.run_number }}-Linux.deb
+          asset_path: ./build/physics-0.0.${{ github.run_number }}-Linux.deb
+          asset_name: physics-0.0.${{ github.run_number }}-Linux.deb
           asset_content_type: application/vnd.debian.binary-package
 
   build_macos:
     runs-on: macos-latest
     permissions: write-all
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4  # Обновлено до v4
         with:
           submodules: true
 
-  # Конфигурируем проект с помощью CMake, используя номер запуска для PATCH_VERSION 
-      - run: cmake . -DPATCH_VERSION=${{ github.run_number }}  
-  # Строим проект с помощью CMake
-      - run: cmake --build .
-  # Запускаем тесты
-      - run: cmake --build . --target test
-  # Создаем пакет
-      - run: cmake --build . --target package
-  # Создаем релиз для MacOS
-      - name: Create Release (MacOS)
+      # Установка SFML через Homebrew
+      - name: Install SFML
+        run: |
+          brew update
+          brew install sfml
+          brew info sfml  # Проверка информации
+
+      # Сборка проекта
+      - name: Build Project
+        run: |
+          rm -rf build
+          mkdir build
+          cd build
+          cmake .. -DCMAKE_PREFIX_PATH=$(brew --prefix sfml) -DPATCH_VERSION=${{ github.run_number }} -DCMAKE_BUILD_TYPE=Release
+          cmake --build . --config Release
+
+      # Запуск тестов
+      - name: Run Tests
+        run: |
+          cd build
+          ctest -V
+
+      # Создание пакета
+      - name: Create Package
+        run: |
+          cd build
+          cmake --build . --target package
+
+      # Создание релиза для macOS
+      - name: Create Release
         id: create_release_macos
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.run_number }} # Используем номер запуска для тега
-          release_name: Release ${{ github.run_number }} (MacOS)
-          draft: false # Не публикуем релиз в черновике
-          prerelease: false # Не публикуем как предварительную версию
-  # Загружаем релизный ассет для MacOS
-      - name: Upload Release Asset (MacOS)
-        id: upload-release-asset-macos
+          tag_name: ${{ github.run_number }}-macOS
+          release_name: Release ${{ github.run_number }} (macOS)
+          draft: false
+          prerelease: false
+
+      # Загрузка ZIP-архива
+      - name: Upload Release Asset
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release_macos.outputs.upload_url }}
-          asset_path: ./lab4-0.0.${{ github.run_number }}-Darwin.zip
-          asset_name: lab4-0.0.${{ github.run_number }}-Darwin.zip
+          asset_path: ./build/physics-0.0.${{ github.run_number }}-Darwin.zip
+          asset_name: physics-0.0.${{ github.run_number }}-Darwin.zip
           asset_content_type: application/zip

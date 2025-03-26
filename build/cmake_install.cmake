@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/PiroZHoCheck_2.0/Desktop/Fall_Semester_programing
+# Install script for directory: C:/Users/k0sha/Desktop/lab1adaw
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -37,6 +37,18 @@ if(NOT DEFINED CMAKE_OBJDUMP)
   set(CMAKE_OBJDUMP "C:/msys64/mingw64/bin/objdump.exe")
 endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for each subdirectory.
+  include("C:/Users/k0sha/Desktop/lab1adaw/build/_deps/sfml-build/cmake_install.cmake")
+
+endif()
+
+string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
+       "${CMAKE_INSTALL_MANIFEST_FILES}")
+if(CMAKE_INSTALL_LOCAL_ONLY)
+  file(WRITE "C:/Users/k0sha/Desktop/lab1adaw/build/install_local_manifest.txt"
+     "${CMAKE_INSTALL_MANIFEST_CONTENT}")
+endif()
 if(CMAKE_INSTALL_COMPONENT)
   if(CMAKE_INSTALL_COMPONENT MATCHES "^[a-zA-Z0-9_.+-]+$")
     set(CMAKE_INSTALL_MANIFEST "install_manifest_${CMAKE_INSTALL_COMPONENT}.txt")
@@ -50,8 +62,6 @@ else()
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
-       "${CMAKE_INSTALL_MANIFEST_FILES}")
-  file(WRITE "C:/Users/PiroZHoCheck_2.0/Desktop/Fall_Semester_programing/build/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "C:/Users/k0sha/Desktop/lab1adaw/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

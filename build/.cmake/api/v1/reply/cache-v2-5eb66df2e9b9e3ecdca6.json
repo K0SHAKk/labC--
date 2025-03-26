@@ -2,6 +2,18 @@
 	"entries" : 
 	[
 		{
+			"name" : "BUILD_SHARED_LIBS",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "TRUE to build SFML as shared libraries, FALSE to build it as static libraries"
+				}
+			],
+			"type" : "BOOL",
+			"value" : "OFF"
+		},
+		{
 			"name" : "CMAKE_ADDR2LINE",
 			"properties" : 
 			[
@@ -39,7 +51,7 @@
 			[
 				{
 					"name" : "HELPSTRING",
-					"value" : "No help, variable specified on the command line."
+					"value" : "Choose the type of build (Debug or Release)"
 				}
 			],
 			"type" : "STRING",
@@ -55,7 +67,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/PiroZHoCheck_2.0/Desktop/Fall_Semester_programing/build"
+			"value" : "c:/Users/k0sha/Desktop/lab1adaw/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -79,7 +91,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "30"
+			"value" : "31"
 		},
 		{
 			"name" : "CMAKE_CACHE_PATCH_VERSION",
@@ -91,7 +103,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "1"
+			"value" : "4"
 		},
 		{
 			"name" : "CMAKE_COMMAND",
@@ -526,6 +538,22 @@
 			"value" : ""
 		},
 		{
+			"name" : "CMAKE_EXPORT_BUILD_DATABASE",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Enable/Disable output of build database during the build."
+				}
+			],
+			"type" : "BOOL",
+			"value" : ""
+		},
+		{
 			"name" : "CMAKE_EXPORT_COMPILE_COMMANDS",
 			"properties" : 
 			[
@@ -559,7 +587,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/PiroZHoCheck_2.0/Desktop/Fall_Semester_programing/build/CMakeFiles/pkgRedirects"
+			"value" : "C:/Users/k0sha/Desktop/lab1adaw/build/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -631,7 +659,199 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/PiroZHoCheck_2.0/Desktop/Fall_Semester_programing"
+			"value" : "C:/Users/k0sha/Desktop/lab1adaw"
+		},
+		{
+			"name" : "CMAKE_INSTALL_BINDIR",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "User executables (bin)"
+				}
+			],
+			"type" : "PATH",
+			"value" : "bin"
+		},
+		{
+			"name" : "CMAKE_INSTALL_DATADIR",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Read-only architecture-independent data (DATAROOTDIR)"
+				}
+			],
+			"type" : "PATH",
+			"value" : ""
+		},
+		{
+			"name" : "CMAKE_INSTALL_DATAROOTDIR",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Read-only architecture-independent data root (share)"
+				}
+			],
+			"type" : "PATH",
+			"value" : "share"
+		},
+		{
+			"name" : "CMAKE_INSTALL_DOCDIR",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Documentation root (DATAROOTDIR/doc/PROJECT_NAME)"
+				}
+			],
+			"type" : "PATH",
+			"value" : ""
+		},
+		{
+			"name" : "CMAKE_INSTALL_INCLUDEDIR",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "C header files (include)"
+				}
+			],
+			"type" : "PATH",
+			"value" : "include"
+		},
+		{
+			"name" : "CMAKE_INSTALL_INFODIR",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Info documentation (DATAROOTDIR/info)"
+				}
+			],
+			"type" : "PATH",
+			"value" : ""
+		},
+		{
+			"name" : "CMAKE_INSTALL_LIBDIR",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Object code libraries (lib)"
+				}
+			],
+			"type" : "PATH",
+			"value" : "lib"
+		},
+		{
+			"name" : "CMAKE_INSTALL_LIBEXECDIR",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Program executables (libexec)"
+				}
+			],
+			"type" : "PATH",
+			"value" : "libexec"
+		},
+		{
+			"name" : "CMAKE_INSTALL_LOCALEDIR",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Locale-dependent data (DATAROOTDIR/locale)"
+				}
+			],
+			"type" : "PATH",
+			"value" : ""
+		},
+		{
+			"name" : "CMAKE_INSTALL_LOCALSTATEDIR",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Modifiable single-machine data (var)"
+				}
+			],
+			"type" : "PATH",
+			"value" : "var"
+		},
+		{
+			"name" : "CMAKE_INSTALL_MANDIR",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Man documentation (DATAROOTDIR/man)"
+				}
+			],
+			"type" : "PATH",
+			"value" : ""
+		},
+		{
+			"name" : "CMAKE_INSTALL_OLDINCLUDEDIR",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "C header files for non-gcc (/usr/include)"
+				}
+			],
+			"type" : "PATH",
+			"value" : "/usr/include"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -644,6 +864,70 @@
 			],
 			"type" : "PATH",
 			"value" : "C:/Program Files (x86)/physics"
+		},
+		{
+			"name" : "CMAKE_INSTALL_RUNSTATEDIR",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Run-time variable data (LOCALSTATEDIR/run)"
+				}
+			],
+			"type" : "PATH",
+			"value" : ""
+		},
+		{
+			"name" : "CMAKE_INSTALL_SBINDIR",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "System admin executables (sbin)"
+				}
+			],
+			"type" : "PATH",
+			"value" : "sbin"
+		},
+		{
+			"name" : "CMAKE_INSTALL_SHAREDSTATEDIR",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Modifiable architecture-independent data (com)"
+				}
+			],
+			"type" : "PATH",
+			"value" : "com"
+		},
+		{
+			"name" : "CMAKE_INSTALL_SYSCONFDIR",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Read-only single-machine data (etc)"
+				}
+			],
+			"type" : "PATH",
+			"value" : "etc"
 		},
 		{
 			"name" : "CMAKE_LINKER",
@@ -783,7 +1067,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "1"
+			"value" : "7"
 		},
 		{
 			"name" : "CMAKE_OBJCOPY",
@@ -816,6 +1100,18 @@
 			],
 			"type" : "FILEPATH",
 			"value" : "C:/msys64/mingw64/bin/objdump.exe"
+		},
+		{
+			"name" : "CMAKE_OSX_DEPLOYMENT_TARGET",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "The minimal iOS version that will be able to run the built binaries. Cannot be lower than 13.0"
+				}
+			],
+			"type" : "STRING",
+			"value" : "13.0"
 		},
 		{
 			"name" : "CMAKE_PLATFORM_INFO_INITIALIZED",
@@ -1462,6 +1758,246 @@
 			"value" : "ON"
 		},
 		{
+			"name" : "DINPUT_H_FOUND",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Have include dinput.h"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "1"
+		},
+		{
+			"name" : "FETCHCONTENT_BASE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Directory under which to collect all populated content"
+				}
+			],
+			"type" : "PATH",
+			"value" : "C:/Users/k0sha/Desktop/lab1adaw/build/_deps"
+		},
+		{
+			"name" : "FETCHCONTENT_FULLY_DISCONNECTED",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Disables all attempts to download or update content and assumes source dirs already exist"
+				}
+			],
+			"type" : "BOOL",
+			"value" : "OFF"
+		},
+		{
+			"name" : "FETCHCONTENT_QUIET",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Enables QUIET option for all content population"
+				}
+			],
+			"type" : "BOOL",
+			"value" : "ON"
+		},
+		{
+			"name" : "FETCHCONTENT_SOURCE_DIR_SFML",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "When not empty, overrides where to find pre-populated content for SFML"
+				}
+			],
+			"type" : "PATH",
+			"value" : ""
+		},
+		{
+			"name" : "FETCHCONTENT_UPDATES_DISCONNECTED",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Enables UPDATE_DISCONNECTED behavior for all content population"
+				}
+			],
+			"type" : "BOOL",
+			"value" : "OFF"
+		},
+		{
+			"name" : "FETCHCONTENT_UPDATES_DISCONNECTED_SFML",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Enables UPDATE_DISCONNECTED behavior just for population of SFML"
+				}
+			],
+			"type" : "BOOL",
+			"value" : "OFF"
+		},
+		{
+			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_OpenGL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Details about finding OpenGL"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "[opengl32][c ][v()]"
+		},
+		{
+			"name" : "FREETYPE_INCLUDE_DIR_freetype2",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a file."
+				}
+			],
+			"type" : "PATH",
+			"value" : "C:/msys64/mingw64/include/freetype2"
+		},
+		{
+			"name" : "FREETYPE_INCLUDE_DIR_ft2build",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a file."
+				}
+			],
+			"type" : "PATH",
+			"value" : "C:/Users/k0sha/Desktop/lab1adaw/build/_deps/sfml-src/extlibs/headers/freetype2"
+		},
+		{
+			"name" : "FREETYPE_LIBRARY",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a library."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "C:/Users/k0sha/Desktop/lab1adaw/build/_deps/sfml-src/extlibs/libs-mingw/x64/libfreetype.a"
+		},
+		{
+			"name" : "GIT_EXECUTABLE",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Git command line client"
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "C:/Program Files/Git/cmd/git.exe"
+		},
+		{
+			"name" : "HAVE_SIZEOF_VOID_PTR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Result of TRY_COMPILE"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "TRUE"
+		},
+		{
+			"name" : "HAVE_STDDEF_H",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Have include stddef.h"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "1"
+		},
+		{
+			"name" : "HAVE_STDINT_H",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Have include stdint.h"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "1"
+		},
+		{
+			"name" : "HAVE_SYS_TYPES_H",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Have include sys/types.h"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "1"
+		},
+		{
+			"name" : "OPENGL_gl_LIBRARY",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "OpenGL library for win32"
+				}
+			],
+			"type" : "STRING",
+			"value" : "opengl32"
+		},
+		{
+			"name" : "OPENGL_glu_LIBRARY",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "GLU library for win32"
+				}
+			],
+			"type" : "STRING",
+			"value" : "glu32"
+		},
+		{
 			"name" : "PATCH_VERSION",
 			"properties" : 
 			[
@@ -1474,6 +2010,102 @@
 			"value" : "1"
 		},
 		{
+			"name" : "SFML_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "C:/Users/k0sha/Desktop/lab1adaw/build/_deps/sfml-build"
+		},
+		{
+			"name" : "SFML_BUILD_AUDIO",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "TRUE to build SFML's Audio module."
+				}
+			],
+			"type" : "BOOL",
+			"value" : "OFF"
+		},
+		{
+			"name" : "SFML_BUILD_DOC",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "TRUE to generate the API documentation, FALSE to ignore it"
+				}
+			],
+			"type" : "BOOL",
+			"value" : "FALSE"
+		},
+		{
+			"name" : "SFML_BUILD_EXAMPLES",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "TRUE to build the SFML examples, FALSE to ignore them"
+				}
+			],
+			"type" : "BOOL",
+			"value" : "FALSE"
+		},
+		{
+			"name" : "SFML_BUILD_GRAPHICS",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "TRUE to build SFML's Graphics module."
+				}
+			],
+			"type" : "BOOL",
+			"value" : "TRUE"
+		},
+		{
+			"name" : "SFML_BUILD_NETWORK",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "TRUE to build SFML's Network module."
+				}
+			],
+			"type" : "BOOL",
+			"value" : "OFF"
+		},
+		{
+			"name" : "SFML_BUILD_TEST_SUITE",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "TRUE to build the SFML test suite, FALSE to ignore it"
+				}
+			],
+			"type" : "BOOL",
+			"value" : "FALSE"
+		},
+		{
+			"name" : "SFML_BUILD_WINDOW",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "TRUE to build SFML's Window module. This setting is ignored, if the graphics module is built."
+				}
+			],
+			"type" : "BOOL",
+			"value" : "TRUE"
+		},
+		{
 			"name" : "SFML_DIR",
 			"properties" : 
 			[
@@ -1483,19 +2115,127 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "C:/SFML/SFML-2.6.2/lib/cmake/SFML"
+			"value" : "SFML_DIR-NOTFOUND"
 		},
 		{
-			"name" : "SFML_DOC_DIR",
+			"name" : "SFML_INSTALL_PKGCONFIG_FILES",
 			"properties" : 
 			[
 				{
 					"name" : "HELPSTRING",
-					"value" : "Path to a file."
+					"value" : "TRUE to automatically install pkg-config files so other projects can find SFML"
 				}
 			],
-			"type" : "PATH",
-			"value" : "SFML_DOC_DIR-NOTFOUND"
+			"type" : "BOOL",
+			"value" : "FALSE"
+		},
+		{
+			"name" : "SFML_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "OFF"
+		},
+		{
+			"name" : "SFML_OPENGL_ES",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "TRUE to use an OpenGL ES implementation, FALSE to use a desktop OpenGL implementation"
+				}
+			],
+			"type" : "BOOL",
+			"value" : "0"
+		},
+		{
+			"name" : "SFML_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "C:/Users/k0sha/Desktop/lab1adaw/build/_deps/sfml-src"
+		},
+		{
+			"name" : "SFML_USE_STATIC_STD_LIBS",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "TRUE to statically link to the standard libraries, FALSE to use them as DLLs"
+				}
+			],
+			"type" : "BOOL",
+			"value" : "FALSE"
+		},
+		{
+			"name" : "SFML_USE_SYSTEM_DEPS",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "TRUE to use system dependencies, FALSE to use the bundled ones."
+				}
+			],
+			"type" : "BOOL",
+			"value" : "FALSE"
+		},
+		{
+			"name" : "SIZEOF_VOID_PTR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "CHECK_TYPE_SIZE: sizeof(void*)"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "8"
+		},
+		{
+			"name" : "WARNINGS_AS_ERRORS",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Treat compiler warnings as errors"
+				}
+			],
+			"type" : "BOOL",
+			"value" : "FALSE"
+		},
+		{
+			"name" : "_CMAKE_CXX_LINKER_PUSHPOP_STATE_SUPPORTED",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "linker supports push/pop state"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "TRUE"
+		},
+		{
+			"name" : "_CMAKE_C_LINKER_PUSHPOP_STATE_SUPPORTED",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "linker supports push/pop state"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "TRUE"
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",
@@ -1510,6 +2250,18 @@
 			"value" : "TRUE"
 		},
 		{
+			"name" : "_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "CMAKE_INSTALL_PREFIX during last run"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "C:/Program Files (x86)/physics"
+		},
+		{
 			"name" : "physics_BINARY_DIR",
 			"properties" : 
 			[
@@ -1519,7 +2271,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/PiroZHoCheck_2.0/Desktop/Fall_Semester_programing/build"
+			"value" : "C:/Users/k0sha/Desktop/lab1adaw/build"
 		},
 		{
 			"name" : "physics_IS_TOP_LEVEL",
@@ -1543,7 +2295,43 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/PiroZHoCheck_2.0/Desktop/Fall_Semester_programing"
+			"value" : "C:/Users/k0sha/Desktop/lab1adaw"
+		},
+		{
+			"name" : "sfml-graphics_LIB_DEPENDS",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Dependencies for the target"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "general;sfml-window;"
+		},
+		{
+			"name" : "sfml-system_LIB_DEPENDS",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Dependencies for the target"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "general;winmm;"
+		},
+		{
+			"name" : "sfml-window_LIB_DEPENDS",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Dependencies for the target"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "general;sfml-system;general;winmm;general;gdi32;"
 		}
 	],
 	"kind" : "cache",

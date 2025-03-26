@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20250326-2026-Experimental"
+	Name="(empty)"
+	Generator="ctest-3.31.4"
+	CompilerName=""
+	CompilerVersion=""
+	OSName="Windows"
+	Hostname="DESKTOP-SM4A7PO"
+	OSRelease=" Personal"
+	OSVersion=" (Build 19045)"
+	OSPlatform="AMD64"
+	Is64Bits="1"
+	VendorString=""
+	VendorID="Unknown Manufacturer"
+	FamilyID="0"
+	ModelID="0"
+	ModelName=""
+	ProcessorCacheSize="0"
+	NumberOfLogicalCPU="12"
+	NumberOfPhysicalCPU="6"
+	TotalVirtualMemory="30023"
+	TotalPhysicalMemory="15755"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="2096"
+	>
+	<Testing>
+		<StartDateTime>Mar 27 03:28 [NON-UTF-8-BYTE-0xD2][NON-UTF-8-BYTE-0xEE][NON-UTF-8-BYTE-0xEC][NON-UTF-8-BYTE-0xF1][NON-UTF-8-BYTE-0xEA] ([NON-UTF-8-BYTE-0xE7][NON-UTF-8-BYTE-0xE8][NON-UTF-8-BYTE-0xEC][NON-UTF-8-BYTE-0xE0])</StartDateTime>
+		<StartTestTime>1743020897</StartTestTime>
+		<TestList/>
+		<EndDateTime>Mar 27 03:28 [NON-UTF-8-BYTE-0xD2][NON-UTF-8-BYTE-0xEE][NON-UTF-8-BYTE-0xEC][NON-UTF-8-BYTE-0xF1][NON-UTF-8-BYTE-0xEA] ([NON-UTF-8-BYTE-0xE7][NON-UTF-8-BYTE-0xE8][NON-UTF-8-BYTE-0xEC][NON-UTF-8-BYTE-0xE0])</EndDateTime>
+		<EndTestTime>1743020897</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>

@@ -1,4 +1,4 @@
-name: Build and Package for Linux and macOS
+name: C++ Build for Linux and macOS
 
 on:
   push:
@@ -8,45 +8,54 @@ on:
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Install Linux dependencies
+    - name: Install dependencies (Linux)
       if: matrix.os == 'ubuntu-latest'
       run: |
         sudo apt-get update
-        sudo apt-get install -y build-essential \
-          libgl1-mesa-dev libx11-dev libxrandr-dev \
-          libfreetype6-dev libglew-dev libopenal-dev \
-          libsndfile1-dev libudev-dev
+        sudo apt-get install -y cmake g++ libgtk-3-dev libsfml-dev
 
-    - name: Install macOS dependencies
+    - name: Install dependencies (macOS)
       if: matrix.os == 'macos-latest'
       run: |
         brew update
-        brew install freetype glew openal-soft libsndfile
+        brew install cmake sfml
 
     - name: Configure CMake
-      run: cmake -B build -DCMAKE_BUILD_TYPE=Release
+      run: |
+        cmake -B build
 
     - name: Build project
-      run: cmake --build build --config Release --parallel 4
+      run: |
+        cmake --build build --config Release
 
     - name: Run tests
-      run: ctest --test-dir build --output-on-failure
+      run: |
+        cd build
+        ctest --verbose
 
-    - name: Create package
-      run: cmake --build build --target package
+    - name: Package application (Linux)
+      if: matrix.os == 'ubuntu-latest'
+      run: |
+        cmake --install build --prefix package
+        cpack -G DEB --config build/CPackConfig.cmake
 
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
+    - name: Package application (macOS)
+      if: matrix.os == 'macos-latest'
+      run: |
+        cmake --install build --prefix package
+        cpack -G ZIP --config build/CPackConfig.cmake
+
+    - name: Upload Package
+      uses: actions/upload-artifact@v4
       with:
-        name: packages-${{ matrix.os }}
-        path: |
-          build/*.deb
-          build/*.zip
+        name: physics-${{ matrix.os }}
+        path: build/*.deb build/*.zip

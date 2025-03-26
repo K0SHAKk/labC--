@@ -1,4 +1,4 @@
-name: C++ Build
+name: Build and Package for Linux and macOS
 
 on:
   push:
@@ -8,39 +8,45 @@ on:
 
 jobs:
   build:
-    name: Build on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest]
-        
     steps:
-    - name: Checkout code
+    - name: Checkout repository
       uses: actions/checkout@v4
 
     - name: Install Linux dependencies
       if: matrix.os == 'ubuntu-latest'
       run: |
         sudo apt-get update
-        sudo apt-get install -y build-essential cmake
+        sudo apt-get install -y build-essential \
+          libgl1-mesa-dev libx11-dev libxrandr-dev \
+          libfreetype6-dev libglew-dev libopenal-dev \
+          libsndfile1-dev libudev-dev
 
     - name: Install macOS dependencies
       if: matrix.os == 'macos-latest'
       run: |
         brew update
-        brew install cmake
-
-    - name: Create build directory
-      run: mkdir -p build
+        brew install freetype glew openal-soft libsndfile
 
     - name: Configure CMake
-      working-directory: ./build
-      run: cmake .. -DCMAKE_BUILD_TYPE=Release
+      run: cmake -B build -DCMAKE_BUILD_TYPE=Release
 
     - name: Build project
-      working-directory: ./build
-      run: cmake --build . --config Release --parallel 4
+      run: cmake --build build --config Release --parallel 4
 
-    - name: Run tests (optional)
-      working-directory: ./build
-      run: ctest --output-on-failure
+    - name: Run tests
+      run: ctest --test-dir build --output-on-failure
+
+    - name: Create package
+      run: cmake --build build --target package
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: packages-${{ matrix.os }}
+        path: |
+          build/*.deb
+          build/*.zip

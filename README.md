@@ -43,22 +43,23 @@ ctest --test-dir build -C Release --output-on-failure
 обработку поврежденных файлов, дробные интервалы времени и совпавшие центры.
 Для тестов без графических зависимостей: добавьте -DBUILD_GRAPHICS=OFF.
 
-.github/workflows/build.yml собирает Debug и Release на Ubuntu 24.04 и
-macOS 15 Intel. Workflow запускается при push и
-pull request в main, lab-2, lab-3, lab-4, lab-5, feature/github_actions,
-при публикации релиза и вручную через Actions.
+.github/workflows/build.yml сохраняет схему релизов исходного YAML.
+В Linux сначала собирается и тестируется Release, затем создается Debug DEB.
+В macOS собирается и тестируется Release, затем создается ZIP.
+Каждая платформа публикует свой релиз; N — номер запуска Actions:
 
-Каждая из четырех сборок выполняет 10 тестов CTest и создает готовые пакеты:
-Linux — DEB и TAR.GZ, macOS — ZIP. Версия имеет вид 1.0.N,
-где N — номер запуска Actions; имена файлов включают систему, архитектуру
-и конфигурацию, например physics-lab5-1.0.42-Linux-x86_64-Debug.deb.
-Для локальной сборки номер можно задать через -DPATCH_VERSION=42.
+- Linux: тег N-Linux2, название Release N for linux2, один файл lab4-0.0.N-Linux.deb.
+- macOS: тег N, название Release N (MacOS), один файл lab4-0.0.N-Darwin.zip.
 
-Пакеты доступны в артефактах Actions. После успешного завершения всех сборок
-push и ручной запуск также создают релиз lab5-build-N на собранном коммите.
-При событии release файлы добавляются в опубликованный релиз. Для публикации
-используется встроенный GITHUB_TOKEN с разрешением contents: write; отдельный
-секрет не нужен. Проверки pull request сохраняют только артефакты.
+Имена вложений с lab4 сохранены из исходного YAML. Внутри находится текущая
+программа лабораторной работы 5. Оба релиза обычные, не черновые и не prerelease.
+Дополнительные ZIP, TAR.GZ и отдельные релизы Debug/Release не публикуются.
+
+Workflow запускается при push и pull request в main, lab-2, lab-3, lab-4,
+lab-5, feature/github_actions, при публикации релиза и вручную через Actions.
+При pull request сохраняются только артефакты. Для публикации используется
+встроенный GITHUB_TOKEN с разрешением contents: write; отдельный секрет не нужен.
+Для локальной сборки номер версии можно задать через -DPATCH_VERSION=42.
 
 Локальное создание пакетов после сборки:
 
@@ -66,7 +67,7 @@ push и ручной запуск также создают релиз lab5-buil
 cpack --config build/CPackConfig.cmake -C Release -B build/packages
 ```
 
-В ZIP и TAR.GZ приложение и каталог data находятся рядом. Пакет DEB
+В ZIP приложение и каталог data находятся рядом. Пакет DEB
 устанавливает их в /opt/physics-lab5; пример запуска после установки:
 
 ```sh

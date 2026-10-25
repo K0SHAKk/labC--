@@ -43,11 +43,35 @@ ctest --test-dir build -C Release --output-on-failure
 обработку поврежденных файлов, дробные интервалы времени и совпавшие центры.
 Для тестов без графических зависимостей: добавьте -DBUILD_GRAPHICS=OFF.
 
-.github/workflows/build.yml запускает сборку, CTest и CPack на каждом push
-и pull request для Ubuntu 24.04 и Windows Server 2022. Архивы сохраняются
-как артефакты Actions. Запуск этого workflow для новой версии требует
-загрузки измененных файлов в репозиторий; локальная проверка выполнена в Windows.
-Автоматическая публикация релиза для задания не требуется.
+.github/workflows/build.yml собирает Debug и Release на Ubuntu 24.04,
+macOS 15 Intel и Windows Server 2022. Workflow запускается при push и
+pull request в main, lab-2, lab-3, lab-4, lab-5, feature/github_actions,
+при публикации релиза и вручную через Actions.
+
+Каждая из шести сборок выполняет 10 тестов CTest и создает готовые пакеты:
+Linux — DEB и TAR.GZ, macOS и Windows — ZIP. Версия имеет вид 1.0.N,
+где N — номер запуска Actions; имена файлов включают систему, архитектуру
+и конфигурацию, например physics-lab5-1.0.42-Linux-x86_64-Debug.deb.
+Для локальной сборки номер можно задать через -DPATCH_VERSION=42.
+
+Пакеты доступны в артефактах Actions. После успешного завершения всех сборок
+push и ручной запуск также создают релиз lab5-build-N на собранном коммите.
+При событии release файлы добавляются в опубликованный релиз. Для публикации
+используется встроенный GITHUB_TOKEN с разрешением contents: write; отдельный
+секрет не нужен. Проверки pull request сохраняют только артефакты.
+
+Локальное создание пакетов после сборки:
+
+```sh
+cpack --config build/CPackConfig.cmake -C Release -B build/packages
+```
+
+В ZIP и TAR.GZ приложение и каталог data находятся рядом. Пакет DEB
+устанавливает их в /opt/physics-lab5; пример запуска после установки:
+
+```sh
+/opt/physics-lab5/physics /opt/physics-lab5/data/smile.txt
+```
 
 Алгоритм изменения скоростей в Physics сохранен из учебного примера:
 исходные модели согласованы с ним. Это учебная модель, а не универсальный

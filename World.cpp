@@ -1,100 +1,57 @@
 #include "World.h"
 #include "Painter.h"
+#include <algorithm>
+#include <cmath>
 #include <fstream>
-#include "algorithm"
+#include <sstream>
+#include <stdexcept>
 
-// Длительность одного тика симуляции.
-// Подробнее см. update()
-// Изменять не следует
-static constexpr double timePerTick = 0.001;
-
-
-/// @brief читает коодринаты точки
-/// @param stream 
-/// @return 
-Point readPoint(std::istream& stream)
-{
-    double x, y;
-    stream >> x >> y;
-    return Point(x, y);
-}
-
-/// @brief читает цвет
-/// @param stream 
-/// @return 
-Color readColor(std::istream& stream)
-{
-    double r, g, b;
-    stream >> r >> g >> b;
-    return Color(r, g, b);
-}
-
-
-/**
- * Конструирует объект мира для симуляции
- * @param worldFilePath путь к файлу модели мира
- */
+namespace { constexpr double timePerTick = 0.001; }
 World::World(const std::string& worldFilePath) {
     std::ifstream stream(worldFilePath);
-    topLeft = readPoint(stream);
-    bottomRight = readPoint(stream);
+    if (!stream) { throw std::runtime_error("Cannot open model: " + worldFilePath); }
+    std::string line;
+    if (!std::getline(stream, line)) { throw std::runtime_error("Empty model"); }
+    std::istringstream header(line);
+    if (!(header >> topLeft >> bottomRight) ||
+        !(header >> std::ws).eof() || topLeft.x >= bottomRight.x ||
+        topLeft.y >= bottomRight.y) {
+        throw std::runtime_error("Invalid world bounds on line 1");
+    }
     physics.setWorldBox(topLeft, bottomRight);
-
-    double radius;
-    bool isCollidable;
-
-    // Здесь не хватает обработки ошибок, но на текущем
-    // уровне прохождения курса нас это устраивает
-    while (stream.peek(), stream.good()) {
-        Point center = readPoint(stream);
-        Point vectorV = readPoint(stream);
-        Velocity velocity(vectorV);
-        
-        // Читаем три составляющие цвета шара
-        Color color = readColor(stream);
-        // Читаем радиус шара
-        stream >> radius;
-        stream >> std::boolalpha >> isCollidable;
-        Ball ball(velocity, center,  radius, color, isCollidable);
-        balls.push_back(ball);
-    }
-}
-
-/// @brief Отображает состояние мира
-void World::show(Painter& painter) const {
-    // Рисуем белый прямоугольник, отображающий границу
-    // мира
-    painter.draw(topLeft, bottomRight, Color(1, 1, 1));
-
-    // Вызываем отрисовку каждого шара
-    for (const Ball& ball : balls) {
-        ball.draw(painter);
-    }
-    for (const Dust& dust : dusts) {
-        if(dust.ifAlive()){ 
-            dust.draw(painter); 
-            
+    std::size_t lineNumber = 1;
+    while (std::getline(stream, line)) {
+        ++lineNumber;
+        std::istringstream row(line);
+        row >> std::ws;
+        if (row.eof()) { continue; }
+        Point center;
+        Velocity velocity;
+        Color color;
+        double radius;
+        bool isCollidable;
+        if (!(row >> center >> velocity >> color >> radius >> std::boolalpha >> isCollidable) ||
+            !(row >> std::ws).eof() || !std::isfinite(radius) || radius <= 0. ||
+            (isCollidable && (2. * radius >= bottomRight.x - topLeft.x ||
+                              2. * radius >= bottomRight.y - topLeft.y))) {
+            throw std::runtime_error("Invalid ball on line " + std::to_string(lineNumber));
         }
-        
+        balls.emplace_back(velocity, center, radius, color, isCollidable);
     }
+    if (balls.empty()) { throw std::runtime_error("Model contains no balls"); }
 }
-
-/// @brief Обновляет состояние мира
+void World::show(Painter& painter) const {
+    painter.draw(topLeft, bottomRight, Color(1., 1., 1.));
+    for (const Ball& ball : balls) { ball.draw(painter); }
+    for (const Dust& dust : dusts) { dust.draw(painter); }
+}
 void World::update(double time) {
-    // учитываем остаток времени, который мы не "доработали" при прошлом update
-    time += restTime;
-    const auto ticks = static_cast<size_t>(std::floor(time / timePerTick));
-    restTime = time - double(ticks) * timePerTick;
-
-    physics.update(balls, dusts, ticks);
-
-    // Обновление времени жизни частиц
-    for (auto& dust : dusts) {
-        dust.dying(timePerTick); // передача времени для обновления частиц
+    if (!std::isfinite(time) || time < 0.) {
+        throw std::invalid_argument("Time must be finite and nonnegative");
     }
-
-    // Удаление мертвых частиц (ДО обновления физики)
-    dusts.erase(std::remove_if(dusts.begin(), dusts.end(), [](const Dust& dust) { 
-        return !dust.ifAlive(); }),
-        dusts.end());
+    time += restTime;
+    const auto ticks = static_cast<std::size_t>(std::floor((time + 1e-12) / timePerTick));
+    restTime = std::max(0., time - static_cast<double>(ticks) * timePerTick);
+    physics.update(balls, dusts, ticks);
 }
+

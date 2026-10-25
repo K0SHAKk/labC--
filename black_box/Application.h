@@ -10,6 +10,7 @@ class Application {
   public:
     Application(const char* name);
     void run(World& world);
+    static void saveSnapshot(World& world, double seconds, const std::string& path);
 
   private:
     void processEvents();
@@ -19,6 +20,6 @@ class Application {
   private:
     sf::RenderWindow window;
     View view;
-    std::chrono::system_clock::time_point time;
+    std::chrono::steady_clock::time_point time;
     double totalTime{};
 };

@@ -7,7 +7,7 @@ if(CMAKE_VERSION VERSION_LESS "3.0.0")
    message(FATAL_ERROR "CMake >= 3.0.0 required")
 endif()
 cmake_policy(PUSH)
-cmake_policy(VERSION 3.0.0...3.29)
+cmake_policy(VERSION 3.0.0...4.1)
 #----------------------------------------------------------------
 # Generated CMake target import file.
 #----------------------------------------------------------------
@@ -51,7 +51,7 @@ add_library(sfml-system STATIC IMPORTED)
 
 set_target_properties(sfml-system PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "SFML_STATIC"
-  INTERFACE_INCLUDE_DIRECTORIES "C:/Users/k0sha/Desktop/lab1adaw/build/_deps/sfml-src/include"
+  INTERFACE_INCLUDE_DIRECTORIES "C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include"
   INTERFACE_LINK_LIBRARIES "\$<LINK_ONLY:winmm>"
 )
 
@@ -60,7 +60,7 @@ add_library(sfml-main STATIC IMPORTED)
 
 set_target_properties(sfml-main PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "SFML_STATIC"
-  INTERFACE_INCLUDE_DIRECTORIES "C:/Users/k0sha/Desktop/lab1adaw/build/_deps/sfml-src/include"
+  INTERFACE_INCLUDE_DIRECTORIES "C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include"
 )
 
 # Create imported target sfml-window
@@ -68,7 +68,7 @@ add_library(sfml-window STATIC IMPORTED)
 
 set_target_properties(sfml-window PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "SFML_STATIC"
-  INTERFACE_INCLUDE_DIRECTORIES "C:/Users/k0sha/Desktop/lab1adaw/build/_deps/sfml-src/include"
+  INTERFACE_INCLUDE_DIRECTORIES "C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include"
   INTERFACE_LINK_LIBRARIES "sfml-system;\$<LINK_ONLY:OpenGL>;\$<LINK_ONLY:winmm>;\$<LINK_ONLY:gdi32>"
 )
 
@@ -84,7 +84,7 @@ add_library(sfml-graphics STATIC IMPORTED)
 
 set_target_properties(sfml-graphics PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "SFML_STATIC"
-  INTERFACE_INCLUDE_DIRECTORIES "C:/Users/k0sha/Desktop/lab1adaw/build/_deps/sfml-src/include"
+  INTERFACE_INCLUDE_DIRECTORIES "C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include"
   INTERFACE_LINK_LIBRARIES "sfml-window;\$<LINK_ONLY:Freetype>"
 )
 
@@ -92,36 +92,36 @@ set_target_properties(sfml-graphics PROPERTIES
 add_library(Freetype INTERFACE IMPORTED)
 
 set_target_properties(Freetype PROPERTIES
-  INTERFACE_INCLUDE_DIRECTORIES "C:/Users/k0sha/Desktop/lab1adaw/build/_deps/sfml-src/extlibs/headers/freetype2;C:/msys64/mingw64/include/freetype2"
-  INTERFACE_LINK_LIBRARIES "C:/Users/k0sha/Desktop/lab1adaw/build/_deps/sfml-src/extlibs/libs-mingw/x64/libfreetype.a"
+  INTERFACE_INCLUDE_DIRECTORIES "C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/freetype2;C:/msys64/mingw64/include/freetype2"
+  INTERFACE_LINK_LIBRARIES "C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/libs-mingw/x64/libfreetype.a"
 )
 
 # Import target "sfml-system" for configuration "Debug"
 set_property(TARGET sfml-system APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)
 set_target_properties(sfml-system PROPERTIES
   IMPORTED_LINK_INTERFACE_LANGUAGES_DEBUG "CXX"
-  IMPORTED_LOCATION_DEBUG "C:/Users/k0sha/Desktop/lab1adaw/build/_deps/sfml-build/lib/libsfml-system-s-d.a"
+  IMPORTED_LOCATION_DEBUG "C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-build/lib/libsfml-system-s-d.a"
   )
 
 # Import target "sfml-main" for configuration "Debug"
 set_property(TARGET sfml-main APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)
 set_target_properties(sfml-main PROPERTIES
   IMPORTED_LINK_INTERFACE_LANGUAGES_DEBUG "CXX"
-  IMPORTED_LOCATION_DEBUG "C:/Users/k0sha/Desktop/lab1adaw/build/_deps/sfml-build/lib/libsfml-main-d.a"
+  IMPORTED_LOCATION_DEBUG "C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-build/lib/libsfml-main-d.a"
   )
 
 # Import target "sfml-window" for configuration "Debug"
 set_property(TARGET sfml-window APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)
 set_target_properties(sfml-window PROPERTIES
   IMPORTED_LINK_INTERFACE_LANGUAGES_DEBUG "CXX"
-  IMPORTED_LOCATION_DEBUG "C:/Users/k0sha/Desktop/lab1adaw/build/_deps/sfml-build/lib/libsfml-window-s-d.a"
+  IMPORTED_LOCATION_DEBUG "C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-build/lib/libsfml-window-s-d.a"
   )
 
 # Import target "sfml-graphics" for configuration "Debug"
 set_property(TARGET sfml-graphics APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)
 set_target_properties(sfml-graphics PROPERTIES
   IMPORTED_LINK_INTERFACE_LANGUAGES_DEBUG "CXX"
-  IMPORTED_LOCATION_DEBUG "C:/Users/k0sha/Desktop/lab1adaw/build/_deps/sfml-build/lib/libsfml-graphics-s-d.a"
+  IMPORTED_LOCATION_DEBUG "C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-build/lib/libsfml-graphics-s-d.a"
   )
 
 # This file does not depend on other imported targets which have

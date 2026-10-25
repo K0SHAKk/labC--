@@ -2,27 +2,23 @@
 #include "Ball.hpp"
 #include "Dust.hpp"
 #include "Physics.h"
-#include <vector>
 #include <string>
-
+#include <vector>
 class Painter;
 
 class World {
   public:
-    World(const std::string& worldFilePath);
+    explicit World(const std::string& worldFilePath);
     void show(Painter& painter) const;
     void update(double time);
-
+    const std::vector<Ball>& getBalls() const { return balls; }
+    const std::vector<Dust>& getDusts() const { return dusts; }
   private:
-    // Границы мира заданы углами прямоугольника
     Point topLeft;
     Point bottomRight;
-    // Объект физического движка
     Physics physics;
-    // Контейнер с шарами
     std::vector<Ball> balls;
     std::vector<Dust> dusts;
-    // Длина отрезка времени, который не был
-    // учтен при прошлой симуляции. См. реализацию update
     double restTime = 0.;
 };
+

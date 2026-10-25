@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/k0sha/Desktop/lab1adaw
+# Install script for directory: C:/Users/k0sha/Desktop/labs_all/prog/05
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,15 +38,59 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for each subdirectory.
-  include("C:/Users/k0sha/Desktop/lab1adaw/build/_deps/sfml-build/cmake_install.cmake")
+  # Include the install script for the subdirectory.
+  include("C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-build/cmake_install.cmake")
+endif()
 
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/." TYPE EXECUTABLE FILES "C:/Users/k0sha/Desktop/labs_all/prog/05/build/physics.exe")
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/./physics.exe" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/./physics.exe")
+    if(CMAKE_INSTALL_DO_STRIP)
+      execute_process(COMMAND "C:/msys64/mingw64/bin/strip.exe" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/./physics.exe")
+    endif()
+  endif()
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  set(runtime_search_dir "C:/msys64/mingw64/bin")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+              if(POLICY CMP0207)
+                cmake_policy(SET CMP0207 NEW)
+            endif()
+            file(GET_RUNTIME_DEPENDENCIES
+                EXECUTABLES "C:/Users/k0sha/Desktop/labs_all/prog/05/build/physics.exe"
+                DIRECTORIES "${runtime_search_dir}"
+                PRE_EXCLUDE_REGEXES "api-ms-.*" "ext-ms-.*"
+                POST_EXCLUDE_REGEXES ".*[Ww][Ii][Nn][Dd][Oo][Ww][Ss][/\\\\].*"
+                RESOLVED_DEPENDENCIES_VAR deps)
+            foreach(dep IN LISTS deps)
+                file(INSTALL "${dep}" DESTINATION "${CMAKE_INSTALL_PREFIX}")
+            endforeach()
+        
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/." TYPE DIRECTORY FILES "C:/Users/k0sha/Desktop/labs_all/prog/05/data")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/." TYPE FILE FILES "C:/Users/k0sha/Desktop/labs_all/prog/05/README.md")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/." TYPE FILE FILES
+    "C:/Users/k0sha/Desktop/labs_all/prog/05/start_smile.bat"
+    "C:/Users/k0sha/Desktop/labs_all/prog/05/start_elephant.bat"
+    )
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "C:/Users/k0sha/Desktop/lab1adaw/build/install_local_manifest.txt"
+  file(WRITE "C:/Users/k0sha/Desktop/labs_all/prog/05/build/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()
 if(CMAKE_INSTALL_COMPONENT)
@@ -62,6 +106,6 @@ else()
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "C:/Users/k0sha/Desktop/lab1adaw/build/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "C:/Users/k0sha/Desktop/labs_all/prog/05/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

@@ -1,0 +1,8 @@
+/build*/
+/output/
+/.work/
+*.exe
+*.dll
+*.o
+*.a
+

@@ -1,66 +1,86 @@
-cmake_minimum_required(VERSION 3.7.2)
-set(PATCH_VERSION "1" CACHE INTERNAL "Patch version")
-set(PROJECT_VESRION 0.0.${PATCH_VERSION})
-project(physics VERSION ${PROJECT_VESRION})
-
+cmake_minimum_required(VERSION 3.16)
+project(physics VERSION 1.0.0 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
-set(CXX_STANDARD_REQUIRED ON)
-set(CPACK_PROJECT_NAME physics)
-# Пытаемся найти предустановленный SFML
-find_package(SFML COMPONENTS graphics)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+if(MSVC)
+    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+    set(SFML_USE_STATIC_STD_LIBS TRUE CACHE BOOL "" FORCE)
+endif()
+option(BUILD_GRAPHICS "Build the SFML graphical application" ON)
 
-if (SFML_FOUND)
-    message(STATUS "The SFML installed in the system will be used")
-else ()
-    # Если SFML не найден - выкачиваем и собираем из исходников
-    message(STATUS "Get SFML from the source code")
-    include(FetchContent)
-    FetchContent_Declare(SFML
+add_library(simulation STATIC Ball.cpp Dust.cpp Physics.cpp World.cpp Color.cpp)
+target_include_directories(simulation PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+if(MSVC)
+    target_compile_options(simulation PRIVATE /W4 /utf-8)
+else()
+    target_compile_options(simulation PRIVATE -Wall -Wextra -Wpedantic)
+endif()
+
+if(BUILD_GRAPHICS)
+    set(SFML_STATIC_LIBRARIES TRUE)
+    find_package(SFML 2.5 COMPONENTS graphics window system QUIET)
+    if(NOT SFML_FOUND)
+        include(FetchContent)
+        set(SFML_BUILD_AUDIO OFF CACHE BOOL "" FORCE)
+        set(SFML_BUILD_NETWORK OFF CACHE BOOL "" FORCE)
+        set(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
+        set(WARNINGS_AS_ERRORS FALSE CACHE BOOL "" FORCE)
+        FetchContent_Declare(SFML
             GIT_REPOSITORY https://github.com/SFML/SFML.git
-            GIT_TAG 2.6.x)
-    set(SFML_BUILD_AUDIO OFF CACHE BOOL "" FORCE)
-    set(SFML_BUILD_NETWORK OFF CACHE BOOL "" FORCE)
-    set(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
-    # Обход потенциальных проблем при сборке sfml-graphics
-    # (stb_image.h: 'argument': conversion from 'int' to 'short')
-    set(WARNINGS_AS_ERRORS FALSE CACHE BOOL "" FORCE)
-    FetchContent_MakeAvailable(SFML)
-endif ()
-
-# К сожалению, вплоть до C++20 https://en.cppreference.com/w/cpp/numeric/constants
-# нет удобного кроссплатформенного способа получить число pi.
-# define ниже нужен для включения M_PI
-if (MSVC)
-    add_definitions(-D_USE_MATH_DEFINES)
-endif ()
-
-add_executable(physics
-        main.cpp World.cpp Ball.cpp Physics.cpp Color.cpp Painter.cpp Dust.cpp
-        black_box/Application.cpp black_box/View.cpp black_box/PainterImpl.cpp)
-target_link_libraries(physics PRIVATE sfml-graphics)
-
-target_compile_options(physics PRIVATE
-        $<$<CXX_COMPILER_ID:MSVC>:/W4>
-        $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wall -Wextra -Wpedantic>
-        )
-
-# Установка пакета DEB для Linux
-if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
-    set(CPACK_GENERATOR DEB) # Настраивает CPack для создания пакетов DEB (Linux).
-    set(CPACK_DEBIAN_PACKAGE_DEPENDS "libgtk-3-dev libstdc++6-dev")
+            GIT_TAG 2.6.2 GIT_SHALLOW TRUE)
+        FetchContent_MakeAvailable(SFML)
+    endif()
+    add_executable(physics main.cpp Painter.cpp black_box/Application.cpp
+        black_box/View.cpp black_box/PainterImpl.cpp)
+    target_link_libraries(physics PRIVATE simulation sfml-graphics sfml-window sfml-system)
+    if(MINGW)
+        target_link_options(physics PRIVATE -static-libgcc -static-libstdc++)
+    endif()
+    install(TARGETS physics RUNTIME DESTINATION .)
+    if(WIN32)
+        get_filename_component(COMPILER_BIN "${CMAKE_CXX_COMPILER}" DIRECTORY)
+        install(CODE "set(runtime_search_dir \"${COMPILER_BIN}\")")
+        # Copy any remaining compiler runtime DLLs when using MinGW.
+        install(CODE [[
+            if(POLICY CMP0207)
+                cmake_policy(SET CMP0207 NEW)
+            endif()
+            file(GET_RUNTIME_DEPENDENCIES
+                EXECUTABLES "$<TARGET_FILE:physics>"
+                DIRECTORIES "${runtime_search_dir}"
+                PRE_EXCLUDE_REGEXES "api-ms-.*" "ext-ms-.*"
+                POST_EXCLUDE_REGEXES ".*[Ww][Ii][Nn][Dd][Oo][Ww][Ss][/\\\\].*"
+                RESOLVED_DEPENDENCIES_VAR deps)
+            foreach(dep IN LISTS deps)
+                file(INSTALL "${dep}" DESTINATION "${CMAKE_INSTALL_PREFIX}")
+            endforeach()
+        ]])
+    endif()
+    install(DIRECTORY data DESTINATION .)
+    install(FILES README.md DESTINATION .)
+    if(WIN32)
+        install(FILES start_smile.bat start_elephant.bat DESTINATION .)
+    endif()
+    set(CPACK_PACKAGE_NAME physics-lab5)
+    set(CPACK_PACKAGE_VERSION ${PROJECT_VERSION})
+    set(CPACK_PACKAGE_FILE_NAME "physics-lab5-${CMAKE_SYSTEM_NAME}")
+    set(CPACK_INSTALL_CMAKE_PROJECTS "${CMAKE_BINARY_DIR};${PROJECT_NAME};Unspecified;/")
+    if(WIN32)
+        set(CPACK_GENERATOR ZIP)
+    else()
+        set(CPACK_GENERATOR TGZ)
+    endif()
+    include(CPack)
 endif()
-# Установка пакета ZIP для macOS
-if (CMAKE_SYSTEM_NAME STREQUAL "Darwin")
-    set(CPACK_GENERATOR ZIP) # Настройка CPack для создания пакетов ZIP (macOS)
+
+include(CTest)
+if(BUILD_TESTING)
+    add_executable(physics_tests tests/physics_tests.cpp tests/PainterStub.cpp)
+    target_link_libraries(physics_tests PRIVATE simulation)
+    target_compile_definitions(physics_tests PRIVATE MODEL_DIR="${CMAKE_CURRENT_SOURCE_DIR}/data")
+    foreach(test_case IN ITEMS mass streams elastic transparent wall dust models parser timing coincident)
+        add_test(NAME ${test_case} COMMAND physics_tests ${test_case})
+    endforeach()
 endif()
-set(CPACK_PACKAGE_VERSION_MAJOR "${PROJECT_VERSION_MAJOR}")
-set(CPACK_PACKAGE_VERSION_MINOR "${PROJECT_VERSION_MINOR}")
-set(CPACK_PACKAGE_VERSION_PATCH "${PROJECT_VERSION_PATCH}")
 
-set(CPACK_PACKAGE_CONTACT example@example.com)
-
-include(CPack)
-
-enable_testing() # Включает тестирование
-set(CPACK_PROJECT_NAME ${PROJECT_NAME})
-set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

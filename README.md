@@ -43,13 +43,13 @@ ctest --test-dir build -C Release --output-on-failure
 обработку поврежденных файлов, дробные интервалы времени и совпавшие центры.
 Для тестов без графических зависимостей: добавьте -DBUILD_GRAPHICS=OFF.
 
-.github/workflows/build.yml собирает Debug и Release на Ubuntu 24.04,
-macOS 15 Intel и Windows Server 2022. Workflow запускается при push и
+.github/workflows/build.yml собирает Debug и Release на Ubuntu 24.04 и
+macOS 15 Intel. Workflow запускается при push и
 pull request в main, lab-2, lab-3, lab-4, lab-5, feature/github_actions,
 при публикации релиза и вручную через Actions.
 
-Каждая из шести сборок выполняет 10 тестов CTest и создает готовые пакеты:
-Linux — DEB и TAR.GZ, macOS и Windows — ZIP. Версия имеет вид 1.0.N,
+Каждая из четырех сборок выполняет 10 тестов CTest и создает готовые пакеты:
+Linux — DEB и TAR.GZ, macOS — ZIP. Версия имеет вид 1.0.N,
 где N — номер запуска Actions; имена файлов включают систему, архитектуру
 и конфигурацию, например physics-lab5-1.0.42-Linux-x86_64-Debug.deb.
 Для локальной сборки номер можно задать через -DPATCH_VERSION=42.

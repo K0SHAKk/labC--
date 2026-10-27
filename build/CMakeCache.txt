@@ -398,6 +398,9 @@ FREETYPE_INCLUDE_DIR_ft2build:PATH=C:/Users/k0sha/Desktop/labs_all/prog/05/build
 //Path to a library.
 FREETYPE_LIBRARY:FILEPATH=C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/libs-mingw/x64/libfreetype.a
 
+//Path to a program.
+GITCOMMAND:FILEPATH=C:/Program Files/Git/cmd/git.exe
+
 //Git command line client
 GIT_EXECUTABLE:FILEPATH=C:/Program Files/Git/cmd/git.exe
 
@@ -415,6 +418,9 @@ OPENGL_gl_LIBRARY:STRING=opengl32
 
 //GLU library for win32
 OPENGL_glu_LIBRARY:STRING=glu32
+
+//Patch version (CI run number)
+PATCH_VERSION:STRING=0
 
 //Value Computed by CMake
 SFML_BINARY_DIR:STATIC=C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-build
@@ -726,6 +732,8 @@ FREETYPE_INCLUDE_DIR_freetype2-ADVANCED:INTERNAL=1
 FREETYPE_INCLUDE_DIR_ft2build-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: FREETYPE_LIBRARY
 FREETYPE_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: GITCOMMAND
+GITCOMMAND-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GIT_EXECUTABLE
 GIT_EXECUTABLE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: MAKECOMMAND

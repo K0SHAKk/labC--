@@ -1,8 +1,9 @@
-name: C++ CI
+﻿name: Build and release
 
 on:
   push:
     branches: [main, lab-2, lab-3, lab-4, lab-5, feature/github_actions]
+    tags: ['v*']
   pull_request:
     branches: [main, lab-2, lab-3, lab-4, lab-5, feature/github_actions]
   release:
@@ -13,137 +14,112 @@ permissions:
   contents: read
 
 jobs:
-  build_linux:
-    runs-on: ubuntu-24.04
-    permissions:
-      contents: write
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-24.04
+            platform: Linux
+            generator: DEB
+            extension: deb
+          - os: macos-15-intel
+            platform: Darwin
+            generator: ZIP
+            extension: zip
+    runs-on: ${{ matrix.os }}
     defaults:
       run:
         shell: bash
     env:
       PATCH_VERSION: ${{ github.run_number }}
-      ASSET_NAME: lab4-0.0.${{ github.run_number }}-Linux.deb
-      DEBUG_ASSET_NAME: lab4-0.0.${{ github.run_number }}-Linux-Debug.deb
+      PLATFORM: ${{ matrix.platform }}
+      GENERATOR: ${{ matrix.generator }}
+      EXTENSION: ${{ matrix.extension }}
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v4
 
       - name: Install Linux dependencies
+        if: runner.os == 'Linux'
         run: |
           sudo apt-get update
           sudo apt-get install -y build-essential cmake dpkg-dev libx11-dev libxrandr-dev libxcursor-dev libxi-dev libudev-dev libgl1-mesa-dev libfreetype-dev
 
-      - name: Configure Release
-        run: >-
-          cmake -S . -B build-ci-Release
-          -DCMAKE_BUILD_TYPE=Release
-          -DPATCH_VERSION="$PATCH_VERSION"
-          -DBUILD_TESTING=ON
-          -DBUILD_GRAPHICS=ON
-          -DCMAKE_DISABLE_FIND_PACKAGE_SFML=ON
-
-      - name: Build Release
-        run: cmake --build build-ci-Release --config Release --parallel 2
-
-      - name: Run Tests
-        run: ctest --test-dir build-ci-Release -C Release --output-on-failure --no-tests=error
-
-      - name: Package Release DEB
-        run: |
-          cpack --config build-ci-Release/CPackConfig.cmake -C Release -G DEB -B packages-release
-          mv packages-release/physics-lab5-*-Linux-*-Release.deb "packages-release/$ASSET_NAME"
-
-      - name: Configure Debug
-        run: >-
-          cmake -S . -B build-ci-Debug
-          -DCMAKE_BUILD_TYPE=Debug
-          -DPATCH_VERSION="$PATCH_VERSION"
-          -DBUILD_TESTING=ON
-          -DBUILD_GRAPHICS=ON
-          -DCMAKE_DISABLE_FIND_PACKAGE_SFML=ON
-
-      - name: Build Debug
-        run: cmake --build build-ci-Debug --config Debug --parallel 2
-
-      - name: Package Debug DEB
-        run: |
-          cpack --config build-ci-Debug/CPackConfig.cmake -C Debug -G DEB -B packages
-          mv packages/physics-lab5-*-Linux-*-Debug.deb "packages/$DEBUG_ASSET_NAME"
-
-      - name: Upload Debug Asset
-        uses: actions/upload-artifact@v7
-        with:
-          name: debug-deb
-          path: packages/${{ env.DEBUG_ASSET_NAME }}
-          if-no-files-found: error
-
-      - name: Create Release (Linux)
-        if: github.event_name != 'pull_request'
-        env:
-          GH_TOKEN: ${{ github.token }}
-          GH_REPO: ${{ github.repository }}
-          RELEASE_TAG: ${{ github.run_number }}-Linux2
-          RELEASE_NAME: Release ${{ github.run_number }} for linux2
-          COMMIT_SHA: ${{ github.sha }}
-        run: |
-          if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
-            gh release upload "$RELEASE_TAG" "packages-release/$ASSET_NAME" --clobber
-          else
-            gh release create "$RELEASE_TAG" "packages-release/$ASSET_NAME" \
-              --target "$COMMIT_SHA" --title "$RELEASE_NAME" --notes ""
-          fi
-
-  build_macos:
-    runs-on: macos-15-intel
-    permissions:
-      contents: write
-    defaults:
-      run:
-        shell: bash
-    env:
-      PATCH_VERSION: ${{ github.run_number }}
-      ASSET_NAME: lab4-0.0.${{ github.run_number }}-Darwin.zip
-    steps:
-      - uses: actions/checkout@v7
-
       - name: Configure
         run: >-
-          cmake -S . -B build-ci-Release
-          -DCMAKE_BUILD_TYPE=Release
+          cmake -S . -B build-ci -DCMAKE_BUILD_TYPE=Release
           -DPATCH_VERSION="$PATCH_VERSION"
-          -DBUILD_TESTING=ON
-          -DBUILD_GRAPHICS=ON
           -DCMAKE_DISABLE_FIND_PACKAGE_SFML=ON
+          -DFETCHCONTENT_TRY_FIND_PACKAGE_MODE=NEVER
+          -DSFML_BUILD_EXAMPLES=OFF -DSFML_BUILD_DOC=OFF
+          -DCMAKE_POLICY_VERSION_MINIMUM=3.5
 
       - name: Build
-        run: cmake --build build-ci-Release --config Release --parallel 2
+        run: cmake --build build-ci --config Release --parallel 2
 
-      - name: Run Tests
-        run: ctest --test-dir build-ci-Release -C Release --output-on-failure --no-tests=error
+      # CMake currently defines no tests. Run any tests added in the future.
+      - name: Test
+        run: ctest --test-dir build-ci -C Release --output-on-failure
 
-      - name: Package ZIP
+      # Supply the install tree here because CMakeLists.txt has no install rules.
+      - name: Package
         run: |
-          cpack --config build-ci-Release/CPackConfig.cmake -C Release -G ZIP -B packages
-          mv packages/physics-lab5-*-Darwin-*-Release.zip "packages/$ASSET_NAME"
+          mkdir -p staging/usr/bin staging/usr/share/physics packages
+          cp build-ci/physics staging/usr/bin/
+          cp -R data staging/usr/share/physics/
+          cpack --config build-ci/CPackConfig.cmake -C Release -G "$GENERATOR" -B packages             -D "CPACK_INSTALL_CMAKE_PROJECTS="             -D "CPACK_INSTALLED_DIRECTORIES=$PWD/staging;/"             -D "CPACK_PACKAGE_FILE_NAME=physics-0.0.$PATCH_VERSION-$PLATFORM"             -D "CPACK_PACKAGING_INSTALL_PREFIX=/"             -D "CPACK_INCLUDE_TOPLEVEL_DIRECTORY=OFF"             -D "CPACK_DEBIAN_PACKAGE_DEPENDS="             -D "CPACK_DEBIAN_PACKAGE_SHLIBDEPS=ON"
+          test -s "packages/physics-0.0.$PATCH_VERSION-$PLATFORM.$EXTENSION"
+          if [ "$PLATFORM" = Linux ]; then
+            dpkg-deb --contents packages/*.deb | tee packages/contents.txt
+            grep -q './usr/bin/physics' packages/contents.txt
+          else
+            unzip -l packages/*.zip | tee packages/contents.txt
+            grep -q 'usr/bin/physics' packages/contents.txt
+          fi
 
-      - name: Upload MacOS Asset
-        uses: actions/upload-artifact@v7
+      - name: Upload package
+        uses: actions/upload-artifact@v4
         with:
-          name: macos-zip
-          path: packages/${{ env.ASSET_NAME }}
+          name: package-${{ matrix.platform }}
+          path: packages/*.${{ matrix.extension }}
           if-no-files-found: error
 
-      - name: Create Release (MacOS)
-        if: github.event_name != 'pull_request'
-        env:
-          GH_TOKEN: ${{ github.token }}
-          GH_REPO: ${{ github.repository }}
-          RELEASE_TAG: ${{ github.run_number }}
-          RELEASE_NAME: Release ${{ github.run_number }} (MacOS)
-          COMMIT_SHA: ${{ github.sha }}
+  release:
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    concurrency:
+      group: release-${{ github.event.release.tag_name || github.ref }}
+      cancel-in-progress: false
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      SOURCE_SHA: ${{ github.sha }}
+      REF_NAME: ${{ github.ref_name }}
+      REF_TYPE: ${{ github.ref_type }}
+      EVENT_TAG: ${{ github.event.release.tag_name }}
+      RUN_NUMBER: ${{ github.run_number }}
+    steps:
+      - name: Download packages
+        uses: actions/download-artifact@v4
+        with:
+          pattern: package-*
+          path: release-assets
+          merge-multiple: true
+
+      - name: Publish release
         run: |
-          if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
-            gh release upload "$RELEASE_TAG" "packages/$ASSET_NAME" --clobber
+          if [ -n "$EVENT_TAG" ]; then
+            tag="$EVENT_TAG"
+          elif [ "$REF_TYPE" = tag ]; then
+            tag="$REF_NAME"
           else
-            gh release create "$RELEASE_TAG" "packages/$ASSET_NAME" \
-              --target "$COMMIT_SHA" --title "$RELEASE_NAME" --notes ""
+            tag="v0.0.$RUN_NUMBER"
+          fi
+          if gh release view "$tag" >/dev/null 2>&1; then
+            gh release upload "$tag" release-assets/* --clobber
+          else
+            gh release create "$tag" release-assets/*               --target "$SOURCE_SHA" --title "physics $tag" --generate-notes
           fi

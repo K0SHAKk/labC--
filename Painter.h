@@ -7,12 +7,12 @@ class View;
 class PainterImpl;
 
 namespace sf {
-    class RenderTarget;
+    class RenderWindow;
 }
 
 class Painter {
   public:
-    Painter(sf::RenderTarget& window, const View& view);
+    Painter(sf::RenderWindow& window, const View& view);
     ~Painter();
     /**
      * Рисует круг цвета color

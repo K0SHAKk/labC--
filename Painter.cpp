@@ -1,8 +1,8 @@
 #include "Painter.h"
 #include "black_box/PainterImpl.h"
-#include <SFML/Graphics/RenderTarget.hpp>
+#include <SFML/Graphics/RenderWindow.hpp>
 
-Painter::Painter(sf::RenderTarget& window, const View& view)
+Painter::Painter(sf::RenderWindow& window, const View& view)
     : impl{new PainterImpl(window, view)} {}
 
 Painter::~Painter() = default;

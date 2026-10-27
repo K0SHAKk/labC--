@@ -5,12 +5,12 @@
 #include <SFML/System/Vector2.hpp>
 
 namespace sf {
-    class RenderTarget;
+    class RenderWindow;
 }
 
 class PainterImpl {
   public:
-    PainterImpl(sf::RenderTarget& window, const View& view);
+    PainterImpl(sf::RenderWindow& window, const View& view);
     ~PainterImpl();
     void draw(const Point& center, double radius, const Color& color);
     void draw(const Point& topLeft, const Point& bottomRight,
@@ -21,7 +21,7 @@ class PainterImpl {
     sf::Vector2f toVector(const Point& point) const;
 
   private:
-    sf::RenderTarget& window;
+    sf::RenderWindow& window;
 
     const View& view;
 };

@@ -41,92 +41,60 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = C$:/Users/k0sha/Desktop/labs_all/prog/05/build/
 # =============================================================================
-# Object build statements for STATIC_LIBRARY target simulation
-
-
-#############################################
-# Order-only phony target for simulation
-
-build cmake_object_order_depends_target_simulation: phony || .
-
-build CMakeFiles/simulation.dir/Ball.cpp.obj: CXX_COMPILER__simulation_unscanned_Debug C$:/Users/k0sha/Desktop/labs_all/prog/05/Ball.cpp || cmake_object_order_depends_target_simulation
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\simulation.dir\Ball.cpp.obj.d
-  FLAGS = -g -std=c++17 -Wall -Wextra -Wpedantic
-  INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05
-  OBJECT_DIR = CMakeFiles\simulation.dir
-  OBJECT_FILE_DIR = CMakeFiles\simulation.dir
-  TARGET_SUPPORT_DIR = CMakeFiles\simulation.dir
-
-build CMakeFiles/simulation.dir/Dust.cpp.obj: CXX_COMPILER__simulation_unscanned_Debug C$:/Users/k0sha/Desktop/labs_all/prog/05/Dust.cpp || cmake_object_order_depends_target_simulation
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\simulation.dir\Dust.cpp.obj.d
-  FLAGS = -g -std=c++17 -Wall -Wextra -Wpedantic
-  INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05
-  OBJECT_DIR = CMakeFiles\simulation.dir
-  OBJECT_FILE_DIR = CMakeFiles\simulation.dir
-  TARGET_SUPPORT_DIR = CMakeFiles\simulation.dir
-
-build CMakeFiles/simulation.dir/Physics.cpp.obj: CXX_COMPILER__simulation_unscanned_Debug C$:/Users/k0sha/Desktop/labs_all/prog/05/Physics.cpp || cmake_object_order_depends_target_simulation
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\simulation.dir\Physics.cpp.obj.d
-  FLAGS = -g -std=c++17 -Wall -Wextra -Wpedantic
-  INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05
-  OBJECT_DIR = CMakeFiles\simulation.dir
-  OBJECT_FILE_DIR = CMakeFiles\simulation.dir
-  TARGET_SUPPORT_DIR = CMakeFiles\simulation.dir
-
-build CMakeFiles/simulation.dir/World.cpp.obj: CXX_COMPILER__simulation_unscanned_Debug C$:/Users/k0sha/Desktop/labs_all/prog/05/World.cpp || cmake_object_order_depends_target_simulation
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\simulation.dir\World.cpp.obj.d
-  FLAGS = -g -std=c++17 -Wall -Wextra -Wpedantic
-  INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05
-  OBJECT_DIR = CMakeFiles\simulation.dir
-  OBJECT_FILE_DIR = CMakeFiles\simulation.dir
-  TARGET_SUPPORT_DIR = CMakeFiles\simulation.dir
-
-build CMakeFiles/simulation.dir/Color.cpp.obj: CXX_COMPILER__simulation_unscanned_Debug C$:/Users/k0sha/Desktop/labs_all/prog/05/Color.cpp || cmake_object_order_depends_target_simulation
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\simulation.dir\Color.cpp.obj.d
-  FLAGS = -g -std=c++17 -Wall -Wextra -Wpedantic
-  INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05
-  OBJECT_DIR = CMakeFiles\simulation.dir
-  OBJECT_FILE_DIR = CMakeFiles\simulation.dir
-  TARGET_SUPPORT_DIR = CMakeFiles\simulation.dir
-
-
-# =============================================================================
-# Link build statements for STATIC_LIBRARY target simulation
-
-
-#############################################
-# Link the static library libsimulation.a
-
-build libsimulation.a: CXX_STATIC_LIBRARY_LINKER__simulation_Debug CMakeFiles/simulation.dir/Ball.cpp.obj CMakeFiles/simulation.dir/Dust.cpp.obj CMakeFiles/simulation.dir/Physics.cpp.obj CMakeFiles/simulation.dir/World.cpp.obj CMakeFiles/simulation.dir/Color.cpp.obj
-  CONFIG = Debug
-  LANGUAGE_COMPILE_FLAGS = -g
-  OBJECT_DIR = CMakeFiles\simulation.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  TARGET_FILE = libsimulation.a
-  TARGET_PDB = simulation.a.dbg
-  TARGET_SUPPORT_DIR = CMakeFiles\simulation.dir
-
-# =============================================================================
 # Object build statements for EXECUTABLE target physics
 
 
 #############################################
 # Order-only phony target for physics
 
-build cmake_object_order_depends_target_physics: phony || cmake_object_order_depends_target_sfml-graphics cmake_object_order_depends_target_sfml-system cmake_object_order_depends_target_sfml-window cmake_object_order_depends_target_simulation
+build cmake_object_order_depends_target_physics: phony || cmake_object_order_depends_target_sfml-graphics cmake_object_order_depends_target_sfml-system cmake_object_order_depends_target_sfml-window
 
 build CMakeFiles/physics.dir/main.cpp.obj: CXX_COMPILER__physics_unscanned_Debug C$:/Users/k0sha/Desktop/labs_all/prog/05/main.cpp || cmake_object_order_depends_target_physics
   CONFIG = Debug
   DEFINES = -DSFML_STATIC
   DEP_FILE = CMakeFiles\physics.dir\main.cpp.obj.d
-  FLAGS = -g -std=c++17
-  INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05 -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include
+  FLAGS = -g -std=gnu++17 -Wall -Wextra -Wpedantic
+  INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include
+  OBJECT_DIR = CMakeFiles\physics.dir
+  OBJECT_FILE_DIR = CMakeFiles\physics.dir
+  TARGET_SUPPORT_DIR = CMakeFiles\physics.dir
+
+build CMakeFiles/physics.dir/World.cpp.obj: CXX_COMPILER__physics_unscanned_Debug C$:/Users/k0sha/Desktop/labs_all/prog/05/World.cpp || cmake_object_order_depends_target_physics
+  CONFIG = Debug
+  DEFINES = -DSFML_STATIC
+  DEP_FILE = CMakeFiles\physics.dir\World.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -Wall -Wextra -Wpedantic
+  INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include
+  OBJECT_DIR = CMakeFiles\physics.dir
+  OBJECT_FILE_DIR = CMakeFiles\physics.dir
+  TARGET_SUPPORT_DIR = CMakeFiles\physics.dir
+
+build CMakeFiles/physics.dir/Ball.cpp.obj: CXX_COMPILER__physics_unscanned_Debug C$:/Users/k0sha/Desktop/labs_all/prog/05/Ball.cpp || cmake_object_order_depends_target_physics
+  CONFIG = Debug
+  DEFINES = -DSFML_STATIC
+  DEP_FILE = CMakeFiles\physics.dir\Ball.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -Wall -Wextra -Wpedantic
+  INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include
+  OBJECT_DIR = CMakeFiles\physics.dir
+  OBJECT_FILE_DIR = CMakeFiles\physics.dir
+  TARGET_SUPPORT_DIR = CMakeFiles\physics.dir
+
+build CMakeFiles/physics.dir/Physics.cpp.obj: CXX_COMPILER__physics_unscanned_Debug C$:/Users/k0sha/Desktop/labs_all/prog/05/Physics.cpp || cmake_object_order_depends_target_physics
+  CONFIG = Debug
+  DEFINES = -DSFML_STATIC
+  DEP_FILE = CMakeFiles\physics.dir\Physics.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -Wall -Wextra -Wpedantic
+  INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include
+  OBJECT_DIR = CMakeFiles\physics.dir
+  OBJECT_FILE_DIR = CMakeFiles\physics.dir
+  TARGET_SUPPORT_DIR = CMakeFiles\physics.dir
+
+build CMakeFiles/physics.dir/Color.cpp.obj: CXX_COMPILER__physics_unscanned_Debug C$:/Users/k0sha/Desktop/labs_all/prog/05/Color.cpp || cmake_object_order_depends_target_physics
+  CONFIG = Debug
+  DEFINES = -DSFML_STATIC
+  DEP_FILE = CMakeFiles\physics.dir\Color.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -Wall -Wextra -Wpedantic
+  INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include
   OBJECT_DIR = CMakeFiles\physics.dir
   OBJECT_FILE_DIR = CMakeFiles\physics.dir
   TARGET_SUPPORT_DIR = CMakeFiles\physics.dir
@@ -135,8 +103,18 @@ build CMakeFiles/physics.dir/Painter.cpp.obj: CXX_COMPILER__physics_unscanned_De
   CONFIG = Debug
   DEFINES = -DSFML_STATIC
   DEP_FILE = CMakeFiles\physics.dir\Painter.cpp.obj.d
-  FLAGS = -g -std=c++17
-  INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05 -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include
+  FLAGS = -g -std=gnu++17 -Wall -Wextra -Wpedantic
+  INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include
+  OBJECT_DIR = CMakeFiles\physics.dir
+  OBJECT_FILE_DIR = CMakeFiles\physics.dir
+  TARGET_SUPPORT_DIR = CMakeFiles\physics.dir
+
+build CMakeFiles/physics.dir/Dust.cpp.obj: CXX_COMPILER__physics_unscanned_Debug C$:/Users/k0sha/Desktop/labs_all/prog/05/Dust.cpp || cmake_object_order_depends_target_physics
+  CONFIG = Debug
+  DEFINES = -DSFML_STATIC
+  DEP_FILE = CMakeFiles\physics.dir\Dust.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -Wall -Wextra -Wpedantic
+  INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include
   OBJECT_DIR = CMakeFiles\physics.dir
   OBJECT_FILE_DIR = CMakeFiles\physics.dir
   TARGET_SUPPORT_DIR = CMakeFiles\physics.dir
@@ -145,8 +123,8 @@ build CMakeFiles/physics.dir/black_box/Application.cpp.obj: CXX_COMPILER__physic
   CONFIG = Debug
   DEFINES = -DSFML_STATIC
   DEP_FILE = CMakeFiles\physics.dir\black_box\Application.cpp.obj.d
-  FLAGS = -g -std=c++17
-  INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05 -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include
+  FLAGS = -g -std=gnu++17 -Wall -Wextra -Wpedantic
+  INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include
   OBJECT_DIR = CMakeFiles\physics.dir
   OBJECT_FILE_DIR = CMakeFiles\physics.dir\black_box
   TARGET_SUPPORT_DIR = CMakeFiles\physics.dir
@@ -155,8 +133,8 @@ build CMakeFiles/physics.dir/black_box/View.cpp.obj: CXX_COMPILER__physics_unsca
   CONFIG = Debug
   DEFINES = -DSFML_STATIC
   DEP_FILE = CMakeFiles\physics.dir\black_box\View.cpp.obj.d
-  FLAGS = -g -std=c++17
-  INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05 -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include
+  FLAGS = -g -std=gnu++17 -Wall -Wextra -Wpedantic
+  INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include
   OBJECT_DIR = CMakeFiles\physics.dir
   OBJECT_FILE_DIR = CMakeFiles\physics.dir\black_box
   TARGET_SUPPORT_DIR = CMakeFiles\physics.dir
@@ -165,8 +143,8 @@ build CMakeFiles/physics.dir/black_box/PainterImpl.cpp.obj: CXX_COMPILER__physic
   CONFIG = Debug
   DEFINES = -DSFML_STATIC
   DEP_FILE = CMakeFiles\physics.dir\black_box\PainterImpl.cpp.obj.d
-  FLAGS = -g -std=c++17
-  INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05 -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include
+  FLAGS = -g -std=gnu++17 -Wall -Wextra -Wpedantic
+  INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include
   OBJECT_DIR = CMakeFiles\physics.dir
   OBJECT_FILE_DIR = CMakeFiles\physics.dir\black_box
   TARGET_SUPPORT_DIR = CMakeFiles\physics.dir
@@ -179,11 +157,10 @@ build CMakeFiles/physics.dir/black_box/PainterImpl.cpp.obj: CXX_COMPILER__physic
 #############################################
 # Link the executable physics.exe
 
-build physics.exe: CXX_EXECUTABLE_LINKER__physics_Debug CMakeFiles/physics.dir/main.cpp.obj CMakeFiles/physics.dir/Painter.cpp.obj CMakeFiles/physics.dir/black_box/Application.cpp.obj CMakeFiles/physics.dir/black_box/View.cpp.obj CMakeFiles/physics.dir/black_box/PainterImpl.cpp.obj | libsimulation.a _deps/sfml-build/lib/libsfml-graphics-s-d.a _deps/sfml-build/lib/libsfml-window-s-d.a _deps/sfml-build/lib/libsfml-system-s-d.a _deps/sfml-src/extlibs/libs-mingw/x64/libfreetype.a || _deps/sfml-build/lib/libsfml-graphics-s-d.a _deps/sfml-build/lib/libsfml-system-s-d.a _deps/sfml-build/lib/libsfml-window-s-d.a libsimulation.a
+build physics.exe: CXX_EXECUTABLE_LINKER__physics_Debug CMakeFiles/physics.dir/main.cpp.obj CMakeFiles/physics.dir/World.cpp.obj CMakeFiles/physics.dir/Ball.cpp.obj CMakeFiles/physics.dir/Physics.cpp.obj CMakeFiles/physics.dir/Color.cpp.obj CMakeFiles/physics.dir/Painter.cpp.obj CMakeFiles/physics.dir/Dust.cpp.obj CMakeFiles/physics.dir/black_box/Application.cpp.obj CMakeFiles/physics.dir/black_box/View.cpp.obj CMakeFiles/physics.dir/black_box/PainterImpl.cpp.obj | _deps/sfml-build/lib/libsfml-graphics-s-d.a _deps/sfml-build/lib/libsfml-window-s-d.a _deps/sfml-build/lib/libsfml-system-s-d.a _deps/sfml-src/extlibs/libs-mingw/x64/libfreetype.a || _deps/sfml-build/lib/libsfml-graphics-s-d.a _deps/sfml-build/lib/libsfml-system-s-d.a _deps/sfml-build/lib/libsfml-window-s-d.a
   CONFIG = Debug
   FLAGS = -g
-  LINK_FLAGS = -static-libgcc -static-libstdc++
-  LINK_LIBRARIES = libsimulation.a  _deps/sfml-build/lib/libsfml-graphics-s-d.a  _deps/sfml-build/lib/libsfml-window-s-d.a  _deps/sfml-build/lib/libsfml-system-s-d.a  -lopengl32  -lwinmm  -lgdi32  _deps/sfml-src/extlibs/libs-mingw/x64/libfreetype.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = _deps/sfml-build/lib/libsfml-graphics-s-d.a  _deps/sfml-build/lib/libsfml-window-s-d.a  _deps/sfml-build/lib/libsfml-system-s-d.a  -lopengl32  -lwinmm  -lgdi32  _deps/sfml-src/extlibs/libs-mingw/x64/libfreetype.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\physics.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
@@ -191,223 +168,6 @@ build physics.exe: CXX_EXECUTABLE_LINKER__physics_Debug CMakeFiles/physics.dir/m
   TARGET_IMPLIB = libphysics.dll.a
   TARGET_PDB = physics.exe.dbg
   TARGET_SUPPORT_DIR = CMakeFiles\physics.dir
-
-
-#############################################
-# Utility command for Experimental
-
-build Experimental: phony CMakeFiles/Experimental
-
-
-#############################################
-# Utility command for Nightly
-
-build Nightly: phony CMakeFiles/Nightly
-
-
-#############################################
-# Utility command for Continuous
-
-build Continuous: phony CMakeFiles/Continuous
-
-
-#############################################
-# Utility command for NightlyMemoryCheck
-
-build NightlyMemoryCheck: phony CMakeFiles/NightlyMemoryCheck
-
-
-#############################################
-# Utility command for NightlyStart
-
-build NightlyStart: phony CMakeFiles/NightlyStart
-
-
-#############################################
-# Utility command for NightlyUpdate
-
-build NightlyUpdate: phony CMakeFiles/NightlyUpdate
-
-
-#############################################
-# Utility command for NightlyConfigure
-
-build NightlyConfigure: phony CMakeFiles/NightlyConfigure
-
-
-#############################################
-# Utility command for NightlyBuild
-
-build NightlyBuild: phony CMakeFiles/NightlyBuild
-
-
-#############################################
-# Utility command for NightlyTest
-
-build NightlyTest: phony CMakeFiles/NightlyTest
-
-
-#############################################
-# Utility command for NightlyCoverage
-
-build NightlyCoverage: phony CMakeFiles/NightlyCoverage
-
-
-#############################################
-# Utility command for NightlyMemCheck
-
-build NightlyMemCheck: phony CMakeFiles/NightlyMemCheck
-
-
-#############################################
-# Utility command for NightlySubmit
-
-build NightlySubmit: phony CMakeFiles/NightlySubmit
-
-
-#############################################
-# Utility command for ExperimentalStart
-
-build ExperimentalStart: phony CMakeFiles/ExperimentalStart
-
-
-#############################################
-# Utility command for ExperimentalUpdate
-
-build ExperimentalUpdate: phony CMakeFiles/ExperimentalUpdate
-
-
-#############################################
-# Utility command for ExperimentalConfigure
-
-build ExperimentalConfigure: phony CMakeFiles/ExperimentalConfigure
-
-
-#############################################
-# Utility command for ExperimentalBuild
-
-build ExperimentalBuild: phony CMakeFiles/ExperimentalBuild
-
-
-#############################################
-# Utility command for ExperimentalTest
-
-build ExperimentalTest: phony CMakeFiles/ExperimentalTest
-
-
-#############################################
-# Utility command for ExperimentalCoverage
-
-build ExperimentalCoverage: phony CMakeFiles/ExperimentalCoverage
-
-
-#############################################
-# Utility command for ExperimentalMemCheck
-
-build ExperimentalMemCheck: phony CMakeFiles/ExperimentalMemCheck
-
-
-#############################################
-# Utility command for ExperimentalSubmit
-
-build ExperimentalSubmit: phony CMakeFiles/ExperimentalSubmit
-
-
-#############################################
-# Utility command for ContinuousStart
-
-build ContinuousStart: phony CMakeFiles/ContinuousStart
-
-
-#############################################
-# Utility command for ContinuousUpdate
-
-build ContinuousUpdate: phony CMakeFiles/ContinuousUpdate
-
-
-#############################################
-# Utility command for ContinuousConfigure
-
-build ContinuousConfigure: phony CMakeFiles/ContinuousConfigure
-
-
-#############################################
-# Utility command for ContinuousBuild
-
-build ContinuousBuild: phony CMakeFiles/ContinuousBuild
-
-
-#############################################
-# Utility command for ContinuousTest
-
-build ContinuousTest: phony CMakeFiles/ContinuousTest
-
-
-#############################################
-# Utility command for ContinuousCoverage
-
-build ContinuousCoverage: phony CMakeFiles/ContinuousCoverage
-
-
-#############################################
-# Utility command for ContinuousMemCheck
-
-build ContinuousMemCheck: phony CMakeFiles/ContinuousMemCheck
-
-
-#############################################
-# Utility command for ContinuousSubmit
-
-build ContinuousSubmit: phony CMakeFiles/ContinuousSubmit
-
-# =============================================================================
-# Object build statements for EXECUTABLE target physics_tests
-
-
-#############################################
-# Order-only phony target for physics_tests
-
-build cmake_object_order_depends_target_physics_tests: phony || cmake_object_order_depends_target_simulation
-
-build CMakeFiles/physics_tests.dir/tests/physics_tests.cpp.obj: CXX_COMPILER__physics_tests_unscanned_Debug C$:/Users/k0sha/Desktop/labs_all/prog/05/tests/physics_tests.cpp || cmake_object_order_depends_target_physics_tests
-  CONFIG = Debug
-  DEFINES = -DMODEL_DIR=\"C:/Users/k0sha/Desktop/labs_all/prog/05/data\"
-  DEP_FILE = CMakeFiles\physics_tests.dir\tests\physics_tests.cpp.obj.d
-  FLAGS = -g -std=c++17
-  INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05
-  OBJECT_DIR = CMakeFiles\physics_tests.dir
-  OBJECT_FILE_DIR = CMakeFiles\physics_tests.dir\tests
-  TARGET_SUPPORT_DIR = CMakeFiles\physics_tests.dir
-
-build CMakeFiles/physics_tests.dir/tests/PainterStub.cpp.obj: CXX_COMPILER__physics_tests_unscanned_Debug C$:/Users/k0sha/Desktop/labs_all/prog/05/tests/PainterStub.cpp || cmake_object_order_depends_target_physics_tests
-  CONFIG = Debug
-  DEFINES = -DMODEL_DIR=\"C:/Users/k0sha/Desktop/labs_all/prog/05/data\"
-  DEP_FILE = CMakeFiles\physics_tests.dir\tests\PainterStub.cpp.obj.d
-  FLAGS = -g -std=c++17
-  INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05
-  OBJECT_DIR = CMakeFiles\physics_tests.dir
-  OBJECT_FILE_DIR = CMakeFiles\physics_tests.dir\tests
-  TARGET_SUPPORT_DIR = CMakeFiles\physics_tests.dir
-
-
-# =============================================================================
-# Link build statements for EXECUTABLE target physics_tests
-
-
-#############################################
-# Link the executable physics_tests.exe
-
-build physics_tests.exe: CXX_EXECUTABLE_LINKER__physics_tests_Debug CMakeFiles/physics_tests.dir/tests/physics_tests.cpp.obj CMakeFiles/physics_tests.dir/tests/PainterStub.cpp.obj | libsimulation.a || libsimulation.a
-  CONFIG = Debug
-  FLAGS = -g
-  LINK_LIBRARIES = libsimulation.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\physics_tests.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  TARGET_FILE = physics_tests.exe
-  TARGET_IMPLIB = libphysics_tests.dll.a
-  TARGET_PDB = physics_tests.exe.dbg
-  TARGET_SUPPORT_DIR = CMakeFiles\physics_tests.dir
 
 
 #############################################
@@ -509,230 +269,6 @@ build CMakeFiles/install/strip.util: CUSTOM_COMMAND all
   restat = 1
 
 build install/strip: phony CMakeFiles/install/strip.util
-
-
-#############################################
-# Custom command for CMakeFiles\Experimental
-
-build CMakeFiles/Experimental | ${cmake_ninja_workdir}CMakeFiles/Experimental: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\k0sha\Desktop\labs_all\prog\05\build && C:\msys64\mingw64\bin\ctest.exe -DMODEL=Experimental -S CMakeFiles/CTestScript.cmake -V"
-  pool = console
-
-
-#############################################
-# Custom command for CMakeFiles\Nightly
-
-build CMakeFiles/Nightly | ${cmake_ninja_workdir}CMakeFiles/Nightly: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\k0sha\Desktop\labs_all\prog\05\build && C:\msys64\mingw64\bin\ctest.exe -DMODEL=Nightly -S CMakeFiles/CTestScript.cmake -V"
-  pool = console
-
-
-#############################################
-# Custom command for CMakeFiles\Continuous
-
-build CMakeFiles/Continuous | ${cmake_ninja_workdir}CMakeFiles/Continuous: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\k0sha\Desktop\labs_all\prog\05\build && C:\msys64\mingw64\bin\ctest.exe -DMODEL=Continuous -S CMakeFiles/CTestScript.cmake -V"
-  pool = console
-
-
-#############################################
-# Custom command for CMakeFiles\NightlyMemoryCheck
-
-build CMakeFiles/NightlyMemoryCheck | ${cmake_ninja_workdir}CMakeFiles/NightlyMemoryCheck: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\k0sha\Desktop\labs_all\prog\05\build && C:\msys64\mingw64\bin\ctest.exe -DMODEL=NightlyMemoryCheck -S CMakeFiles/CTestScript.cmake -V"
-  pool = console
-
-
-#############################################
-# Custom command for CMakeFiles\NightlyStart
-
-build CMakeFiles/NightlyStart | ${cmake_ninja_workdir}CMakeFiles/NightlyStart: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\k0sha\Desktop\labs_all\prog\05\build && C:\msys64\mingw64\bin\ctest.exe -DMODEL=Nightly -DACTIONS=Start -S CMakeFiles/CTestScript.cmake -V"
-  pool = console
-
-
-#############################################
-# Custom command for CMakeFiles\NightlyUpdate
-
-build CMakeFiles/NightlyUpdate | ${cmake_ninja_workdir}CMakeFiles/NightlyUpdate: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\k0sha\Desktop\labs_all\prog\05\build && C:\msys64\mingw64\bin\ctest.exe -DMODEL=Nightly -DACTIONS=Update -S CMakeFiles/CTestScript.cmake -V"
-  pool = console
-
-
-#############################################
-# Custom command for CMakeFiles\NightlyConfigure
-
-build CMakeFiles/NightlyConfigure | ${cmake_ninja_workdir}CMakeFiles/NightlyConfigure: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\k0sha\Desktop\labs_all\prog\05\build && C:\msys64\mingw64\bin\ctest.exe -DMODEL=Nightly -DACTIONS=Configure -S CMakeFiles/CTestScript.cmake -V"
-  pool = console
-
-
-#############################################
-# Custom command for CMakeFiles\NightlyBuild
-
-build CMakeFiles/NightlyBuild | ${cmake_ninja_workdir}CMakeFiles/NightlyBuild: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\k0sha\Desktop\labs_all\prog\05\build && C:\msys64\mingw64\bin\ctest.exe -DMODEL=Nightly -DACTIONS=Build -S CMakeFiles/CTestScript.cmake -V"
-  pool = console
-
-
-#############################################
-# Custom command for CMakeFiles\NightlyTest
-
-build CMakeFiles/NightlyTest | ${cmake_ninja_workdir}CMakeFiles/NightlyTest: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\k0sha\Desktop\labs_all\prog\05\build && C:\msys64\mingw64\bin\ctest.exe -DMODEL=Nightly -DACTIONS=Test -S CMakeFiles/CTestScript.cmake -V"
-  pool = console
-
-
-#############################################
-# Custom command for CMakeFiles\NightlyCoverage
-
-build CMakeFiles/NightlyCoverage | ${cmake_ninja_workdir}CMakeFiles/NightlyCoverage: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\k0sha\Desktop\labs_all\prog\05\build && C:\msys64\mingw64\bin\ctest.exe -DMODEL=Nightly -DACTIONS=Coverage -S CMakeFiles/CTestScript.cmake -V"
-  pool = console
-
-
-#############################################
-# Custom command for CMakeFiles\NightlyMemCheck
-
-build CMakeFiles/NightlyMemCheck | ${cmake_ninja_workdir}CMakeFiles/NightlyMemCheck: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\k0sha\Desktop\labs_all\prog\05\build && C:\msys64\mingw64\bin\ctest.exe -DMODEL=Nightly -DACTIONS=MemCheck -S CMakeFiles/CTestScript.cmake -V"
-  pool = console
-
-
-#############################################
-# Custom command for CMakeFiles\NightlySubmit
-
-build CMakeFiles/NightlySubmit | ${cmake_ninja_workdir}CMakeFiles/NightlySubmit: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\k0sha\Desktop\labs_all\prog\05\build && C:\msys64\mingw64\bin\ctest.exe -DMODEL=Nightly -DACTIONS=Submit -S CMakeFiles/CTestScript.cmake -V"
-  pool = console
-
-
-#############################################
-# Custom command for CMakeFiles\ExperimentalStart
-
-build CMakeFiles/ExperimentalStart | ${cmake_ninja_workdir}CMakeFiles/ExperimentalStart: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\k0sha\Desktop\labs_all\prog\05\build && C:\msys64\mingw64\bin\ctest.exe -DMODEL=Experimental -DACTIONS=Start -S CMakeFiles/CTestScript.cmake -V"
-  pool = console
-
-
-#############################################
-# Custom command for CMakeFiles\ExperimentalUpdate
-
-build CMakeFiles/ExperimentalUpdate | ${cmake_ninja_workdir}CMakeFiles/ExperimentalUpdate: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\k0sha\Desktop\labs_all\prog\05\build && C:\msys64\mingw64\bin\ctest.exe -DMODEL=Experimental -DACTIONS=Update -S CMakeFiles/CTestScript.cmake -V"
-  pool = console
-
-
-#############################################
-# Custom command for CMakeFiles\ExperimentalConfigure
-
-build CMakeFiles/ExperimentalConfigure | ${cmake_ninja_workdir}CMakeFiles/ExperimentalConfigure: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\k0sha\Desktop\labs_all\prog\05\build && C:\msys64\mingw64\bin\ctest.exe -DMODEL=Experimental -DACTIONS=Configure -S CMakeFiles/CTestScript.cmake -V"
-  pool = console
-
-
-#############################################
-# Custom command for CMakeFiles\ExperimentalBuild
-
-build CMakeFiles/ExperimentalBuild | ${cmake_ninja_workdir}CMakeFiles/ExperimentalBuild: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\k0sha\Desktop\labs_all\prog\05\build && C:\msys64\mingw64\bin\ctest.exe -DMODEL=Experimental -DACTIONS=Build -S CMakeFiles/CTestScript.cmake -V"
-  pool = console
-
-
-#############################################
-# Custom command for CMakeFiles\ExperimentalTest
-
-build CMakeFiles/ExperimentalTest | ${cmake_ninja_workdir}CMakeFiles/ExperimentalTest: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\k0sha\Desktop\labs_all\prog\05\build && C:\msys64\mingw64\bin\ctest.exe -DMODEL=Experimental -DACTIONS=Test -S CMakeFiles/CTestScript.cmake -V"
-  pool = console
-
-
-#############################################
-# Custom command for CMakeFiles\ExperimentalCoverage
-
-build CMakeFiles/ExperimentalCoverage | ${cmake_ninja_workdir}CMakeFiles/ExperimentalCoverage: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\k0sha\Desktop\labs_all\prog\05\build && C:\msys64\mingw64\bin\ctest.exe -DMODEL=Experimental -DACTIONS=Coverage -S CMakeFiles/CTestScript.cmake -V"
-  pool = console
-
-
-#############################################
-# Custom command for CMakeFiles\ExperimentalMemCheck
-
-build CMakeFiles/ExperimentalMemCheck | ${cmake_ninja_workdir}CMakeFiles/ExperimentalMemCheck: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\k0sha\Desktop\labs_all\prog\05\build && C:\msys64\mingw64\bin\ctest.exe -DMODEL=Experimental -DACTIONS=MemCheck -S CMakeFiles/CTestScript.cmake -V"
-  pool = console
-
-
-#############################################
-# Custom command for CMakeFiles\ExperimentalSubmit
-
-build CMakeFiles/ExperimentalSubmit | ${cmake_ninja_workdir}CMakeFiles/ExperimentalSubmit: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\k0sha\Desktop\labs_all\prog\05\build && C:\msys64\mingw64\bin\ctest.exe -DMODEL=Experimental -DACTIONS=Submit -S CMakeFiles/CTestScript.cmake -V"
-  pool = console
-
-
-#############################################
-# Custom command for CMakeFiles\ContinuousStart
-
-build CMakeFiles/ContinuousStart | ${cmake_ninja_workdir}CMakeFiles/ContinuousStart: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\k0sha\Desktop\labs_all\prog\05\build && C:\msys64\mingw64\bin\ctest.exe -DMODEL=Continuous -DACTIONS=Start -S CMakeFiles/CTestScript.cmake -V"
-  pool = console
-
-
-#############################################
-# Custom command for CMakeFiles\ContinuousUpdate
-
-build CMakeFiles/ContinuousUpdate | ${cmake_ninja_workdir}CMakeFiles/ContinuousUpdate: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\k0sha\Desktop\labs_all\prog\05\build && C:\msys64\mingw64\bin\ctest.exe -DMODEL=Continuous -DACTIONS=Update -S CMakeFiles/CTestScript.cmake -V"
-  pool = console
-
-
-#############################################
-# Custom command for CMakeFiles\ContinuousConfigure
-
-build CMakeFiles/ContinuousConfigure | ${cmake_ninja_workdir}CMakeFiles/ContinuousConfigure: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\k0sha\Desktop\labs_all\prog\05\build && C:\msys64\mingw64\bin\ctest.exe -DMODEL=Continuous -DACTIONS=Configure -S CMakeFiles/CTestScript.cmake -V"
-  pool = console
-
-
-#############################################
-# Custom command for CMakeFiles\ContinuousBuild
-
-build CMakeFiles/ContinuousBuild | ${cmake_ninja_workdir}CMakeFiles/ContinuousBuild: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\k0sha\Desktop\labs_all\prog\05\build && C:\msys64\mingw64\bin\ctest.exe -DMODEL=Continuous -DACTIONS=Build -S CMakeFiles/CTestScript.cmake -V"
-  pool = console
-
-
-#############################################
-# Custom command for CMakeFiles\ContinuousTest
-
-build CMakeFiles/ContinuousTest | ${cmake_ninja_workdir}CMakeFiles/ContinuousTest: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\k0sha\Desktop\labs_all\prog\05\build && C:\msys64\mingw64\bin\ctest.exe -DMODEL=Continuous -DACTIONS=Test -S CMakeFiles/CTestScript.cmake -V"
-  pool = console
-
-
-#############################################
-# Custom command for CMakeFiles\ContinuousCoverage
-
-build CMakeFiles/ContinuousCoverage | ${cmake_ninja_workdir}CMakeFiles/ContinuousCoverage: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\k0sha\Desktop\labs_all\prog\05\build && C:\msys64\mingw64\bin\ctest.exe -DMODEL=Continuous -DACTIONS=Coverage -S CMakeFiles/CTestScript.cmake -V"
-  pool = console
-
-
-#############################################
-# Custom command for CMakeFiles\ContinuousMemCheck
-
-build CMakeFiles/ContinuousMemCheck | ${cmake_ninja_workdir}CMakeFiles/ContinuousMemCheck: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\k0sha\Desktop\labs_all\prog\05\build && C:\msys64\mingw64\bin\ctest.exe -DMODEL=Continuous -DACTIONS=MemCheck -S CMakeFiles/CTestScript.cmake -V"
-  pool = console
-
-
-#############################################
-# Custom command for CMakeFiles\ContinuousSubmit
-
-build CMakeFiles/ContinuousSubmit | ${cmake_ninja_workdir}CMakeFiles/ContinuousSubmit: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\k0sha\Desktop\labs_all\prog\05\build && C:\msys64\mingw64\bin\ctest.exe -DMODEL=Continuous -DACTIONS=Submit -S CMakeFiles/CTestScript.cmake -V"
-  pool = console
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
@@ -964,7 +500,7 @@ build _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/Clock.cpp.obj:
   CONFIG = Debug
   DEFINES = -DSFML_STATIC
   DEP_FILE = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\Clock.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src
   OBJECT_DIR = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir
@@ -974,7 +510,7 @@ build _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/Err.cpp.obj: C
   CONFIG = Debug
   DEFINES = -DSFML_STATIC
   DEP_FILE = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\Err.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src
   OBJECT_DIR = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir
@@ -984,7 +520,7 @@ build _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/Lock.cpp.obj: 
   CONFIG = Debug
   DEFINES = -DSFML_STATIC
   DEP_FILE = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\Lock.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src
   OBJECT_DIR = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir
@@ -994,7 +530,7 @@ build _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/Mutex.cpp.obj:
   CONFIG = Debug
   DEFINES = -DSFML_STATIC
   DEP_FILE = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\Mutex.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src
   OBJECT_DIR = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir
@@ -1004,7 +540,7 @@ build _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/Sleep.cpp.obj:
   CONFIG = Debug
   DEFINES = -DSFML_STATIC
   DEP_FILE = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\Sleep.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src
   OBJECT_DIR = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir
@@ -1014,7 +550,7 @@ build _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/String.cpp.obj
   CONFIG = Debug
   DEFINES = -DSFML_STATIC
   DEP_FILE = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\String.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src
   OBJECT_DIR = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir
@@ -1024,7 +560,7 @@ build _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/Thread.cpp.obj
   CONFIG = Debug
   DEFINES = -DSFML_STATIC
   DEP_FILE = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\Thread.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src
   OBJECT_DIR = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir
@@ -1034,7 +570,7 @@ build _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/ThreadLocal.cp
   CONFIG = Debug
   DEFINES = -DSFML_STATIC
   DEP_FILE = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\ThreadLocal.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src
   OBJECT_DIR = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir
@@ -1044,7 +580,7 @@ build _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/Time.cpp.obj: 
   CONFIG = Debug
   DEFINES = -DSFML_STATIC
   DEP_FILE = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\Time.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src
   OBJECT_DIR = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir
@@ -1054,7 +590,7 @@ build _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/FileInputStrea
   CONFIG = Debug
   DEFINES = -DSFML_STATIC
   DEP_FILE = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\FileInputStream.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src
   OBJECT_DIR = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir
@@ -1064,7 +600,7 @@ build _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/MemoryInputStr
   CONFIG = Debug
   DEFINES = -DSFML_STATIC
   DEP_FILE = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\MemoryInputStream.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src
   OBJECT_DIR = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir
@@ -1074,7 +610,7 @@ build _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/Win32/ClockImp
   CONFIG = Debug
   DEFINES = -DSFML_STATIC
   DEP_FILE = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\Win32\ClockImpl.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src
   OBJECT_DIR = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\Win32
@@ -1084,7 +620,7 @@ build _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/Win32/MutexImp
   CONFIG = Debug
   DEFINES = -DSFML_STATIC
   DEP_FILE = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\Win32\MutexImpl.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src
   OBJECT_DIR = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\Win32
@@ -1094,7 +630,7 @@ build _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/Win32/SleepImp
   CONFIG = Debug
   DEFINES = -DSFML_STATIC
   DEP_FILE = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\Win32\SleepImpl.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src
   OBJECT_DIR = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\Win32
@@ -1104,7 +640,7 @@ build _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/Win32/ThreadIm
   CONFIG = Debug
   DEFINES = -DSFML_STATIC
   DEP_FILE = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\Win32\ThreadImpl.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src
   OBJECT_DIR = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\Win32
@@ -1114,7 +650,7 @@ build _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/Win32/ThreadLo
   CONFIG = Debug
   DEFINES = -DSFML_STATIC
   DEP_FILE = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\Win32\ThreadLocalImpl.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src
   OBJECT_DIR = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\Win32
@@ -1257,7 +793,7 @@ build _deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/MainWin32.cpp.obj:
   CONFIG = Debug
   DEFINES = -DSFML_STATIC
   DEP_FILE = _deps\sfml-build\src\SFML\Main\CMakeFiles\sfml-main.dir\MainWin32.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src
   OBJECT_DIR = _deps\sfml-build\src\SFML\Main\CMakeFiles\sfml-main.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Main\CMakeFiles\sfml-main.dir
@@ -1400,7 +936,7 @@ build _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Clipboard.cpp.
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DUNICODE -D_UNICODE
   DEP_FILE = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Clipboard.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/vulkan -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include
   OBJECT_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
@@ -1410,7 +946,7 @@ build _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Context.cpp.ob
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DUNICODE -D_UNICODE
   DEP_FILE = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Context.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/vulkan -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include
   OBJECT_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
@@ -1420,7 +956,7 @@ build _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Cursor.cpp.obj
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DUNICODE -D_UNICODE
   DEP_FILE = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Cursor.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/vulkan -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include
   OBJECT_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
@@ -1430,7 +966,7 @@ build _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/GlContext.cpp.
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DUNICODE -D_UNICODE
   DEP_FILE = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\GlContext.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/vulkan -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include
   OBJECT_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
@@ -1440,7 +976,7 @@ build _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/GlResource.cpp
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DUNICODE -D_UNICODE
   DEP_FILE = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\GlResource.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/vulkan -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include
   OBJECT_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
@@ -1450,7 +986,7 @@ build _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Joystick.cpp.o
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DUNICODE -D_UNICODE
   DEP_FILE = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Joystick.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/vulkan -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include
   OBJECT_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
@@ -1460,7 +996,7 @@ build _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/JoystickManage
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DUNICODE -D_UNICODE
   DEP_FILE = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\JoystickManager.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/vulkan -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include
   OBJECT_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
@@ -1470,7 +1006,7 @@ build _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Keyboard.cpp.o
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DUNICODE -D_UNICODE
   DEP_FILE = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Keyboard.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/vulkan -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include
   OBJECT_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
@@ -1480,7 +1016,7 @@ build _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Mouse.cpp.obj:
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DUNICODE -D_UNICODE
   DEP_FILE = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Mouse.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/vulkan -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include
   OBJECT_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
@@ -1490,7 +1026,7 @@ build _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Touch.cpp.obj:
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DUNICODE -D_UNICODE
   DEP_FILE = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Touch.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/vulkan -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include
   OBJECT_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
@@ -1500,7 +1036,7 @@ build _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Sensor.cpp.obj
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DUNICODE -D_UNICODE
   DEP_FILE = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Sensor.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/vulkan -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include
   OBJECT_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
@@ -1510,7 +1046,7 @@ build _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/SensorManager.
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DUNICODE -D_UNICODE
   DEP_FILE = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\SensorManager.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/vulkan -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include
   OBJECT_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
@@ -1520,7 +1056,7 @@ build _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/VideoMode.cpp.
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DUNICODE -D_UNICODE
   DEP_FILE = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\VideoMode.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/vulkan -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include
   OBJECT_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
@@ -1530,7 +1066,7 @@ build _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Vulkan.cpp.obj
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DUNICODE -D_UNICODE
   DEP_FILE = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Vulkan.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/vulkan -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include
   OBJECT_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
@@ -1540,7 +1076,7 @@ build _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Window.cpp.obj
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DUNICODE -D_UNICODE
   DEP_FILE = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Window.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/vulkan -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include
   OBJECT_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
@@ -1550,7 +1086,7 @@ build _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/WindowBase.cpp
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DUNICODE -D_UNICODE
   DEP_FILE = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\WindowBase.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/vulkan -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include
   OBJECT_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
@@ -1560,7 +1096,7 @@ build _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/WindowImpl.cpp
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DUNICODE -D_UNICODE
   DEP_FILE = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\WindowImpl.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/vulkan -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include
   OBJECT_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
@@ -1570,7 +1106,7 @@ build _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Win32/CursorIm
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DUNICODE -D_UNICODE
   DEP_FILE = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Win32\CursorImpl.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/vulkan -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include
   OBJECT_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Win32
@@ -1580,7 +1116,7 @@ build _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Win32/Clipboar
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DUNICODE -D_UNICODE
   DEP_FILE = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Win32\ClipboardImpl.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/vulkan -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include
   OBJECT_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Win32
@@ -1590,7 +1126,7 @@ build _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Win32/InputImp
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DUNICODE -D_UNICODE
   DEP_FILE = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Win32\InputImpl.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/vulkan -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include
   OBJECT_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Win32
@@ -1600,7 +1136,7 @@ build _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Win32/Joystick
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DUNICODE -D_UNICODE
   DEP_FILE = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Win32\JoystickImpl.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/vulkan -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include
   OBJECT_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Win32
@@ -1610,7 +1146,7 @@ build _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Win32/SensorIm
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DUNICODE -D_UNICODE
   DEP_FILE = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Win32\SensorImpl.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/vulkan -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include
   OBJECT_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Win32
@@ -1620,7 +1156,7 @@ build _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Win32/VideoMod
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DUNICODE -D_UNICODE
   DEP_FILE = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Win32\VideoModeImpl.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/vulkan -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include
   OBJECT_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Win32
@@ -1630,7 +1166,7 @@ build _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Win32/VulkanIm
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DUNICODE -D_UNICODE
   DEP_FILE = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Win32\VulkanImplWin32.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/vulkan -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include
   OBJECT_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Win32
@@ -1640,7 +1176,7 @@ build _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Win32/WindowIm
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DUNICODE -D_UNICODE
   DEP_FILE = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Win32\WindowImplWin32.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/vulkan -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include
   OBJECT_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Win32
@@ -1650,7 +1186,7 @@ build _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Win32/WglConte
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DUNICODE -D_UNICODE
   DEP_FILE = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Win32\WglContext.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/vulkan -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include
   OBJECT_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\Win32
@@ -1793,7 +1329,7 @@ build _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/BlendMode.
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DSTBI_FAILURE_USERMSG
   DEP_FILE = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\BlendMode.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/stb_image -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/freetype2 -isystem C:/msys64/mingw64/include/freetype2
   OBJECT_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
@@ -1803,7 +1339,7 @@ build _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Color.cpp.
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DSTBI_FAILURE_USERMSG
   DEP_FILE = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\Color.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/stb_image -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/freetype2 -isystem C:/msys64/mingw64/include/freetype2
   OBJECT_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
@@ -1813,7 +1349,7 @@ build _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Font.cpp.o
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DSTBI_FAILURE_USERMSG
   DEP_FILE = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\Font.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/stb_image -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/freetype2 -isystem C:/msys64/mingw64/include/freetype2
   OBJECT_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
@@ -1823,7 +1359,7 @@ build _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Glsl.cpp.o
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DSTBI_FAILURE_USERMSG
   DEP_FILE = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\Glsl.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/stb_image -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/freetype2 -isystem C:/msys64/mingw64/include/freetype2
   OBJECT_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
@@ -1833,7 +1369,7 @@ build _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/GLCheck.cp
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DSTBI_FAILURE_USERMSG
   DEP_FILE = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\GLCheck.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/stb_image -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/freetype2 -isystem C:/msys64/mingw64/include/freetype2
   OBJECT_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
@@ -1843,7 +1379,7 @@ build _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/GLExtensio
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DSTBI_FAILURE_USERMSG
   DEP_FILE = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\GLExtensions.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/stb_image -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/freetype2 -isystem C:/msys64/mingw64/include/freetype2
   OBJECT_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
@@ -1853,7 +1389,7 @@ build _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Image.cpp.
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DSTBI_FAILURE_USERMSG
   DEP_FILE = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\Image.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/stb_image -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/freetype2 -isystem C:/msys64/mingw64/include/freetype2
   OBJECT_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
@@ -1863,7 +1399,7 @@ build _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/ImageLoade
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DSTBI_FAILURE_USERMSG
   DEP_FILE = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\ImageLoader.cpp.obj.d
-  FLAGS = -g -std=c++17 -fno-strict-aliasing
+  FLAGS = -g -std=gnu++17 -fno-strict-aliasing
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/stb_image -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/freetype2 -isystem C:/msys64/mingw64/include/freetype2
   OBJECT_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
@@ -1873,7 +1409,7 @@ build _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderStat
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DSTBI_FAILURE_USERMSG
   DEP_FILE = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\RenderStates.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/stb_image -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/freetype2 -isystem C:/msys64/mingw64/include/freetype2
   OBJECT_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
@@ -1883,7 +1419,7 @@ build _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderText
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DSTBI_FAILURE_USERMSG
   DEP_FILE = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\RenderTexture.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/stb_image -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/freetype2 -isystem C:/msys64/mingw64/include/freetype2
   OBJECT_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
@@ -1893,7 +1429,7 @@ build _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderTarg
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DSTBI_FAILURE_USERMSG
   DEP_FILE = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\RenderTarget.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/stb_image -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/freetype2 -isystem C:/msys64/mingw64/include/freetype2
   OBJECT_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
@@ -1903,7 +1439,7 @@ build _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderWind
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DSTBI_FAILURE_USERMSG
   DEP_FILE = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\RenderWindow.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/stb_image -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/freetype2 -isystem C:/msys64/mingw64/include/freetype2
   OBJECT_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
@@ -1913,7 +1449,7 @@ build _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Shader.cpp
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DSTBI_FAILURE_USERMSG
   DEP_FILE = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\Shader.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/stb_image -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/freetype2 -isystem C:/msys64/mingw64/include/freetype2
   OBJECT_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
@@ -1923,7 +1459,7 @@ build _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Texture.cp
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DSTBI_FAILURE_USERMSG
   DEP_FILE = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\Texture.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/stb_image -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/freetype2 -isystem C:/msys64/mingw64/include/freetype2
   OBJECT_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
@@ -1933,7 +1469,7 @@ build _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/TextureSav
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DSTBI_FAILURE_USERMSG
   DEP_FILE = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\TextureSaver.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/stb_image -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/freetype2 -isystem C:/msys64/mingw64/include/freetype2
   OBJECT_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
@@ -1943,7 +1479,7 @@ build _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Transform.
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DSTBI_FAILURE_USERMSG
   DEP_FILE = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\Transform.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/stb_image -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/freetype2 -isystem C:/msys64/mingw64/include/freetype2
   OBJECT_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
@@ -1953,7 +1489,7 @@ build _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Transforma
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DSTBI_FAILURE_USERMSG
   DEP_FILE = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\Transformable.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/stb_image -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/freetype2 -isystem C:/msys64/mingw64/include/freetype2
   OBJECT_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
@@ -1963,7 +1499,7 @@ build _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/View.cpp.o
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DSTBI_FAILURE_USERMSG
   DEP_FILE = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\View.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/stb_image -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/freetype2 -isystem C:/msys64/mingw64/include/freetype2
   OBJECT_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
@@ -1973,7 +1509,7 @@ build _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Vertex.cpp
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DSTBI_FAILURE_USERMSG
   DEP_FILE = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\Vertex.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/stb_image -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/freetype2 -isystem C:/msys64/mingw64/include/freetype2
   OBJECT_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
@@ -1983,7 +1519,7 @@ build _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Shape.cpp.
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DSTBI_FAILURE_USERMSG
   DEP_FILE = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\Shape.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/stb_image -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/freetype2 -isystem C:/msys64/mingw64/include/freetype2
   OBJECT_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
@@ -1993,7 +1529,7 @@ build _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/CircleShap
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DSTBI_FAILURE_USERMSG
   DEP_FILE = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\CircleShape.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/stb_image -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/freetype2 -isystem C:/msys64/mingw64/include/freetype2
   OBJECT_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
@@ -2003,7 +1539,7 @@ build _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RectangleS
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DSTBI_FAILURE_USERMSG
   DEP_FILE = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\RectangleShape.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/stb_image -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/freetype2 -isystem C:/msys64/mingw64/include/freetype2
   OBJECT_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
@@ -2013,7 +1549,7 @@ build _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/ConvexShap
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DSTBI_FAILURE_USERMSG
   DEP_FILE = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\ConvexShape.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/stb_image -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/freetype2 -isystem C:/msys64/mingw64/include/freetype2
   OBJECT_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
@@ -2023,7 +1559,7 @@ build _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Sprite.cpp
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DSTBI_FAILURE_USERMSG
   DEP_FILE = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\Sprite.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/stb_image -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/freetype2 -isystem C:/msys64/mingw64/include/freetype2
   OBJECT_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
@@ -2033,7 +1569,7 @@ build _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Text.cpp.o
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DSTBI_FAILURE_USERMSG
   DEP_FILE = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\Text.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/stb_image -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/freetype2 -isystem C:/msys64/mingw64/include/freetype2
   OBJECT_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
@@ -2043,7 +1579,7 @@ build _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/VertexArra
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DSTBI_FAILURE_USERMSG
   DEP_FILE = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\VertexArray.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/stb_image -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/freetype2 -isystem C:/msys64/mingw64/include/freetype2
   OBJECT_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
@@ -2053,7 +1589,7 @@ build _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/VertexBuff
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DSTBI_FAILURE_USERMSG
   DEP_FILE = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\VertexBuffer.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/stb_image -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/freetype2 -isystem C:/msys64/mingw64/include/freetype2
   OBJECT_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
@@ -2063,7 +1599,7 @@ build _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderText
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DSTBI_FAILURE_USERMSG
   DEP_FILE = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\RenderTextureImpl.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/stb_image -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/freetype2 -isystem C:/msys64/mingw64/include/freetype2
   OBJECT_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
@@ -2073,7 +1609,7 @@ build _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderText
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DSTBI_FAILURE_USERMSG
   DEP_FILE = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\RenderTextureImplFBO.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/stb_image -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/freetype2 -isystem C:/msys64/mingw64/include/freetype2
   OBJECT_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
@@ -2083,7 +1619,7 @@ build _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderText
   CONFIG = Debug
   DEFINES = -DSFML_STATIC -DSTBI_FAILURE_USERMSG
   DEP_FILE = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir\RenderTextureImplDefault.cpp.obj.d
-  FLAGS = -g -std=c++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
+  FLAGS = -g -std=gnu++17  -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wdouble-promotion -Wformat=2 -Wnull-dereference -Wold-style-cast -Wpedantic -Wmisleading-indentation -Wduplicated-cond -Wlogical-op -Wduplicated-branches
   INCLUDES = -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/include -IC:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/src -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/stb_image -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/glad/include -isystem C:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-src/extlibs/headers/freetype2 -isystem C:/msys64/mingw64/include/freetype2
   OBJECT_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
   OBJECT_FILE_DIR = _deps\sfml-build\src\SFML\Graphics\CMakeFiles\sfml-graphics.dir
@@ -2221,8 +1757,6 @@ build libsfml-window-s-d.a: phony _deps/sfml-build/lib/libsfml-window-s-d.a
 
 build physics: phony physics.exe
 
-build physics_tests: phony physics_tests.exe
-
 build sfml-graphics: phony _deps/sfml-build/lib/libsfml-graphics-s-d.a
 
 build sfml-main: phony _deps/sfml-build/lib/libsfml-main-d.a
@@ -2230,8 +1764,6 @@ build sfml-main: phony _deps/sfml-build/lib/libsfml-main-d.a
 build sfml-system: phony _deps/sfml-build/lib/libsfml-system-s-d.a
 
 build sfml-window: phony _deps/sfml-build/lib/libsfml-window-s-d.a
-
-build simulation: phony libsimulation.a
 
 # =============================================================================
 # Folder targets.
@@ -2241,7 +1773,7 @@ build simulation: phony libsimulation.a
 #############################################
 # Folder: C:/Users/k0sha/Desktop/labs_all/prog/05/build
 
-build all: phony libsimulation.a physics.exe physics_tests.exe _deps/sfml-build/all
+build all: phony physics.exe _deps/sfml-build/all
 
 # =============================================================================
 
@@ -2292,14 +1824,14 @@ build _deps/sfml-build/src/SFML/Window/all: phony _deps/sfml-build/lib/libsfml-w
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja C$:/Users/k0sha/Desktop/labs_all/prog/05/build/cmake_install.cmake C$:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-build/cmake_install.cmake C$:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-build/src/SFML/cmake_install.cmake C$:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-build/src/SFML/System/cmake_install.cmake C$:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-build/src/SFML/Main/cmake_install.cmake C$:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-build/src/SFML/Window/cmake_install.cmake C$:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-build/src/SFML/Graphics/cmake_install.cmake C$:/Users/k0sha/Desktop/labs_all/prog/05/build/CTestTestfile.cmake: RERUN_CMAKE | C$:/Users/k0sha/Desktop/labs_all/prog/05/CMakeLists.txt C$:/Users/k0sha/Desktop/labs_all/prog/05/cmake/CPackProjectConfig.cmake.in C$:/msys64/mingw64/share/cmake/Modules/BasicConfigVersion-SameMajorVersion.cmake.in C$:/msys64/mingw64/share/cmake/Modules/CMakeCInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeCXXInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeCommonLanguageInclude.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeGenericSystem.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeInitializeConfigs.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeLanguageInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakePackageConfigHelpers.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeParseArguments.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeRCInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeSystemSpecificInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake C$:/msys64/mingw64/share/cmake/Modules/CPack.cmake C$:/msys64/mingw64/share/cmake/Modules/CPackComponent.cmake C$:/msys64/mingw64/share/cmake/Modules/CTest.cmake C$:/msys64/mingw64/share/cmake/Modules/CTestTargets.cmake C$:/msys64/mingw64/share/cmake/Modules/CTestUseLaunchers.cmake C$:/msys64/mingw64/share/cmake/Modules/CheckIncludeFile.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/DartConfiguration.tcl.in C$:/msys64/mingw64/share/cmake/Modules/ExternalProject/shared_internal_commands.cmake C$:/msys64/mingw64/share/cmake/Modules/FetchContent.cmake C$:/msys64/mingw64/share/cmake/Modules/FindOpenGL.cmake C$:/msys64/mingw64/share/cmake/Modules/FindPackageHandleStandardArgs.cmake C$:/msys64/mingw64/share/cmake/Modules/FindPackageMessage.cmake C$:/msys64/mingw64/share/cmake/Modules/GNUInstallDirs.cmake C$:/msys64/mingw64/share/cmake/Modules/Internal/CMakeCLinkerInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/Linker/GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Linker/GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Linker/GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Linker/GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Linker/Windows-GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-Initialize.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-windres.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/WindowsPaths.cmake C$:/msys64/mingw64/share/cmake/Modules/WriteBasicConfigVersionFile.cmake C$:/msys64/mingw64/share/cmake/Templates/CPackConfig.cmake.in C$:/msys64/mingw64/share/cmake/Templates/CTestScript.cmake.in CMakeCache.txt CMakeFiles/4.3.3/CMakeCCompiler.cmake CMakeFiles/4.3.3/CMakeCXXCompiler.cmake CMakeFiles/4.3.3/CMakeRCCompiler.cmake CMakeFiles/4.3.3/CMakeSystem.cmake _deps/sfml-src/CMakeLists.txt _deps/sfml-src/cmake/CompilerOptionsOverride.cmake _deps/sfml-src/cmake/CompilerWarnings.cmake _deps/sfml-src/cmake/Config.cmake _deps/sfml-src/cmake/Macros.cmake _deps/sfml-src/cmake/Modules/FindFreetype.cmake _deps/sfml-src/cmake/SFMLConfig.cmake.in _deps/sfml-src/cmake/SFMLConfigDependencies.cmake.in _deps/sfml-src/src/SFML/CMakeLists.txt _deps/sfml-src/src/SFML/Graphics/CMakeLists.txt _deps/sfml-src/src/SFML/Main/CMakeLists.txt _deps/sfml-src/src/SFML/System/CMakeLists.txt _deps/sfml-src/src/SFML/Window/CMakeLists.txt
+build build.ninja C$:/Users/k0sha/Desktop/labs_all/prog/05/build/cmake_install.cmake C$:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-build/cmake_install.cmake C$:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-build/src/SFML/cmake_install.cmake C$:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-build/src/SFML/System/cmake_install.cmake C$:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-build/src/SFML/Main/cmake_install.cmake C$:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-build/src/SFML/Window/cmake_install.cmake C$:/Users/k0sha/Desktop/labs_all/prog/05/build/_deps/sfml-build/src/SFML/Graphics/cmake_install.cmake C$:/Users/k0sha/Desktop/labs_all/prog/05/build/CTestTestfile.cmake: RERUN_CMAKE | C$:/Users/k0sha/Desktop/labs_all/prog/05/CMakeLists.txt C$:/msys64/mingw64/share/cmake/Modules/BasicConfigVersion-SameMajorVersion.cmake.in C$:/msys64/mingw64/share/cmake/Modules/CMakeCInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeCXXInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeCommonLanguageInclude.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeGenericSystem.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeInitializeConfigs.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeLanguageInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakePackageConfigHelpers.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeParseArguments.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeRCInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeSystemSpecificInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake C$:/msys64/mingw64/share/cmake/Modules/CPack.cmake C$:/msys64/mingw64/share/cmake/Modules/CPackComponent.cmake C$:/msys64/mingw64/share/cmake/Modules/CheckIncludeFile.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/ExternalProject/shared_internal_commands.cmake C$:/msys64/mingw64/share/cmake/Modules/FetchContent.cmake C$:/msys64/mingw64/share/cmake/Modules/FetchContent/CMakeLists.cmake.in C$:/msys64/mingw64/share/cmake/Modules/FindGit.cmake C$:/msys64/mingw64/share/cmake/Modules/FindOpenGL.cmake C$:/msys64/mingw64/share/cmake/Modules/FindPackageHandleStandardArgs.cmake C$:/msys64/mingw64/share/cmake/Modules/FindPackageMessage.cmake C$:/msys64/mingw64/share/cmake/Modules/GNUInstallDirs.cmake C$:/msys64/mingw64/share/cmake/Modules/Internal/CMakeCLinkerInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/Linker/GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Linker/GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Linker/GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Linker/GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Linker/Windows-GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-Initialize.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-windres.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/WindowsPaths.cmake C$:/msys64/mingw64/share/cmake/Modules/WriteBasicConfigVersionFile.cmake C$:/msys64/mingw64/share/cmake/Templates/CPackConfig.cmake.in CMakeCache.txt CMakeFiles/4.3.3/CMakeCCompiler.cmake CMakeFiles/4.3.3/CMakeCXXCompiler.cmake CMakeFiles/4.3.3/CMakeRCCompiler.cmake CMakeFiles/4.3.3/CMakeSystem.cmake _deps/sfml-src/CMakeLists.txt _deps/sfml-src/cmake/CompilerWarnings.cmake _deps/sfml-src/cmake/Config.cmake _deps/sfml-src/cmake/Macros.cmake _deps/sfml-src/cmake/Modules/FindFreetype.cmake _deps/sfml-src/cmake/SFMLConfig.cmake.in _deps/sfml-src/cmake/SFMLConfigDependencies.cmake.in _deps/sfml-src/src/SFML/CMakeLists.txt _deps/sfml-src/src/SFML/Graphics/CMakeLists.txt _deps/sfml-src/src/SFML/Main/CMakeLists.txt _deps/sfml-src/src/SFML/System/CMakeLists.txt _deps/sfml-src/src/SFML/Window/CMakeLists.txt
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:/Users/k0sha/Desktop/labs_all/prog/05/CMakeLists.txt C$:/Users/k0sha/Desktop/labs_all/prog/05/cmake/CPackProjectConfig.cmake.in C$:/msys64/mingw64/share/cmake/Modules/BasicConfigVersion-SameMajorVersion.cmake.in C$:/msys64/mingw64/share/cmake/Modules/CMakeCInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeCXXInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeCommonLanguageInclude.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeGenericSystem.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeInitializeConfigs.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeLanguageInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakePackageConfigHelpers.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeParseArguments.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeRCInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeSystemSpecificInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake C$:/msys64/mingw64/share/cmake/Modules/CPack.cmake C$:/msys64/mingw64/share/cmake/Modules/CPackComponent.cmake C$:/msys64/mingw64/share/cmake/Modules/CTest.cmake C$:/msys64/mingw64/share/cmake/Modules/CTestTargets.cmake C$:/msys64/mingw64/share/cmake/Modules/CTestUseLaunchers.cmake C$:/msys64/mingw64/share/cmake/Modules/CheckIncludeFile.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/DartConfiguration.tcl.in C$:/msys64/mingw64/share/cmake/Modules/ExternalProject/shared_internal_commands.cmake C$:/msys64/mingw64/share/cmake/Modules/FetchContent.cmake C$:/msys64/mingw64/share/cmake/Modules/FindOpenGL.cmake C$:/msys64/mingw64/share/cmake/Modules/FindPackageHandleStandardArgs.cmake C$:/msys64/mingw64/share/cmake/Modules/FindPackageMessage.cmake C$:/msys64/mingw64/share/cmake/Modules/GNUInstallDirs.cmake C$:/msys64/mingw64/share/cmake/Modules/Internal/CMakeCLinkerInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/Linker/GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Linker/GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Linker/GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Linker/GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Linker/Windows-GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-Initialize.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-windres.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/WindowsPaths.cmake C$:/msys64/mingw64/share/cmake/Modules/WriteBasicConfigVersionFile.cmake C$:/msys64/mingw64/share/cmake/Templates/CPackConfig.cmake.in C$:/msys64/mingw64/share/cmake/Templates/CTestScript.cmake.in CMakeCache.txt CMakeFiles/4.3.3/CMakeCCompiler.cmake CMakeFiles/4.3.3/CMakeCXXCompiler.cmake CMakeFiles/4.3.3/CMakeRCCompiler.cmake CMakeFiles/4.3.3/CMakeSystem.cmake _deps/sfml-src/CMakeLists.txt _deps/sfml-src/cmake/CompilerOptionsOverride.cmake _deps/sfml-src/cmake/CompilerWarnings.cmake _deps/sfml-src/cmake/Config.cmake _deps/sfml-src/cmake/Macros.cmake _deps/sfml-src/cmake/Modules/FindFreetype.cmake _deps/sfml-src/cmake/SFMLConfig.cmake.in _deps/sfml-src/cmake/SFMLConfigDependencies.cmake.in _deps/sfml-src/src/SFML/CMakeLists.txt _deps/sfml-src/src/SFML/Graphics/CMakeLists.txt _deps/sfml-src/src/SFML/Main/CMakeLists.txt _deps/sfml-src/src/SFML/System/CMakeLists.txt _deps/sfml-src/src/SFML/Window/CMakeLists.txt: phony
+build C$:/Users/k0sha/Desktop/labs_all/prog/05/CMakeLists.txt C$:/msys64/mingw64/share/cmake/Modules/BasicConfigVersion-SameMajorVersion.cmake.in C$:/msys64/mingw64/share/cmake/Modules/CMakeCInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeCXXInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeCommonLanguageInclude.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeGenericSystem.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeInitializeConfigs.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeLanguageInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakePackageConfigHelpers.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeParseArguments.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeRCInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeSystemSpecificInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake C$:/msys64/mingw64/share/cmake/Modules/CPack.cmake C$:/msys64/mingw64/share/cmake/Modules/CPackComponent.cmake C$:/msys64/mingw64/share/cmake/Modules/CheckIncludeFile.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Compiler/GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/ExternalProject/shared_internal_commands.cmake C$:/msys64/mingw64/share/cmake/Modules/FetchContent.cmake C$:/msys64/mingw64/share/cmake/Modules/FetchContent/CMakeLists.cmake.in C$:/msys64/mingw64/share/cmake/Modules/FindGit.cmake C$:/msys64/mingw64/share/cmake/Modules/FindOpenGL.cmake C$:/msys64/mingw64/share/cmake/Modules/FindPackageHandleStandardArgs.cmake C$:/msys64/mingw64/share/cmake/Modules/FindPackageMessage.cmake C$:/msys64/mingw64/share/cmake/Modules/GNUInstallDirs.cmake C$:/msys64/mingw64/share/cmake/Modules/Internal/CMakeCLinkerInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/msys64/mingw64/share/cmake/Modules/Linker/GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Linker/GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Linker/GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Linker/GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Linker/Windows-GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-C.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-CXX.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-Initialize.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows-windres.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/Windows.cmake C$:/msys64/mingw64/share/cmake/Modules/Platform/WindowsPaths.cmake C$:/msys64/mingw64/share/cmake/Modules/WriteBasicConfigVersionFile.cmake C$:/msys64/mingw64/share/cmake/Templates/CPackConfig.cmake.in CMakeCache.txt CMakeFiles/4.3.3/CMakeCCompiler.cmake CMakeFiles/4.3.3/CMakeCXXCompiler.cmake CMakeFiles/4.3.3/CMakeRCCompiler.cmake CMakeFiles/4.3.3/CMakeSystem.cmake _deps/sfml-src/CMakeLists.txt _deps/sfml-src/cmake/CompilerWarnings.cmake _deps/sfml-src/cmake/Config.cmake _deps/sfml-src/cmake/Macros.cmake _deps/sfml-src/cmake/Modules/FindFreetype.cmake _deps/sfml-src/cmake/SFMLConfig.cmake.in _deps/sfml-src/cmake/SFMLConfigDependencies.cmake.in _deps/sfml-src/src/SFML/CMakeLists.txt _deps/sfml-src/src/SFML/Graphics/CMakeLists.txt _deps/sfml-src/src/SFML/Main/CMakeLists.txt _deps/sfml-src/src/SFML/System/CMakeLists.txt _deps/sfml-src/src/SFML/Window/CMakeLists.txt: phony
 
 
 #############################################

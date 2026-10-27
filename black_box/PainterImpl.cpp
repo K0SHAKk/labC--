@@ -1,15 +1,17 @@
 #include "PainterImpl.h"
 #include <SFML/Graphics/CircleShape.hpp>
 #include <SFML/Graphics/RectangleShape.hpp>
-#include <SFML/Graphics/RenderTarget.hpp>
+#include <SFML/Graphics/RenderWindow.hpp>
 #include <algorithm>
 
-PainterImpl::PainterImpl(sf::RenderTarget& window, const View& view)
+PainterImpl::PainterImpl(sf::RenderWindow& window, const View& view)
     : window{window}, view{view} {
     window.clear();
 }
 
-PainterImpl::~PainterImpl() = default;
+PainterImpl::~PainterImpl() {
+    window.display();
+}
 
 void PainterImpl::draw(const Point& center, double radius, const Color& color) {
     const sf::Vector2f pos = toVector(view.toScreen(center));

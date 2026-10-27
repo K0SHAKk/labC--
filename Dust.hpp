@@ -1,24 +1,30 @@
 #pragma once
-#include "Color.h"
+#include "Painter.h"
 #include "Point.h"
 #include "Velocity.h"
-class Painter;
+#include "Color.h"
 
-// Visual particles never enter the collision solver.
 class Dust {
   public:
-    Dust(const Velocity& velocity, const Point& center, double radius,
-         const Color& color, double lifetime = 0.8);
-    void update(double time);
+    Dust(const Velocity velocity, const Point center, double radius,
+         const Color color, bool isCollidable, double lifetime);
+    void setVelocity(const Velocity& velocity);
+    Velocity getVelocity() const;
     void draw(Painter& painter) const;
+    void setCenter(const Point& center);
     bool ifAlive() const;
     Point getCenter() const;
-    double getLifetime() const;
+    double getRadius() const;
+    double getMass() const;
+    void dying(double time);
+
   private:
-    Velocity velocity_;
-    Point center_;
-    double radius_;
-    Color color_;
-    double lifetime_;
+    Velocity velocity_general;
+    Point center_general;
+    double radius_general;
+    Color color_general;
+    bool isCollidable_general;
+    double lifetime_general;
+    bool isAlive_general = true;
 };
 

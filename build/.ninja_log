@@ -104,3 +104,13 @@
 22	1337	8148192017604870	C:/Users/k0sha/Desktop/labs_all/prog/05/build/CTestTestfile.cmake	471438f79de66544
 61	666	8146597667519200	CMakeFiles/physics_tests.dir/tests/PainterStub.cpp.obj	e4e1aa9b61c4bf8e
 1038	1224	8146602751720844	physics_tests.exe	5bbc8d181f621e46
+48	1172	8148296083468703	CMakeFiles/simulation.dir/Ball.cpp.obj	cc2e7873e54202bc
+54	1228	8148296083528711	CMakeFiles/simulation.dir/Dust.cpp.obj	a18b7d7ab05968f4
+60	1563	8148296083588716	CMakeFiles/simulation.dir/Physics.cpp.obj	c40476156d2b67e
+74	1713	8148296083728768	CMakeFiles/physics.dir/main.cpp.obj	d41106a80767348d
+66	1773	8148296083658719	CMakeFiles/simulation.dir/World.cpp.obj	5a4bae6fcf842692
+83	1851	8148296083828771	CMakeFiles/physics.dir/black_box/Application.cpp.obj	44c2c0d35853fb94
+1773	2038	8148296100722927	libsimulation.a	c5097386adf61821
+91	2320	8148296083908814	CMakeFiles/physics_tests.dir/tests/physics_tests.cpp.obj	2f1f54e1bc0ecfee
+2321	2540	8148296106205516	physics_tests.exe	5bbc8d181f621e46
+2038	2816	8148296103373137	physics.exe	b078f17a9aadb26f

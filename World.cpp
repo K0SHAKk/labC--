@@ -7,6 +7,19 @@
 #include <stdexcept>
 
 namespace { constexpr double timePerTick = 0.001; }
+
+Point readPoint(std::istream& stream) {
+    Point point;
+    stream >> point;
+    return point;
+}
+
+Color readColor(std::istream& stream) {
+    Color color;
+    stream >> color;
+    return color;
+}
+
 World::World(const std::string& worldFilePath) {
     std::ifstream stream(worldFilePath);
     if (!stream) { throw std::runtime_error("Cannot open model: " + worldFilePath); }
@@ -25,12 +38,13 @@ World::World(const std::string& worldFilePath) {
         std::istringstream row(line);
         row >> std::ws;
         if (row.eof()) { continue; }
-        Point center;
-        Velocity velocity;
-        Color color;
+        const Point center = readPoint(row);
+        const Point vectorV = readPoint(row);
+        const Velocity velocity(vectorV);
+        const Color color = readColor(row);
         double radius;
         bool isCollidable;
-        if (!(row >> center >> velocity >> color >> radius >> std::boolalpha >> isCollidable) ||
+        if (!(row >> radius >> std::boolalpha >> isCollidable) ||
             !(row >> std::ws).eof() || !std::isfinite(radius) || radius <= 0. ||
             (isCollidable && (2. * radius >= bottomRight.x - topLeft.x ||
                               2. * radius >= bottomRight.y - topLeft.y))) {

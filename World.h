@@ -8,7 +8,7 @@ class Painter;
 
 class World {
   public:
-    explicit World(const std::string& worldFilePath);
+    World(const std::string& worldFilePath);
     void show(Painter& painter) const;
     void update(double time);
     const std::vector<Ball>& getBalls() const { return balls; }

@@ -1,20 +1,43 @@
 #include "Dust.hpp"
 #include "Painter.h"
-#include <algorithm>
+#include <cmath>
+#include <stdexcept>
 
-Dust::Dust(const Velocity& velocity, const Point& center, double radius,
-           const Color& color, double lifetime)
-    : velocity_{velocity}, center_{center}, radius_{radius}, color_{color},
-      lifetime_{lifetime} {}
-void Dust::update(double time) {
-    const double elapsed = std::min(time, std::max(0., lifetime_));
-    center_ = center_ + velocity_.vector() * elapsed;
-    lifetime_ = std::max(0., lifetime_ - time);
+Dust::Dust(const Velocity velocity, const Point center, double radius,
+           const Color color, bool isCollidable, double lifetime)
+    : velocity_general{velocity}, center_general{center}, radius_general{radius},
+      color_general{color}, isCollidable_general{isCollidable},
+      lifetime_general{lifetime} {
+    if (!std::isfinite(radius_general) || radius_general <= 0.) {
+        throw std::invalid_argument("Dust radius must be finite and positive");
+    }
+    if (!std::isfinite(lifetime_general) || lifetime_general < 0.) {
+        throw std::invalid_argument("Dust lifetime must be finite and nonnegative");
+    }
+    isAlive_general = lifetime_general > 0.;
 }
+
+void Dust::setVelocity(const Velocity& velocity) { velocity_general = velocity; }
+Velocity Dust::getVelocity() const { return velocity_general; }
+
 void Dust::draw(Painter& painter) const {
-    if (ifAlive()) { painter.draw(center_, radius_, color_); }
+    if (ifAlive()) { painter.draw(center_general, radius_general, color_general); }
 }
-bool Dust::ifAlive() const { return lifetime_ > 1e-12; }
-Point Dust::getCenter() const { return center_; }
-double Dust::getLifetime() const { return lifetime_; }
+
+void Dust::setCenter(const Point& center) { center_general = center; }
+Point Dust::getCenter() const { return center_general; }
+double Dust::getRadius() const { return radius_general; }
+double Dust::getMass() const {
+    const double pi = std::acos(-1.);
+    return pi * std::pow(radius_general, 3) * 4. / 3.;
+}
+bool Dust::ifAlive() const { return isAlive_general; }
+
+void Dust::dying(double time) {
+    if (!std::isfinite(time) || time < 0.) {
+        throw std::invalid_argument("Dust update time must be finite and nonnegative");
+    }
+    lifetime_general = std::max(0., lifetime_general - time);
+    isAlive_general = lifetime_general > 0.;
+}
 

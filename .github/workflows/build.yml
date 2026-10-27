@@ -1,0 +1,125 @@
+﻿name: Build and release
+
+on:
+  push:
+    branches: [main, lab-2, lab-3, lab-4, lab-5, feature/github_actions]
+    tags: ['v*']
+  pull_request:
+    branches: [main, lab-2, lab-3, lab-4, lab-5, feature/github_actions]
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-24.04
+            platform: Linux
+            generator: DEB
+            extension: deb
+          - os: macos-15-intel
+            platform: Darwin
+            generator: ZIP
+            extension: zip
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash
+    env:
+      PATCH_VERSION: ${{ github.run_number }}
+      PLATFORM: ${{ matrix.platform }}
+      GENERATOR: ${{ matrix.generator }}
+      EXTENSION: ${{ matrix.extension }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Linux dependencies
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential cmake dpkg-dev libx11-dev libxrandr-dev libxcursor-dev libxi-dev libudev-dev libgl1-mesa-dev libfreetype-dev
+
+      - name: Configure
+        run: >-
+          cmake -S . -B build-ci -DCMAKE_BUILD_TYPE=Release
+          -DPATCH_VERSION="$PATCH_VERSION"
+          -DCMAKE_DISABLE_FIND_PACKAGE_SFML=ON
+          -DFETCHCONTENT_TRY_FIND_PACKAGE_MODE=NEVER
+          -DSFML_BUILD_EXAMPLES=OFF -DSFML_BUILD_DOC=OFF
+          -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+
+      - name: Build
+        run: cmake --build build-ci --config Release --parallel 2
+
+      # CMake currently defines no tests. Run any tests added in the future.
+      - name: Test
+        run: ctest --test-dir build-ci -C Release --output-on-failure
+
+      # Supply the install tree here because CMakeLists.txt has no install rules.
+      - name: Package
+        run: |
+          mkdir -p staging/usr/bin staging/usr/share/physics packages
+          cp build-ci/physics staging/usr/bin/
+          cp -R data staging/usr/share/physics/
+          cpack --config build-ci/CPackConfig.cmake -C Release -G "$GENERATOR" -B packages             -D "CPACK_INSTALL_CMAKE_PROJECTS="             -D "CPACK_INSTALLED_DIRECTORIES=$PWD/staging;/"             -D "CPACK_PACKAGE_FILE_NAME=physics-0.0.$PATCH_VERSION-$PLATFORM"             -D "CPACK_PACKAGING_INSTALL_PREFIX=/"             -D "CPACK_INCLUDE_TOPLEVEL_DIRECTORY=OFF"             -D "CPACK_DEBIAN_PACKAGE_DEPENDS="             -D "CPACK_DEBIAN_PACKAGE_SHLIBDEPS=ON"
+          test -s "packages/physics-0.0.$PATCH_VERSION-$PLATFORM.$EXTENSION"
+          if [ "$PLATFORM" = Linux ]; then
+            dpkg-deb --contents packages/*.deb | tee packages/contents.txt
+            grep -q './usr/bin/physics' packages/contents.txt
+          else
+            unzip -l packages/*.zip | tee packages/contents.txt
+            grep -q 'usr/bin/physics' packages/contents.txt
+          fi
+
+      - name: Upload package
+        uses: actions/upload-artifact@v4
+        with:
+          name: package-${{ matrix.platform }}
+          path: packages/*.${{ matrix.extension }}
+          if-no-files-found: error
+
+  release:
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    concurrency:
+      group: release-${{ github.event.release.tag_name || github.ref }}
+      cancel-in-progress: false
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      SOURCE_SHA: ${{ github.sha }}
+      REF_NAME: ${{ github.ref_name }}
+      REF_TYPE: ${{ github.ref_type }}
+      EVENT_TAG: ${{ github.event.release.tag_name }}
+      RUN_NUMBER: ${{ github.run_number }}
+    steps:
+      - name: Download packages
+        uses: actions/download-artifact@v4
+        with:
+          pattern: package-*
+          path: release-assets
+          merge-multiple: true
+
+      - name: Publish release
+        run: |
+          if [ -n "$EVENT_TAG" ]; then
+            tag="$EVENT_TAG"
+          elif [ "$REF_TYPE" = tag ]; then
+            tag="$REF_NAME"
+          else
+            tag="v0.0.$RUN_NUMBER"
+          fi
+          if gh release view "$tag" >/dev/null 2>&1; then
+            gh release upload "$tag" release-assets/* --clobber
+          else
+            gh release create "$tag" release-assets/*               --target "$SOURCE_SHA" --title "physics $tag" --generate-notes
+          fi

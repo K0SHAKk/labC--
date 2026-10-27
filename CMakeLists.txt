@@ -1,79 +1,66 @@
-cmake_minimum_required(VERSION 3.10)
-
+cmake_minimum_required(VERSION 3.7.2)
 set(PATCH_VERSION "1" CACHE INTERNAL "Patch version")
 set(PROJECT_VESRION 0.0.${PATCH_VERSION})
+project(physics VERSION ${PROJECT_VESRION})
 
-project(helloworld VERSION ${PROJECT_VESRION})
+set(CMAKE_CXX_STANDARD 17)
+set(CXX_STANDARD_REQUIRED ON)
+set(CPACK_PROJECT_NAME physics)
+# Пытаемся найти предустановленный SFML
+find_package(SFML COMPONENTS graphics)
 
-find_package(Boost COMPONENTS unit_test_framework REQUIRED)
-
-configure_file(version.h.in version.h)
-
-add_executable(helloworld_cli main.cpp)
-add_library(helloworld lib.cpp)
-add_executable(test_version test_version.cpp)
-
-set_target_properties(helloworld_cli helloworld test_version PROPERTIES
-    CXX_STANDARD 14
-    CXX_STANDARD_REQUIRED ON
-)
-target_include_directories(helloworld
-    PRIVATE "${CMAKE_BINARY_DIR}"
-)
-set_target_properties(test_version PROPERTIES
-    COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK
-    INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
-)
-
-target_link_libraries(helloworld_cli PRIVATE
-    helloworld
-)
-target_link_libraries(test_version
-    ${Boost_LIBRARIES}
-    helloworld
-)
-
-if (MSVC)
-    target_compile_options(helloworld_cli PRIVATE
-        /W4
-    )
-    target_compile_options(helloworld PRIVATE
-        /W4
-    )
-    target_compile_options(test_version PRIVATE
-        /W4
-    )
+if (SFML_FOUND)
+    message(STATUS "The SFML installed in the system will be used")
 else ()
-    target_compile_options(helloworld_cli PRIVATE
-        -Wall -Wextra -pedantic -Werror
-    )
-    target_compile_options(helloworld PRIVATE
-        -Wall -Wextra -pedantic -Werror
-    )
-    target_compile_options(test_version PRIVATE
-        -Wall -Wextra -pedantic -Werror
-    )
+    # Если SFML не найден - выкачиваем и собираем из исходников
+    message(STATUS "Get SFML from the source code")
+    include(FetchContent)
+    FetchContent_Declare(SFML
+            GIT_REPOSITORY https://github.com/SFML/SFML.git
+            GIT_TAG 2.6.x)
+    set(SFML_BUILD_AUDIO OFF CACHE BOOL "" FORCE)
+    set(SFML_BUILD_NETWORK OFF CACHE BOOL "" FORCE)
+    set(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
+    # Обход потенциальных проблем при сборке sfml-graphics
+    # (stb_image.h: 'argument': conversion from 'int' to 'short')
+    set(WARNINGS_AS_ERRORS FALSE CACHE BOOL "" FORCE)
+    FetchContent_MakeAvailable(SFML)
+endif ()
+
+# К сожалению, вплоть до C++20 https://en.cppreference.com/w/cpp/numeric/constants
+# нет удобного кроссплатформенного способа получить число pi.
+# define ниже нужен для включения M_PI
+if (MSVC)
+    add_definitions(-D_USE_MATH_DEFINES)
+endif ()
+
+add_executable(physics
+        main.cpp World.cpp Ball.cpp Physics.cpp Color.cpp Painter.cpp Dust.cpp
+        black_box/Application.cpp black_box/View.cpp black_box/PainterImpl.cpp)
+target_link_libraries(physics PRIVATE sfml-graphics)
+
+target_compile_options(physics PRIVATE
+        $<$<CXX_COMPILER_ID:MSVC>:/W4>
+        $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wall -Wextra -Wpedantic>
+        )
+
+# Установка пакета DEB для Linux
+if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
+    set(CPACK_GENERATOR DEB) # Настраивает CPack для создания пакетов DEB (Linux).
+    set(CPACK_DEBIAN_PACKAGE_DEPENDS "libgtk-3-dev libstdc++6-dev")
 endif()
-
-
-
-install(TARGETS helloworld_cli RUNTIME DESTINATION bin)
-
-if (APPLE)
-    set(CPACK_GENERATOR ZIP)
-else()
-    set(CPACK_GENERATOR DEB)
+# Установка пакета ZIP для macOS
+if (CMAKE_SYSTEM_NAME STREQUAL "Darwin")
+    set(CPACK_GENERATOR ZIP) # Настройка CPack для создания пакетов ZIP (macOS)
 endif()
-
-
-
 set(CPACK_PACKAGE_VERSION_MAJOR "${PROJECT_VERSION_MAJOR}")
 set(CPACK_PACKAGE_VERSION_MINOR "${PROJECT_VERSION_MINOR}")
 set(CPACK_PACKAGE_VERSION_PATCH "${PROJECT_VERSION_PATCH}")
 
 set(CPACK_PACKAGE_CONTACT example@example.com)
+
 include(CPack)
 
-enable_testing()
-
-add_test(test_version test_version)
+enable_testing() # Включает тестирование
+set(CPACK_PROJECT_NAME ${PROJECT_NAME})
+set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
